@@ -1,0 +1,103 @@
+@import "../../variables/variables.scss";
+
+.es-btn {
+    height: 48px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    font-size: 14px;
+    padding-bottom: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px 3px 12px;
+    
+    // Главный стиль кнопок
+    &-orange {
+        font-weight: $bold;
+        color: white;
+        padding-bottom: 2px;
+        &__text {
+            position: relative;
+            z-index: 3;
+        }
+        &__image {
+            position: relative;
+            z-index: 3;
+            margin-right: 10px;
+        }
+        &__bg-1 {
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: $orange;
+            height: 45px;
+            border-radius: 5px;
+        }
+        &__bg-2 {
+            z-index: 1;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #C24C35;
+            height: 42px;
+            border-radius: 5px;
+        }
+        &:active &__bg-1 {
+            top: 1px;
+        }
+        &:active &__text {
+            top: 1px;
+        }
+        &:active &__image {
+            top: 1px;
+        }
+    }
+
+    
+    // Размер кнопок
+    &--size {
+        &-small {
+            min-width: 125px;
+        }
+        &-normal {
+            min-width: 179px;
+        }
+        &-big {
+            min-width: 243px;
+        }
+    }
+
+
+    // Второстепенные стили кнопок
+    &--style {
+       &-inherit-orange {
+           border: 2px solid $orange;
+           background:inherit;
+           color: $orange;
+           font-weight: $semi-bold;
+           transition: 0.1s linear;
+           margin-right: 20px;
+           &:hover {
+               background-color: $orange;
+               color: white;
+           }
+       }
+       &-inherit-white {
+           border: 2px solid white;
+           background:inherit;
+           color: white;
+           font-weight: $semi-bold;
+           transition: 0.1s linear;
+           &:hover {
+               background-color: white;
+               border: 2px solid $orange;
+               color: $orange;
+           }
+       }
+    }
+}

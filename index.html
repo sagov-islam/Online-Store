@@ -5,13 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elite Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/icon.svg">
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
-    <script src="js/blocks.js"></script>
+    <header class="es-header">
+        <div class="es-header__top">
+            <div class="es-container">
+                <div class="es-header__top-content">
+                    <a class="es-logo" href="#">
+                        <img class="es-logo-image" src="images/logo.svg" alt="Logo" width="160" height="27.57">
+                    </a>
+                    <nav class="es-header__nav">
+                        <ul class="es-header__nav-list">
+                            <li class="es-header__nav-item"><a class="es-header__nav-link" href="#">О компании</a></li>
+                            <li class="es-header__nav-item"><a class="es-header__nav-link" href="#">Доставка и оплата</a></li>
+                            <li class="es-header__nav-item"><a class="es-header__nav-link" href="#">Акции</a></li>
+                            <li class="es-header__nav-item"><a class="es-header__nav-link" href="#">Отзывы</a></li>
+                            <li class="es-header__nav-item"><a class="es-header__nav-link" href="#">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    <a class="es-header__phone" href="tel:+78918774-74">+7 (891) 877-42-74</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="es-header__bottom">
+            <div class="es-container">
+                <div class="es-header__bottom-content">
+                     <button class="es-btn-orange es-btn es-btn--size-small es-header__btn-catalog">
+                        <img class="es-btn-orange__image" src="images/catalog-menu.svg" alt="">
+                        <span class="es-btn-orange__text">Каталог</span>
+                        <div class="es-btn-orange__bg-1"></div>
+                        <div class="es-btn-orange__bg-2"></div>
+                    </button>
+                    <input class="es-input-search es-header__search" type="search" placeholder="Поиск">
+                    <button class="es-btn-orange es-btn es-btn--size-normal">
+                        <span class="es-btn-orange__text">Заказать звонок</span>
+                        <div class="es-btn-orange__bg-1"></div>
+                        <div class="es-btn-orange__bg-2"></div>
+                    </button>
+                    <div class="es-header__user-buttons">
+                        <a class="es-header__user-button" href="#"><span class="es-header__chosen-number">3</span><img src="images/chosen.svg" alt="Chosen"></a>
+                        <a class="es-header__user-button" href="#"><img src="images/account.svg" alt="Account"></a>
+                        <a class="es-header__user-button" href="#"><span class="es-header__chosen-number">3</span><img src="images/cart.svg" alt="Cart"></a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </header>
+
     <script src="js/script.js"></script>
 </body>
 </html>
+ <!-- <button class="btn btn--size-normal btn--style-inherit-orange">Заказать звонок</button> -->

@@ -1,0 +1,55 @@
+@import "variables/variables.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: inherit;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.es-container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.es-text {
+    font-size: 16px;
+    font-weight: $regular;
+    color: $text-color;
+}
+
+.es-input-search {
+    border-radius: 5px;
+    border: 1px solid #D7D7D7;
+    background-color: white;
+    padding: 0 17px 0 17px;
+    width: 100%;
+    transition: 0.1s linear;
+    color: #8C8C8C;
+    font-size: 14px;
+    &::placeholder {
+        font-size: 14px;
+        color: #8C8C8C;
+    }
+    &:focus {
+        outline: none;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+

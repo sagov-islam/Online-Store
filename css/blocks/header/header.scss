@@ -1,0 +1,97 @@
+@import "../../variables/variables.scss";
+
+
+
+.es-header {
+
+    // Header top
+   &__top {
+       background-color: $bg;  
+   }
+
+   &__top-content {
+       min-height: 43px;
+       padding-top: 10px;
+       display: flex;
+       justify-content: space-between;
+   }
+
+   &__nav {
+       width: 100%;
+       padding-left: 58px;
+       &-list {
+           display: flex;
+       }
+       &-item {
+           list-style: none;
+           margin-right: 25px;
+       }
+       &-link {
+           transition: 0.1s linear;
+           font-size: 14px;
+           font-weight: $regular;
+           color: $text-color;
+           &:hover {
+               color: $orange;
+               transition: 0.1s linear;
+           }
+       }
+       
+   }
+
+   &__phone {
+       min-width: 151px;
+       font-size: 16px;
+       color: $black;
+       font-weight: $medium;
+       transition: color 0.1s linear;
+       &:hover {
+           color: $orange;
+       }
+   }
+
+
+   // Header bottom
+   &__bottom {
+       height: 74px;
+       padding: 13px 0 13px 0;
+       &-content {
+           display: flex;
+       }
+   }
+
+   &__btn-catalog {
+       margin-right: 18px
+   }
+   &__search{
+       margin-right: 18px;
+   }
+
+   &__user-buttons{
+       width: 200px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding-left: 30px;
+       margin-right: 11px;
+   }
+   &__user-button {
+       position: relative;
+       &:first-child {
+           margin-right: 10px;
+       }
+   }
+   &__chosen-number{
+       position: absolute;
+       top: -5px;
+       left: 20px;
+       height: 18px;
+       width: 18px;
+       border-radius: 100%;
+       background-color: $pink;
+       font-size: 12px;
+       font-weight: $bold;
+       color: white;
+       padding: 1.5px 0 0 4.8px;
+   }
+}
