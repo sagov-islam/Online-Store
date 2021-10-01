@@ -7,6 +7,7 @@
     <title>Elite Shop</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="images/icon.svg">
+    <link rel = "stylesheet" href = " https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,28 +37,52 @@
         <div class="es-header__bottom">
             <div class="es-container">
                 <div class="es-header__bottom-content">
-                     <button class="es-btn-orange es-btn es-btn--size-small es-header__btn-catalog">
-                        <img class="es-btn-orange__image" src="images/catalog-menu.svg" alt="">
-                        <span class="es-btn-orange__text">Каталог</span>
-                        <div class="es-btn-orange__bg-1"></div>
-                        <div class="es-btn-orange__bg-2"></div>
+                    <div class="es-header__catalog">
+                        <button class="es-btn-orange es-btn es-btn--size-small es-header__btn-catalog">
+                            <img class="es-btn-orange__image" src="images/catalog-menu.svg" alt="">
+                            <span class="es-btn-orange__text">Каталог</span>
+                            <div class="es-btn-orange__bg-1"></div>
+                            <div class="es-btn-orange__bg-2"></div>
+                        </button>
+                        <div class="es-header__catalog-bg1">
+                            <div class="es-header__catalog-bg2" data-simplebar>
+                                <ul class="es-header__catalog-list">
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Кровати</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Матрасы</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Диваны</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Шкафы</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Комоды</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Тумбочки</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Зеркала</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Столы</a></li>
+                                    <li class="es-header__catalog-item"><a class="es-text es-header__catalog-link" href="#">Стулья</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </div>
+                     
+                    <input class="es-search" type="search" placeholder="Поиск">
+                    <button class="es-search__btn es-btn-orange es-btn es-btn--size-very-small ">
+                        <img class="es-search__icon" src="images/search.svg" alt="search" width="25" height="25">
+                        <div class="es-search__bg-1 es-btn-orange__bg-1"></div>
+                        <div class="es-search__bg-2 es-btn-orange__bg-2"></div>
                     </button>
-                    <input class="es-input-search es-header__search" type="search" placeholder="Поиск">
                     <button class="es-btn-orange es-btn es-btn--size-normal">
                         <span class="es-btn-orange__text">Заказать звонок</span>
                         <div class="es-btn-orange__bg-1"></div>
                         <div class="es-btn-orange__bg-2"></div>
                     </button>
                     <div class="es-header__user-buttons">
-                        <a class="es-header__user-button" href="#"><span class="es-header__chosen-number">3</span><img src="images/chosen.svg" alt="Chosen"></a>
+                        <a class="es-header__user-button" href="#"><span class="es-header__quantity-products">3</span><img src="images/chosen.svg" alt="Chosen"></a>
                         <a class="es-header__user-button" href="#"><img src="images/account.svg" alt="Account"></a>
-                        <a class="es-header__user-button" href="#"><span class="es-header__chosen-number">3</span><img src="images/cart.svg" alt="Cart"></a>
+                        <a class="es-header__user-button" href="#"><span class="es-header__quantity-products">3</span><img src="images/cart.svg" alt="Cart"></a>
                     </div>
                 </div>
             </div>  
         </div>
     </header>
-
+    <script  src = " https://unpkg.com/simplebar@latest/dist/simplebar.min.js " ></script> 
     <script src="js/script.js"></script>
 </body>
 </html>

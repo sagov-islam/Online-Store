@@ -55,12 +55,15 @@
         }
         &:active &__image {
             top: 1px;
-        }
+        } 
     }
 
     
     // Размер кнопок
     &--size {
+        &-very-small{
+            min-width: 60px;
+        }
         &-small {
             min-width: 125px;
         }
