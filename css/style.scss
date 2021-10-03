@@ -188,7 +188,7 @@ a {
 
 
 
-.opacity-hide {
+.es-opacity-hide {
     transform: translate(0px, -10px);
     opacity: 0;
     visibility: hidden;
@@ -218,3 +218,7 @@ a {
     justify-content: center;
     align-items: center;
 }
+
+.es-rotate180 {
+    transform: rotate(180deg);
+};
