@@ -1,0 +1,98 @@
+@import "../../variables/variables.scss";
+.es-slider {
+    background-color: $orange;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    height: 272px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__list {
+        transition: 1s;
+        height: 100%;
+    }
+    &__item {
+        padding-left: 60px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        width: 100%;
+        height: 100%;
+    }
+    &__title {
+        max-width: 430px;
+        font-weight: $extra-bold;
+        font-style: italic;
+        font-size: 40px;
+        margin-bottom: 4px;
+    }
+    &__price {
+        font-weight: $extra-bold;
+        font-style: italic;
+        font-size: 20px;
+    }
+    &__old-price {
+        margin-left: 8px;
+        position: relative;
+        font-weight: $medium;
+        font-style: italic;
+        font-size: 16px;
+        opacity: 0.5;
+        &-line {
+            position: absolute;
+            top: 9px;
+            left: -5px;
+            display: inline-block;
+            width: 80px;
+            height: 1.8px;
+            background-color: white;
+            opacity: 0.8;
+        }
+    }
+    &__btn {
+        margin-top: 11px;
+    }
+    &__discount {
+        font-weight: $extra-bold;
+        font-style: italic;
+        font-size: 102px;
+        opacity: .1;
+        position: absolute;
+        z-index: 1;
+        left: 420px;
+        top: 0;   
+    }
+    &__image {
+        padding: 20px;
+        width: 281px;
+        height: 236px;
+        object-fit: contain;
+        
+    }
+    &__slide-buttons {
+        margin-right: 10px;
+        width: 14px;
+        
+    }
+    &__slide-btn {
+        :first-child {
+            background-color:white;
+        }
+        cursor: pointer;
+        height: 14px;
+        width: 14px;
+        border: 1px solid white;
+        border-radius: 100%;
+        transition: background-color 0.1s;
+        &:hover {
+            background-color: white;
+        }
+        &--focus {
+            background-color: white;
+        }
+    }
+}

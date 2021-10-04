@@ -47,7 +47,7 @@ a {
 }
 
 
-// ScrollBar
+// Скролл бар
 .simplebar-track.simplebar-vertical {
     margin: 4px 0px 4px 0px;
     width: 5px;
@@ -63,7 +63,7 @@ a {
 }
 
 
-// Search
+// Поисковик
 .es-search {
     position: relative;
     width: 100%;
@@ -113,8 +113,9 @@ a {
     }  
 }
 
-// Cart Price 
-.cart-prices {
+
+// Цена товара
+.es-cart-prices {
     &__price {
         font-weight: $extra-bold;
         font-style: italic;
@@ -146,7 +147,8 @@ a {
     }
 }
 
-// Amount
+
+// Итого
 .es-amount {
     font-size: 16px;
     color: #828282;
@@ -158,7 +160,7 @@ a {
 }
 
 
-// Drop down
+// Стили для элементов выподающего меню
 .es-drop-down {
     &__item {
         border-bottom: 1px solid #DBDBDB;
@@ -180,6 +182,38 @@ a {
 
     }
 }
+
+
+
+.es-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    gap: 18px;
+    height: 272px;
+    border-radius: 5px;
+}
+.es-sidebar-actions{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    border: 1px solid $border;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

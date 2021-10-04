@@ -81,7 +81,7 @@
            background:inherit;
            color: $orange;
            font-weight: $semi-bold;
-           transition: 0.1s linear;
+           transition: 0.1s;
            margin-right: 20px;
            &:hover {
                background-color: $orange;
@@ -98,16 +98,16 @@
             background:inherit;
             color: white;
             font-weight: $semi-bold;
-            transition: 0.1s linear;
+            transition: 0.1s;
             &:hover {
                 background-color: white;
-                border: 2px solid $orange;
                 color: $orange;
             }
        }
 
     }
 
+    // Кнопка удалить
     &-delete {
         border: 1px solid #AAAAAA;
         border-radius: 5px;
@@ -128,6 +128,7 @@
         }
    }
 
+   // Кнопки для слайдера
    &-slider {
         height: 32px;
         width: 32px;
