@@ -1,4 +1,5 @@
-@import "blocks/header/header.css";
-@import "blocks/buttons/buttons.css";
-@import "blocks/catalog-slider/catalog-slider.css";
-@import "blocks/slider/slider.css";
+@import "../blocks/header/header.css";
+@import "../blocks/buttons/buttons.css";
+@import "../blocks/catalog-slider/catalog-slider.css";
+@import "../blocks/slider/slider.css";
+@import "../blocks/timer/timer.css";

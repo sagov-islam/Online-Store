@@ -47,6 +47,17 @@ export function slider() {
             item.classList.add('es-slider__slide-btn--focus');
         });
     });
+
+
+    // Это скрипт оменьшает резмер шрифта заголовка если символов будет слишком много
+    const allTitles = document.querySelectorAll('.es-slider__title');
+    allTitles.forEach(title => {
+        const titleLingth = title.textContent.length;
+        if (titleLingth >= 25) {
+            title.style.fontSize = '25px';
+        }
+        
+    });
     
     
 }

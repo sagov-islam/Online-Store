@@ -192,14 +192,17 @@ a {
     height: 272px;
     border-radius: 5px;
 }
-.es-sidebar-actions{
-    background-color: #F2F2F2;
-    border-radius: 5px;
-    border: 1px solid $border;
+
+@media (max-width: 823px) {
+    .es-grid-container {
+        height: 380px;
+    }
 }
-
-
-
+@media (max-width: 600px) {
+    .es-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 

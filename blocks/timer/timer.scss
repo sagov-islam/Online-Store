@@ -1,0 +1,33 @@
+@import "../../css/variables/variables.scss";
+.es-timer {
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    padding: 18px;
+    border: 1px solid $border;
+    &-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__image {
+        margin-top: 24px;
+    }
+    &__title {
+        margin-top: 28px;
+        font-size: 16px;
+        font-weight: $regular;
+    }
+    &__time {
+        margin-top: 5px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: $extra-bold;
+        font-style: italic;
+        &-content {
+            margin-bottom: 24px;
+        }
+    }
+}
