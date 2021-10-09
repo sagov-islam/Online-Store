@@ -1,8 +1,8 @@
 export function timer() {
-    const daysValue = document.querySelector('.timer__days');
-    const hoursValue = document.querySelector('.timer__hours');
-    const minutesValue = document.querySelector('.timer__minutes');
-    const secondsValue = document.querySelector('.timer__seconds');
+    const daysValue = document.querySelector('.es-timer__days');
+    const hoursValue = document.querySelector('.es-timer__hours');
+    const minutesValue = document.querySelector('.es-timer__minutes');
+    const secondsValue = document.querySelector('.es-timer__seconds');
 
     const dataEnd = new Date('Dec 15 2021 00:00:00');
     

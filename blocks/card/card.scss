@@ -1,0 +1,114 @@
+@import "../../css/variables/variables.scss";
+
+.es-card {
+    background-color: $bg;
+    border-radius: 5px;
+    border: 1px solid $border;
+    padding: 18px;
+    transition: .2s;
+    &:hover {
+        background-color: white;
+        box-shadow: 0px 10px 12px rgba(101, 101, 101, 0.25);
+    }
+    &:hover .es-card__slider-buttons{
+        opacity: 1;
+    }
+    &__slider {
+        max-width: 240px;
+        height: 220px;
+        position: relative;
+        &-buttons {
+            z-index: 20;
+            opacity: 0;
+            transition: opacity .2s;
+            position: absolute;
+            top: calc(50% - 16px);
+            width: 100%;
+        }
+        &-btn {
+            &-right {
+                position: absolute;
+                right: -11px;
+            }
+            &-left {
+                position: absolute;
+                left: -11px;
+            }
+        }
+    
+        &-container {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        &-list {
+            min-width: 300%;
+            height: 100%;
+            display: flex;
+            transition: .3s;
+        }
+        &-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            & img {
+                padding: 10px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    
+    }
+
+    &__title {
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 2;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+        & a {
+            color: $black;
+            text-decoration: underline;
+        }
+    }
+
+    &__description {
+        font-size: 14px;
+        font-weight: $regular;
+        color: $silver;
+        width: 100%;
+        margin-top: 8px;
+
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 2;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+    }
+    &__in-stock {
+        font-size: 14px;
+        font-weight: $regular;
+        color: $silver;
+        width: 100%;
+        margin: 8px 0 10px 0;
+    }
+    &__buttons {
+        display: flex;
+        margin-top: 13px;
+    }
+    
+}

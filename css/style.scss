@@ -32,18 +32,59 @@ body {
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
-.es-container {
-    max-width: 1200px;
-    padding: 0 15px;
-    margin: 0 auto;
-}
+
+// КОНТЕЙНЕРЫ
+    // Общий контейнер
+    .es-container {
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    // Контейнер для слайдера и таймера
+    .es-grid-container {
+        display: grid;
+        grid-template-columns: 1fr 272px;
+        gap: 18px;
+        min-height: 272px;
+        border-radius: 5px;
+    }
+
+    // Контейнер для карточек товара на всю ширину
+    .es-card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 18px;
+    }
+    
+
 
 .es-text {
     font-size: 16px;
     font-weight: $regular;
     color: $silver;
+}
+.es-title {
+    &--h2 {
+        font-size: 23px;
+        font-weight: $extra-bold;
+        font-style: italic;
+        color: $black;
+    }
+    &--h3 {
+        color: $black;
+        font-size: 16px;
+        font-weight: $medium;
+        font-style: italic;
+    }
+}
+.es-title-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -115,12 +156,13 @@ a {
 
 
 // Цена товара
-.es-cart-prices {
+.es-card-prices {
+    height: 20px;
     &__price {
         font-weight: $extra-bold;
         font-style: italic;
         color: $black;
-        font-size: 16px
+        font-size: 19px
     };
     &__old-price {
         position: relative;
@@ -185,24 +227,86 @@ a {
 
 
 
-.es-grid-container {
-    display: grid;
-    grid-template-columns: 1fr 272px;
-    gap: 18px;
-    height: 272px;
-    border-radius: 5px;
-}
 
-@media (max-width: 823px) {
-    .es-grid-container {
-        height: 380px;
+// Преимущества
+.es-advantages {
+    margin-top: 20px;
+    &__list {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        display: flex;
+        margin-left: 10px;
+    }
+
+    &__text-content {
+        margin-left: 26px;
+    }
+    &__title {
+        margin-bottom: 5px;
+    }
+    &__description {
+        max-width: 262px;
     }
 }
+
+
+
+
+// Лидеры продаж
+.es-leaders {
+    margin-top: 65px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Адаптивность
 @media (max-width: 600px) {
     .es-grid-container {
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 818px) {
+    .es-advantages__item {
+        flex-direction: column;
+        align-items: center;
+    }
+    .es-advantages__text-content {
+        margin-top: 10px;
+        margin-left: 0px;
+        text-align: center;
+    }
+}
+@media (max-width: 675px) {
+    .es-advantages__list {
+        flex-direction: column;
+    }
+    .es-advantages__item {
+        flex-direction: row;
+        margin-bottom: 15px;
+    }
+    .es-advantages__text-content {
+        margin-left: 20px;
+        text-align: inherit;
+    }
+    .es-advantages__description {
+        max-width: 100%;
+    }
+}
 
 
 
@@ -212,19 +316,7 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Общие классы
 .es-opacity-hide {
     transform: translate(0px, -10px);
     opacity: 0;
