@@ -1,26 +1,25 @@
 export {card};
 
 function card() {
-
-    const cardsID = {};
-    function cardSlider(id) {
-        cardsID[id] = id;
-        for (let i in cardsID) {
+    let i = 0
+    const cardSliderId = []
+    function cardSlider() {
+        cardSliderId.forEach(item => {
             let numOfPiexels = 0
-            const card = document.getElementById(`${i}`)
-            const rightBtn = card.querySelector('.es-card__slider-btn-right');
-            const leftBtn = card.querySelector('.es-card__slider-btn-left');
+            const cardSlider = document.querySelector(`.${item}`)
+            const rightBtn = cardSlider.querySelector('.es-card__slider-btn-right');
+            const leftBtn = cardSlider.querySelector('.es-card__slider-btn-left');
             rightBtn.addEventListener('click', () => {
-                const btnContainer = rightBtn.parentElement.parentElement.querySelector('.es-card__slider-list');
+                const btnContainer = cardSlider.querySelector('.es-card__slider-list');
                 numOfPiexels == 66 ? numOfPiexels = 0 : numOfPiexels += 33;
                 btnContainer.style.transform = `translate(-${numOfPiexels}%, 0px)`
             });
             leftBtn.addEventListener('click', () => {
-                const btnContainer = card.querySelector('.es-card__slider-list');
+                const btnContainer = cardSlider.querySelector('.es-card__slider-list');
                 numOfPiexels === 0 ? numOfPiexels = 66 : numOfPiexels -= 33;
                 btnContainer.style.transform = `translate(-${numOfPiexels}%, 0px)`
             });
-        }
+        });
     };
 
 
@@ -37,7 +36,7 @@ function card() {
             const cardHtml = (title, description, inStock, price, discountHtml, id, images) => {
                 return`
                 <li class="es-card" id="${id}">
-                    <div class="es-card__slider">
+                    <div class="es-card__slider slider${i}">
                         <div class="es-card__slider-buttons">
                             <button class="es-btn-slider es-card__slider-btn-left"><img class="es-rotate180" src="images/arrow.png" alt="Направо"></button>
                             <button class="es-btn-slider es-card__slider-btn-right"><img src="images/arrow.png" alt="Направо"></button>
@@ -84,7 +83,6 @@ function card() {
                 </li>
                 `
             }
-
             fetch('/bd.json')
             .then(res => res.json())
             .then(data => {
@@ -127,14 +125,16 @@ function card() {
                         card.id,
                         card.images
                     );
-                    cardSlider(card.id)
+
+                    cardSliderId.push(`slider${i}`) ;
+                    i++
+                    cardSlider();
                 });
-                
             });
         };
     };
     // -------- Класс для карточки товара -------- \\
 
-    
-    const card = new Card('es-card-container', 'Лидеры', 4).render();
+    // index.html
+    const leaderCards = new Card('es-card-container', 'Лидеры', 4).render();
 }
