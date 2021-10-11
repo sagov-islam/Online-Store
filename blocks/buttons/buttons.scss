@@ -172,12 +172,12 @@
         padding: 3px 0 0 2px;
         transition: .2s;
         &:hover {
-            border-color: #6b6b6b;
+            border-color: $orange;
             transition: .2s;
-            background-color: rgb(231, 231, 231);
+            background-color: $orange;
         }
         &:hover > svg {
-            fill: #585858;
+            fill: #ffffff;
             transition: .2s;
         }
         & svg {

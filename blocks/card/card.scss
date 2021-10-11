@@ -1,8 +1,7 @@
 @import "../../css/variables/variables.scss";
 
 .es-card {
-    background-color: white;
-    box-shadow: 0px 2px 3px rgba(101, 101, 101, 0.2);
+    background-color: $bg;
     border-radius: 5px;
     border: 1px solid $border;
     padding: 18px;

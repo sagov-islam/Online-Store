@@ -226,14 +226,8 @@ a {
 }
 
 
-// Лидеры продаж
-.es-leaders {
-    margin-top: 65px;
-}
-
 // Успейте купить
 .es-discount{
-    margin-top: 80px;
     &__banner {
         grid-row: 1/3;
         border-radius: 5px;
@@ -241,8 +235,10 @@ a {
         display: flex;
         justify-content: center;
         min-width: 228px;
+        height: 542px;
         &-image {
             height: 100%;
+            width: 100%;
         }
     }
 }
@@ -255,7 +251,6 @@ a {
 
 // Популярные категории
 .popular-categories {
-    margin-top: 72px;
     &__category {
         position: relative;
         display: flex;
@@ -301,14 +296,9 @@ a {
     }
 }
 
-// Просмотренные товары
-.es-viewed-products {
-    margin-top: 80px;
-}
 
 // О нашей компании
 .es-about-us {
-    margin-top: 80px;
     &__title {
         margin-bottom: 19px;
     }
@@ -316,6 +306,7 @@ a {
         margin-top: 22px;
     }
 }
+
 
 
 
@@ -388,6 +379,9 @@ a {
 }
 .es-margin-top {
     margin-top: 18px;
+}
+.es-margin-top80 {
+    margin-top: 80px;
 }
 .es-margin-bottom {
     margin-bottom: 18px;
