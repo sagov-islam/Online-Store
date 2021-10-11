@@ -1,0 +1,42 @@
+@import "../../css/variables/variables.scss";
+
+.es-small-card {
+    height: 257px;
+    &:hover .es-small-card__title{
+        text-decoration: underline;
+    }
+    &__image-container {
+        width: 100%;
+        height: 177px;
+        background-color: #f1f1f1;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px ;
+    }
+    &__image {
+        width: 80%;
+        height: 100%;
+        object-fit: contain;
+    };
+
+    &__title {
+        margin-top: 8px;
+        width: 100%;
+        transition: .2s;
+
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 2;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+    }
+    &__prices {
+        margin-top: 5px;
+    }
+}

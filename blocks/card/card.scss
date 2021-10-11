@@ -7,6 +7,7 @@
     border: 1px solid $border;
     padding: 18px;
     transition: .2s;
+    max-width: 279px;
     &:hover {
         background-color: white;
         box-shadow: 0px 5px 15px rgba(101, 101, 101, 0.3);
@@ -82,7 +83,9 @@
         box-orient: vertical;
         & a {
             color: $black;
-            text-decoration: underline;
+        }
+        &:hover a {
+           text-decoration: underline;
         }
     }
 

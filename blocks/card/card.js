@@ -38,19 +38,19 @@ function card() {
                 <li class="es-card" id="${id}">
                     <div class="es-card__slider slider${i}">
                         <div class="es-card__slider-buttons">
-                            <button class="es-btn-slider es-card__slider-btn-left"><img class="es-rotate180" src="images/arrow.png" alt="Направо"></button>
+                            <button class="es-btn-slider es-card__slider-btn-left"><img class="es-rotate180" src="images/arrow.png" alt="Налево"></button>
                             <button class="es-btn-slider es-card__slider-btn-right"><img src="images/arrow.png" alt="Направо"></button>
                         </div>
                         <div class="es-card__slider-container">
                             <div class="es-card__slider-list">
                                 <div class="es-card__slider-slide">
-                                    <img src="${images[0]}" alt="">
+                                    <img src="${images[0]}" alt="${title}">
                                 </div>
                                 <div class="es-card__slider-slide">
-                                    <img src="${images[1]}" alt="">
+                                    <img src="${images[1]}" alt="${title}">
                                 </div>
                                 <div class="es-card__slider-slide">
-                                    <img src="${images[2]}" alt="">
+                                    <img src="${images[2]}" alt="${title}">
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ function card() {
                     };
 
                     // Необходимое количество карточек
-                    if (this.numOfCards !== 'Все карточки') {
+                    if (this.numOfCards !== 'Все товары') {
                         сards = сards.splice(0,this.numOfCards)
                     }
                 });
@@ -112,7 +112,7 @@ function card() {
                     if (card.discount !== false) {
                         discountHtml = `
                         <span class="es-card-prices__old-price"><span class="es-card-prices__old-price-line"></span>${card.price} ₽</span>
-                        <span class="es-card-prices__discount">-${card.discountPercent} %</span>
+                        <span class="es-card-prices__discount">-${card.discountPercent}%</span>
                         `
                         price = card.price * card.discount;
                     }
@@ -136,5 +136,6 @@ function card() {
     // -------- Класс для карточки товара -------- \\
 
     // index.html
-    const leaderCards = new Card('es-card-container', 'Лидеры', 4).render();
+    const leaderProducts = new Card('es-leaders__cards-list', 'Лидеры', 4).render();
+    const viewedProducts = new Card('es-viewed-products__cards-list', 'Все категории', 4).render();
 }

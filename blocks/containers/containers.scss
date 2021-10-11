@@ -1,0 +1,50 @@
+// КОНТЕЙНЕРЫ
+    // Общий контейнер
+    .es-container {
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+
+    // Контейнер для слайдера и таймера
+    .es-grid-container {
+        display: grid;
+        grid-template-columns: 1fr 272px;
+        gap: 18px;
+        min-height: 272px;
+        border-radius: 5px;
+    }
+    .es-grid-container {
+
+        // Контейнер для карточек товара на всю ширину
+        &--card {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 18px;
+        }
+
+        // Контейнер для блока "Успейте купить"
+        &--discount {
+            display: grid;
+            grid-template-columns: minmax(228px, 279px) 1fr;    
+            gap: 18px;
+            &-2 {
+                grid-template-columns: 1fr minmax(228px, 279px);
+            }
+            &-cards {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                gap: 18px;
+            }
+        }
+
+
+        &--popular-categories {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr 0.8fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 18px;
+        }
+    }
+    
