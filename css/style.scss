@@ -40,6 +40,9 @@ a {
     font-weight: $regular;
     color: $silver;
     line-height: 145%;
+    &--size-14 {
+        font-size: 14px;
+    }
 }
 .es-title {
     &--h2 {
@@ -89,7 +92,6 @@ a {
     background-color: #858585;
     left: 0;
 }
-
 
 // Поисковик
 .es-search {
@@ -211,6 +213,48 @@ a {
 
     }
 }
+
+// label
+.es-label {
+    display: flex;
+    align-items: center;
+    &__text {
+        margin-left: 10px;
+        display: inline-block;
+        font-size: 14px;
+        color: $silver;
+        font-weight: $regular;
+        color: $silver;
+        line-height: 145%;
+    }
+}
+
+// Социальные сети
+
+.es-social-networks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    transition: .5s;
+    &__item {
+        transition: transform .2s;
+        &:hover {
+            transition: .2s;
+            transform: scale(1.2);
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

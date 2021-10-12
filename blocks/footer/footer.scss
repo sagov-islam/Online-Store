@@ -1,0 +1,66 @@
+@import "../../css/variables/variables.scss";
+
+.es-footer {
+    border-top: 1px solid #DBDBDB;
+    width: 100%;
+    padding-top: 30px;
+    &__content-bottom {
+        grid-column: 1/4;
+    }
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__links-list {
+        margin-top: 20px;
+    }
+    &__links-item {
+        margin-bottom: 9px;
+    }
+
+    
+    &__form {
+        &-text {
+            margin-bottom: 14px;
+        }
+    }
+    &__contacts {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        &-email {
+            margin-bottom: 3px;
+            & span {
+                margin-left: 10px;
+                color: $black;
+                font-size: 16px;
+            }
+            
+        }
+        &-phone {
+            margin-bottom: 15px;
+            & span {
+                margin-left: 13px;
+                color: $black;
+                font-size: 16px;
+            }
+        }
+    }
+    &__label {
+        margin-top: 10px;
+    }
+
+    &__content-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 65px;
+        &-bg {
+            background-color: #e7e7e7;
+            width: 100%;
+            margin-top: 32px;
+        }
+    }
+    
+}
