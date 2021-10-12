@@ -55,6 +55,19 @@ a {
         font-style: italic;
     }
 }
+
+.es-link {
+    transition: 0.1s linear;
+    font-size: 14px;
+    font-weight: 400;
+    color: $silver;
+    &:hover {
+        color: $orange;
+        transition: 0.1s linear;
+    }
+}
+
+
 .es-title-and-button {
     display: flex;
     justify-content: space-between;
