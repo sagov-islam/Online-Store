@@ -39,7 +39,7 @@
             border-color: #b6b6b6;
         }
         &:disabled:checked + .es-input__checkbox-style{
-            background-image: url(/images/checkmark-checked.svg);
+            background-image: url(/images/checkmark-disabled.svg);
             background-repeat: no-repeat;
             background-position: center center;
         }
