@@ -136,6 +136,8 @@ function card() {
     // -------- Класс для карточки товара -------- \\
 
     // index.html
-    const leaderProducts = new Card('es-leaders__cards-list', 'Лидеры', 4).render();
-    const viewedProducts = new Card('es-viewed-products__cards-list', 'Все категории', 4).render();
+    if (window.location.pathname=='/index.html') {
+        const leaderProducts = new Card('es-leaders__cards-list', 'Лидеры', 4).render();
+        const viewedProducts = new Card('es-viewed-products__cards-list', 'Все категории', 4).render();
+    }
 }
