@@ -214,23 +214,8 @@ a {
     }
 }
 
-// label
-.es-label {
-    display: flex;
-    align-items: center;
-    &__text {
-        margin-left: 10px;
-        display: inline-block;
-        font-size: 14px;
-        color: $silver;
-        font-weight: $regular;
-        color: $silver;
-        line-height: 145%;
-    }
-}
 
 // Социальные сети
-
 .es-social-networks {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
