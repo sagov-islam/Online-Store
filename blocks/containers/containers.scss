@@ -7,7 +7,7 @@
     }
 
     // Контейнер для слайдера и таймера
-    .es-grid-container {
+    .es-grid-container--slider-and-sidebar {
         display: grid;
         grid-template-columns: 1fr 272px;
         gap: 18px;
