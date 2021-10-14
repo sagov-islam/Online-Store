@@ -63,5 +63,12 @@
             grid-template-columns: minmax(369px, 1.2fr) minmax(210px,280px) 228px;
             column-gap: 80px;
         }
+        
+        &--catalog {
+            display: grid;
+            grid-template-columns: 279px 1fr;
+            gap: 18px;
+            height: 500px;
+        }
     }
     

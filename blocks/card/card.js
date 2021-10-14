@@ -1,6 +1,6 @@
-export {card};
+export {Card};
 
-function card() {
+function Card(container, category, num) {
     let i = 0
     const cardSliderId = []
     function cardSlider() {
@@ -135,9 +135,5 @@ function card() {
     };
     // -------- Класс для карточки товара -------- \\
 
-    // index.html
-    if (window.location.pathname=='/index.html') {
-        const leaderProducts = new Card('es-leaders__cards-list', 'Лидеры', 4).render();
-        const viewedProducts = new Card('es-viewed-products__cards-list', 'Все категории', 4).render();
-    }
+    return new Card(container, category, num)
 }

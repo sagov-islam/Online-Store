@@ -64,6 +64,12 @@ a {
         font-weight: $extra-bold;
         font-style: italic;
         color: $black;
+        &-small {
+            font-size: 18px;
+            font-weight: $extra-bold;
+            font-style: italic;
+            color: $black;
+        }
     }
     &--h3 {
         color: $black;
@@ -213,6 +219,34 @@ a {
         }
     }
 }
+
+// Страница <<Каталог>>
+.es-catalog {
+    &__filter {
+        background-color: $bg;
+        border: 1px solid $border;
+        padding: 20px 24px;
+        &-price-range {
+            width: 100%;
+            
+        }
+    }
+    &__cards {
+        &-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
+    }
+};
+
+
+
+
+
+
+
+
 
 
 
@@ -417,3 +451,11 @@ a {
 .es-rotate180 {
     transform: rotate(180deg);
 };
+
+.element-invisible {
+    position: absolute !important;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+  }

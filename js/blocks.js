@@ -6,6 +6,3 @@ slider()
 
 import {timer} from "../blocks/timer/timer.js";
 timer();
-
-import {card} from "../blocks/card/card.js";
-card();
