@@ -360,7 +360,7 @@ a {
 
 // Адаптивность
 @media (max-width: 600px) {
-    .es-grid-container {
+    .es-grid-container--slider-and-sidebar {
         grid-template-columns: 1fr;
     }
 }
