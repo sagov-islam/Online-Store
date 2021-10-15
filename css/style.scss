@@ -64,18 +64,19 @@ a {
         font-weight: $extra-bold;
         font-style: italic;
         color: $black;
-        &-small {
-            font-size: 18px;
-            font-weight: $extra-bold;
-            font-style: italic;
-            color: $black;
-        }
+        
     }
     &--h3 {
         color: $black;
         font-size: 16px;
         font-weight: $medium;
         font-style: italic;
+        &-bold {
+            font-size: 16px;
+            font-weight: $bold;
+            font-style: italic;
+            color: $black;
+        }
     }
 }
 
@@ -93,6 +94,13 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+// Скрытие стрелок у инпутов с типом number
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 
@@ -221,24 +229,55 @@ a {
 }
 
 // Страница <<Каталог>>
-.es-catalog {
-    &__filter {
-        background-color: $bg;
-        border: 1px solid $border;
-        padding: 20px 24px;
-        &-price-range {
+
+.es-filter {
+    background-color: $bg;
+    border: 1px solid $border;
+    padding: 20px 24px;
+    &__price {
+        &-numbers {
+            display: flex;
+            margin-top: 20px;
+        }
+        &-label {
+            border-radius: 5px;
+            height: 41px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgb(202, 202, 202);
+            &:first-child {
+                margin-right: 18px;
+            }
+            & span {
+                font-size: 14px;
+                margin-left: 7px;
+                color: #9b9b9b;
+            }
+        }
+        &-num {
+            padding: 0 10px 0 8px;
+            background-color: inherit;
+            border: none;
             width: 100%;
-            
+            &:focus {
+                outline: none;
+            }
+            &:focus .es-filter__price-label{
+                outline: 2px solid black;
+            }
         }
     }
-    &__cards {
-        &-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 18px;
-        }
+    
+}
+
+.es-catalog__cards {
+    &-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
     }
-};
+}
+
 
 
 

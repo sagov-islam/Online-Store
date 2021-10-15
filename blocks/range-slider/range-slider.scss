@@ -1,0 +1,40 @@
+@import "../../css/variables/variables.scss";
+
+
+
+.noUi-target {
+    height: 3px;
+    background-color: #CCCCCC;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+.noUi-connect {
+    background-color: $orange;
+}
+
+.noUi-handle::after, .noUi-handle::before {
+    display: none;
+}
+
+.noUi-handle {
+    outline: 2px solid white;
+    border: none;
+    background-color: $orange;
+    box-shadow: none;
+    border-radius: 100px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.noUi-horizontal .noUi-handle {
+    top: -7px;
+    width: 16px;
+    height: 16px;
+}
+.noUi-base {
+    position: relative;
+    width: 94%;
+}
+

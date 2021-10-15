@@ -6,3 +6,6 @@ slider()
 
 import {timer} from "../blocks/timer/timer.js";
 timer();
+
+import {rangeSlider} from "../blocks/range-slider/range-slider.js";
+rangeSlider();

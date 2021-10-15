@@ -1,8 +1,8 @@
 export {Card};
-
-function Card(container, category, num) {
-    let i = 0
-    const cardSliderId = []
+let i = 0
+const cardSliderId = []
+function Card(container, category, numOfCards) {
+    
     function cardSlider() {
         cardSliderId.forEach(item => {
             let numOfPiexels = 0
@@ -135,5 +135,5 @@ function Card(container, category, num) {
     };
     // -------- Класс для карточки товара -------- \\
 
-    return new Card(container, category, num)
+    return new Card(container, category, numOfCards)
 }
