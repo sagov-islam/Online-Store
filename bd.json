@@ -14,8 +14,8 @@
                 "height": "70",
                 "depth": "70",
                 "brand": "DreamLine",
-                "category": "Кресла",
-                "leader": true
+                "category": "Диваны",
+                "leader": false
             },
             "images": [
                 "/images/product-images/product1/image1.png",
@@ -60,7 +60,7 @@
                 "height": "70",
                 "depth": "70",
                 "brand": "DreamLine",
-                "category": "Стулья",
+                "category": "Комоды",
                 "leader": true
             },
             "images": [
@@ -83,7 +83,7 @@
                 "height": "70",
                 "depth": "70",
                 "brand": "Aquaton",
-                "category": "Диваны",
+                "category": "Шкафы",
                 "leader": true
             },
             "images": [
@@ -129,7 +129,7 @@
                 "height": "70",
                 "depth": "70",
                 "brand": "Aquaton",
-                "category": "Стулья",
+                "category": "Диваны",
                 "leader": true
             },
             "images": [

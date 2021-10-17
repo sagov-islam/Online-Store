@@ -233,8 +233,10 @@ input[type=number]::-webkit-outer-spin-button {
 .es-filter {
     background-color: $bg;
     border: 1px solid $border;
+    border-radius: 5px;
     padding: 20px 24px;
     &__price {
+        margin-bottom: 25px;
         &-numbers {
             display: flex;
             margin-top: 20px;
@@ -265,6 +267,37 @@ input[type=number]::-webkit-outer-spin-button {
             &:focus .es-filter__price-label{
                 outline: 2px solid black;
             }
+        }
+    }
+
+
+    &__title {
+        display: inline-block;
+        margin-top: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        & h3 {
+            display: inline-block;
+            margin-right: 9px;
+        }
+        &-image {
+            transition: .1s;
+            display: inline-block;
+            background-image: url(/images/arrow-svg.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 10px;
+            height: 10px;
+            margin-top: 3px;
+        }
+    }
+    &__list {
+        transition: .1s;
+        overflow: hidden;
+        margin-top: 8px;
+        & li {
+            margin-bottom: 8px;
         }
     }
     
@@ -453,15 +486,38 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 // Общие классы
-.es-opacity-hide {
-    transform: translate(0px, -10px);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.2s;
-    &:hover {
+.es-opacity {
+    &-hide {
+        transform: translate(0px, -10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;
+        height: 0;
+        &--hover:hover {
+            visibility:visible;
+            transform: translate(0px, 0px);
+            opacity: 1;
+        }
+    }
+    
+    &-show {
+        transition: 0.2s;
         visibility:visible;
         transform: translate(0px, 0px);
         opacity: 1;
+    }
+    
+}
+
+.es-overflow {
+    &-hide {
+        transition: .1s;
+        height: 0px;
+    }
+    &-show {
+        height: auto;
+        transition: .1s;
+        margin-bottom: 20px;
     }
 }
 
@@ -488,6 +544,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .es-rotate180 {
+    transition: .1s;
     transform: rotate(180deg);
 };
 

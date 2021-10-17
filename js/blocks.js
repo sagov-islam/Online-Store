@@ -1,11 +1,8 @@
-import {catalogSlider} from "../blocks/catalog-slider/catalog-slider.js"
+import {catalogSlider} from "./catalog-slider.js"
 catalogSlider()
 
-import {slider} from "../blocks/slider/slider.js";
+import {slider} from "./slider.js";
 slider()
 
-import {timer} from "../blocks/timer/timer.js";
+import {timer} from "./timer.js";
 timer();
-
-import {rangeSlider} from "../blocks/range-slider/range-slider.js";
-rangeSlider();

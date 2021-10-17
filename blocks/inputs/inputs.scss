@@ -44,6 +44,39 @@
             background-position: center center;
         }
     }
+
+
+    &__radio {
+        position: absolute;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        &-style {
+            display: inline-block;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 3px;
+            height: 18px;
+            width: 18px;
+            border: 2px solid $orange;
+            border-radius: 50px;
+            &-span {
+                display: none;
+                border-radius: 50px;
+                height: 8px;
+                width: 8px;
+                background-color: $orange;
+            }
+        }
+        &:checked + .es-input__radio-style > .es-input__radio-style-span{
+            display: inline-block;
+
+        }
+
+    }
     
 }
 

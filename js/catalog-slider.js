@@ -13,7 +13,7 @@ export function catalogSlider() {
         btnLeft.addEventListener('click', () => {
             let catalogItems = document.querySelectorAll('.es-catalog-slider__item');
             let lastChild = catalogItems[catalogItems.length - 1];
-            let containerFirstChild = document.querySelector('.es-catalog-slider__list').firstChild;
+            let containerFirstChild = container.firstChild;
             container.insertBefore(lastChild, containerFirstChild);
         }); 
     }
