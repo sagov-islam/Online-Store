@@ -1,6 +1,6 @@
 import {Card} from "./card.js";
 
-// Карточки товара какторые добавляются в каталог при загрузке страницы
+// Карточки товара которые добавляются в каталог при загрузке страницы
 Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render();
 
 
@@ -19,11 +19,11 @@ categoryButtons.forEach(btn => {
         // Карточки товара добавляются:
         Card('es-catalog__cards-list', category, brand,'Все товары').render()
 
-        // Добавленные карточки фильтруются в соответствии указанной желаемой ценой:
+        // Добавленные карточки фильтруются в соответствии с указанной желаемой ценой:
         .then(() => {
             const inputValue0 = parseInt(document.getElementById('input-0').value);
             const inputValue1 = parseInt(document.getElementById('input-1').value);
-            Card('es-catalog__cards-list', category, brand,'Все товары').priceFilter(inputValue0, inputValue1)
+            Card().priceFilter(inputValue0, inputValue1)
         })
 
         // Потом идет проверка: если в контейнере нету элементов то визуально показать что товаров нет:
@@ -51,7 +51,7 @@ brandButtons.forEach(btn => {
         .then(() => {
             const inputValue0 = parseInt(document.getElementById('input-0').value);
             const inputValue1 = parseInt(document.getElementById('input-1').value);
-            Card('es-catalog__cards-list', category, brand,'Все товары').priceFilter(inputValue0, inputValue1)
+            Card().priceFilter(inputValue0, inputValue1)
         })
 
         .then(() => {
