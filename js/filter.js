@@ -76,7 +76,7 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
     const inputValue1 = parseInt(document.getElementById('input-1').value);
     cardsContainer.innerHTML = ''
     Card('es-catalog__cards-list', category, brand,'Все товары').render().then(() => {
-        Card('es-catalog__cards-list', category, brand,'Все товары').priceFilter(inputValue0, inputValue1)
+        Card().priceFilter(inputValue0, inputValue1)
     });
 });
 
@@ -88,7 +88,7 @@ inputs.forEach(input => {
         const inputValue1 = parseInt(document.getElementById('input-1').value);
         cardsContainer.innerHTML = ''
         Card('es-catalog__cards-list', category, brand,'Все товары').render().then(() => {
-            Card('es-catalog__cards-list', category, brand,'Все товары').priceFilter(inputValue0, inputValue1)
+            Card().priceFilter(inputValue0, inputValue1)
         });
     });
 });
