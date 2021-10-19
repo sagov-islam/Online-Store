@@ -80,7 +80,6 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
     });
 });
 
-
 // Фильтрация при вводе желаемой цены
 const inputs = document.querySelectorAll('.es-filter__price-num');
 inputs.forEach(input => {
@@ -93,8 +92,6 @@ inputs.forEach(input => {
         });
     });
 });
-
-
 
 // Анимация для элементов фильтра
 const filterTitle = document.querySelectorAll(".es-filter__title");
