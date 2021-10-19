@@ -1,7 +1,7 @@
 export {Card};
 let i = 0
 let cardSliderId = []
-function Card(container, category, numOfCards) {
+function Card(containerName, categoryName, brandName, count) {
     
     function cardSlider() {
         cardSliderId.forEach(item => {
@@ -25,10 +25,11 @@ function Card(container, category, numOfCards) {
 
     // -------- Класс для карточки товара -------- \\
     class Card {
-        constructor (container, category, numOfCards) {
+        constructor (container, category, brand, numOfCards) {
             this.container = container
             this.category = category
             this.numOfCards = numOfCards
+            this.brand = brand
         }
 
         render() {
@@ -87,32 +88,46 @@ function Card(container, category, numOfCards) {
                     </li>
                     `
                 }
-                let сards = []
-                fetch('/bd.json')
-                .then(res => res.json())
+                let cards = []; // Массив в который будут добавляться отфильтрованные карточки товара
+                fetch('../database.json')
+                .then(data => data.json())
                 .then(data => {
                     data.cards.forEach(card => {
-                        // Лидеры продаж
                         if (this.category === 'Лидеры продаж') {
                             if (card.information.leader === true) {
-                                сards.push(card)
+                                cards.push(card)
                             }
                         }
-                        else if (this.category === card.information.category) {
-                            сards.push(card)
+
+                        if (this.category === card.information.category) {
+                            cards.push(card)
                         }
-                        else if (this.category === 'Все категории') {
-                            сards.push(card)
+
+                        if (this.category === 'Все категории') {
+                            cards.push(card)
                         };
-    
-                        // Необходимое количество карточек
-                        if (this.numOfCards !== 'Все товары') {
-                            сards = сards.splice(0,this.numOfCards)
-                        }
-                    });
+
+                    })
                 })
                 .then(() => {
-                    сards.forEach((card) => {
+                    // Фильтрация по брендам
+                    if (this.brand !== 'Все бренды') {
+                        cards.forEach((card, id) => {
+                            if (card.information.brand !== this.brand) {
+                                delete cards[id]
+                            }
+                        });
+                    }
+                })
+                .then(() => {
+                    // Необходимое количество карточек
+                    if (this.numOfCards !== 'Все товары') {
+                        cards = cards.splice(0,this.numOfCards)
+                    }
+                })
+                .then(() => {
+                    // Добавление отфильтрованных карточек на страницу
+                    cards.forEach((card) => {
                         let discountHtml = ''
                         let price = card.price;
                         if (card.discount !== false) {
@@ -141,8 +156,36 @@ function Card(container, category, numOfCards) {
             });
             
         };
+
+        priceFilter(inputValue0, inputValue1) {
+            const cards = document.querySelectorAll('.es-card');
+            cards.forEach((card, id) => {
+                let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+                cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+                if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+                    cards[id].remove();
+                }
+            });
+        }
     };
     // -------- Класс для карточки товара -------- \\
 
-    return new Card(container, category, numOfCards)
+    return new Card(containerName, categoryName, brandName, count)
 }
+
+
+// if(this.prices) {
+//     const inputValue0 = this.prices[0]
+//     const inputValue1 = this.prices[1]
+
+//     if (this.prices[2].leader !== 0) {
+//         this.prices[2].forEach((card, id) => {
+//             let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+//             cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+//             if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+//                 this.prices[2][id].remove()
+//             }
+//         });
+//     }
+    
+// }

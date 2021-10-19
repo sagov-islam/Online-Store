@@ -19,9 +19,6 @@ const inputs = [input0, input1];
 rangeSlider.noUiSlider.on('update', (values, handle) => {
     inputs[handle].value = Math.round(values[handle]);
 });
-rangeSlider.noUiSlider.on('change', (values, handle) => {
-    console.log('Hello');
-});
 
 const setRangeSlider = (i, value) => {
     let arr = [null, null];

@@ -420,7 +420,12 @@
                     </div>
                 </section>
 
-                <section class="es-catalog__cards es-catalog__cards-container"></section>
+                <section class="es-catalog__cards-container">
+                    <div class="es-catalog__cards-absent es-hide">
+                        <h3 class="es-catalog__cards-absent-title">Товары отсутствуют</h3>
+                    </div>
+                    <ul class="es-catalog__cards-list"></ul>
+                </section>
                     
             </div>
             
@@ -521,8 +526,8 @@
     <script  src = "blocks/nouislider/nouislider.min.js" ></script> 
     <script  src = " https://unpkg.com/simplebar@latest/dist/simplebar.min.js " ></script> 
     <script type="module" src="js/blocks.js"></script>
-    <script type="module" src="js/filter.js"></script>
     <script type="module" src="js/range-slider.js"></script>
+    <script type="module" src="js/filter.js"></script>
     <script type="module" src="js/script.js"></script>
 </body>
 </html>
