@@ -1,4 +1,4 @@
-import {Card} from "../js/card.js";
+import {Card} from "/js/card.js";
 
 if (window.location.pathname == "/index.html") {
     Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', 4).render();

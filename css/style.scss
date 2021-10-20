@@ -581,4 +581,7 @@ input[type=number]::-webkit-outer-spin-button {
     &--flex {
         display: flex;
     }
+    &--block {
+        display: block;
+    }
 }
