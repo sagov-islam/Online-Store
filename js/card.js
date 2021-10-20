@@ -156,17 +156,6 @@ function Card(containerName, categoryName, brandName, count) {
             });
             
         };
-
-        priceFilter(inputValue0, inputValue1) {
-            const cards = document.querySelectorAll('.es-card');
-            cards.forEach((card, id) => {
-                let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
-                cardPrice = parseInt(cardPrice.replace(/\D/g,''));
-                if (cardPrice < inputValue0 || cardPrice > inputValue1) {
-                    cards[id].remove();
-                }
-            });
-        }
     };
     // -------- Класс для карточки товара -------- \\
 

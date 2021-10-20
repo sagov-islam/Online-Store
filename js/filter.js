@@ -23,7 +23,14 @@ categoryButtons.forEach(btn => {
         .then(() => {
             const inputValue0 = parseInt(document.getElementById('input-0').value);
             const inputValue1 = parseInt(document.getElementById('input-1').value);
-            Card().priceFilter(inputValue0, inputValue1)
+            const cards = document.querySelectorAll('.es-card');
+            cards.forEach((card, id) => {
+                let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+                cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+                if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+                    cards[id].remove();
+                }
+            });
         })
 
         // Потом идет проверка: если в контейнере нету элементов то визуально показать что товаров нет:
@@ -51,7 +58,14 @@ brandButtons.forEach(btn => {
         .then(() => {
             const inputValue0 = parseInt(document.getElementById('input-0').value);
             const inputValue1 = parseInt(document.getElementById('input-1').value);
-            Card().priceFilter(inputValue0, inputValue1)
+            const cards = document.querySelectorAll('.es-card');
+            cards.forEach((card, id) => {
+                let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+                cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+                if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+                    cards[id].remove();
+                }
+            });
         })
 
         .then(() => {
@@ -69,14 +83,22 @@ brandButtons.forEach(btn => {
     });
 });
 
+// --- ПЕРЕНЕСТИ МЕТОД PRICEFILTER из card.js в filter.js
 // Фильтрация по цене
 const rangeSlider = document.getElementById('range-slider');
 rangeSlider.noUiSlider.on('change', (values, handle) => {
-    const inputValue0 = parseInt(document.getElementById('input-0').value);
-    const inputValue1 = parseInt(document.getElementById('input-1').value);
     cardsContainer.innerHTML = ''
     Card('es-catalog__cards-list', category, brand,'Все товары').render().then(() => {
-        Card().priceFilter(inputValue0, inputValue1)
+        const inputValue0 = parseInt(document.getElementById('input-0').value);
+        const inputValue1 = parseInt(document.getElementById('input-1').value);
+        const cards = document.querySelectorAll('.es-card');
+        cards.forEach((card, id) => {
+            let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+            cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+            if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+                cards[id].remove();
+            }
+        });
     });
 });
 
@@ -84,11 +106,18 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
 const inputs = document.querySelectorAll('.es-filter__price-num');
 inputs.forEach(input => {
     input.addEventListener('change', () => {
-        const inputValue0 = parseInt(document.getElementById('input-0').value);
-        const inputValue1 = parseInt(document.getElementById('input-1').value);
         cardsContainer.innerHTML = ''
         Card('es-catalog__cards-list', category, brand,'Все товары').render().then(() => {
-            Card().priceFilter(inputValue0, inputValue1)
+            const inputValue0 = parseInt(document.getElementById('input-0').value);
+            const inputValue1 = parseInt(document.getElementById('input-1').value);
+            const cards = document.querySelectorAll('.es-card');
+            cards.forEach((card, id) => {
+                let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
+                cardPrice = parseInt(cardPrice.replace(/\D/g,''));
+                if (cardPrice < inputValue0 || cardPrice > inputValue1) {
+                    cards[id].remove();
+                }
+            });
         });
     });
 });
