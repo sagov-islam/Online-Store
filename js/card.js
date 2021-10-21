@@ -111,10 +111,14 @@ function Card(containerName, categoryName, brandName, count) {
                 })
                 .then(() => {
                     // Фильтрация по брендам
+                    let i = 0;
                     if (this.brand !== 'Все бренды') {
                         cards.forEach((card, id) => {
-                            if (card.information.brand !== this.brand) {
-                                delete cards[id]
+                            for (i; i < 1; i++) {
+                                cards = []
+                            }
+                            if (card.information.brand === this.brand) {
+                                cards.push(card);
                             }
                         });
                     }
@@ -122,7 +126,7 @@ function Card(containerName, categoryName, brandName, count) {
                 .then(() => {
                     // Необходимое количество карточек
                     if (this.numOfCards !== 'Все товары') {
-                        cards = cards.splice(0,this.numOfCards)
+                        cards = cards.splice(this.numOfCards[0], this.numOfCards[1])
                     }
                 })
                 .then(() => {

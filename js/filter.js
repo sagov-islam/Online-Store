@@ -6,10 +6,10 @@ const brandButtons = document.getElementsByName('brand');
 const btnMoreCards = document.querySelector('.es-catalog-more-cards');
 let category = 'Все категории';
 let brand = 'Все бренды';
+let num1 = 9;
 
 // Карточки товара которые добавляются в каталог при загрузке страницы
-Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 9).render().then(() => {
-    let count = document.querySelectorAll('.es-card').length
+Card('es-catalog__cards-list', 'Все категории', 'Все бренды', [0,9]).render().then(() => {
     btnMoreCards.classList.remove('es-hide');
     btnMoreCards.classList.add('es-show--block');
 });
@@ -21,7 +21,7 @@ categoryButtons.forEach(btn => {
         category = btn.parentNode.lastElementChild.textContent;
 
         // Карточки товара добавляются:
-        Card('es-catalog__cards-list', category, brand, 9).render()
+        Card('es-catalog__cards-list', category, brand, [0,9]).render()
 
         // Добавленные карточки фильтруются в соответствии с указанной желаемой ценой:
         .then(() => {
@@ -59,6 +59,7 @@ categoryButtons.forEach(btn => {
                 btnMoreCards.classList.add('es-hide');
             }
         })
+        num1 = 9;
     });
 });
 
@@ -67,7 +68,7 @@ brandButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         cardsContainer.innerHTML = ''
         brand = btn.parentNode.lastElementChild.textContent;
-        Card('es-catalog__cards-list', category, brand, 9).render()
+        Card('es-catalog__cards-list', category, brand, [0,9]).render()
 
         .then(() => {
             const inputValue0 = parseInt(document.getElementById('input-0').value);
@@ -102,6 +103,7 @@ brandButtons.forEach(btn => {
                 btnMoreCards.classList.add('es-hide');
             }
         })
+        num1 = 9;
         
     });
 });
@@ -110,7 +112,9 @@ brandButtons.forEach(btn => {
 const rangeSlider = document.getElementById('range-slider');
 rangeSlider.noUiSlider.on('change', (values, handle) => {
     cardsContainer.innerHTML = ''
-    Card('es-catalog__cards-list', category, brand, 9).render().then(() => {
+    Card('es-catalog__cards-list', category, brand, [0,9]).render()
+    
+    .then(() => {
         const inputValue0 = parseInt(document.getElementById('input-0').value);
         const inputValue1 = parseInt(document.getElementById('input-1').value);
         const cards = document.querySelectorAll('.es-card');
@@ -142,6 +146,8 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
             btnMoreCards.classList.add('es-hide');
         }
     });
+    num1 = 9;
+
 });
 
 // Фильтрация при вводе желаемой цены
@@ -161,7 +167,7 @@ inputs.forEach(input => {
                 }
             });
         })
-        then(() => {
+        .then(() => {
             const cardsAbsentBlock = document.querySelector('.es-catalog__cards-absent');
             const btnMoreCards = document.querySelector('.es-catalog-more-cards');
             let count = document.querySelectorAll('.es-card').length
@@ -181,14 +187,13 @@ inputs.forEach(input => {
                 btnMoreCards.classList.add('es-hide');
             }
         });
+        num1 = 9;
+
     });
 });
 
-let numCardsOnPage = 9;
 btnMoreCards.addEventListener('click', () => {
-    cardsContainer.innerHTML = '';
-    numCardsOnPage += 9
-    Card('es-catalog__cards-list', category, brand, numCardsOnPage).render()
+    Card('es-catalog__cards-list', category, brand, [num1,9]).render()
     .then(() => {
         const inputValue0 = parseInt(document.getElementById('input-0').value);
         const inputValue1 = parseInt(document.getElementById('input-1').value);
@@ -201,19 +206,8 @@ btnMoreCards.addEventListener('click', () => {
             }
         });
     })
+    num1 += 9
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Анимация для элементов фильтра

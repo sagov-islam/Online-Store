@@ -221,8 +221,8 @@
                 "height": "70",
                 "depth": "70",
                 "brand": "Lonax",
-                "category": "Кровати",
-                "leader": true
+                "category": "Комоды",
+                "leader": false
             },
             "images": [
                 "../images/product-images/product10/image1.png",
