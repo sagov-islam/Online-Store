@@ -49,6 +49,9 @@ a {
     & p:last-child {
         margin-bottom: 0px;
     }
+    & strong {
+        color: $black;
+    }
 }
 .es-title {
     &--h1 {
@@ -102,6 +105,41 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none; 
   margin: 0; 
 }
+
+.es-tables {
+    margin-top: 57px;
+    display: flex;
+}
+.es-table {
+    border-radius: 5px;
+    color: $black;
+    &__td {
+        &-border-left {
+            border-left: 1px solid #B0B0B0;
+        }
+        &-border-top {
+            border-top: 1px solid #B0B0B0;
+        }
+    }
+
+    &__title {
+        &--h2 {
+            color: #808080;
+        }
+    }
+}
+table {
+    display: block;
+    max-width: 576px;
+    border: 1px solid #B0B0B0;
+    background-color:$bg;
+}
+td {
+    border: none;
+    height: 61px;
+}
+
+
 
 
 // ОСНОВНЫЕ СТИЛИ ДЛЯ БЛОКОВ И ЭЛЕМЕНТОВ

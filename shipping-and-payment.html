@@ -7,7 +7,6 @@
     <title>Elite Shop</title>
     <link rel="icon" href="images/icon.svg">
     <link rel = "stylesheet" href = " https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
-    <link rel="stylesheet" href="blocks/nouislider/nouislider.min.css">
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
@@ -247,188 +246,68 @@
             </div>  
         </div>
     </header>
-    
+
     <main>
         <div class="es-container">
             <div class="es-breadcrumbs">
                 <a href="index.html">Главная</a> /
-                <a href="catalog.html">Каталог</a>
+                <a href="shipping-and-payment.html">Доставка и оплата</a>
             </div>
-            <h1 class="es-title--h1">Каталог</h1>
-            <div class="es-catalog es-grid-container--catalog ">
-                <section class="es-filter">
-                    <h2 class="element-invisible">Фильтр</h2>
-                    <div class="es-filter__price">
-                        <h3 class="es-title--h3-bold">Цена</h3>
-                        <div class="es-filter__price-slider">
-                            <div class="es-filter__price-range-slider es-margin-top" id="range-slider"></div>
-                            <div class="es-filter__price-numbers">
-                                <label class="es-filter__price-label">
-                                    <span>от</span>
-                                    <input class="es-filter__price-num" type="number" min="500" max="100000" placeholder="500" id="input-0">
-                                </label>
-                                <label class="es-filter__price-label">
-                                    <span>до</span>
-                                    <input class="es-filter__price-num" type="number" min="500" max="100000" placeholder="100000" id="input-1">
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+            <h1 class="es-title--h1">Доставка и оплата</h1>
 
-                    <div class="es-filter__drop-down-list">
-                        <div class="es-filter__title">
-                            <h3 class="es-title--h3-bold">Категория</h3>
-                            <span class="es-filter__title-image"></span>
-                        </div>
-                        <ul class="es-filter__list es-overflow-show">
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category" checked>
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Все категории</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Кровати</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Матрасы</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Диваны</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Шкафы</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Комоды</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Тумбочки</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Зеркала</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Столы</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Стулья</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="category">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Лидеры продаж</p>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
+            <section>
+                <div class="es-text">
+                    <p><strong>1</strong>. Доставка крупногабаритного товара в регионы осуществляется только транспортными компаниями.</p>
+                    <p><strong>2</strong>. Доставка заказа от склада осуществляется до терминала транспортной компании. Все необходимые данные (вес, объем, количество упаковок) для расчёта стоимости услуг транспортной компании, Вам сообщит менеджер интернет магазина. Возможен самовывоз заказа с нашего склада транспортной компанией.</p>
+                    <p><strong>3</strong>. Для дополнительной сохранности груза от повреждения, НЕОБХОДИМО у транспортной компании заказать обрешетку груза (Жесткая упаковка (деревянная обрешетка) представляет собой деревянный каркас, подходит практически для любого груза, особенно для перевозки хрупких, крупногабаритных и нестандартных грузов).</p>
+                    <p><strong>4</strong>. Для отправки вашего заказа на отгрузку необходима 100% оплата . Безналичный платеж через банк, либо оплата on-line пластиковой картой.</p>
+                    <p><strong>5</strong>. При сотрудничестве с транспортной компанией Вам необходимо заполнить доверенность, на основании которой будет осуществлена отгрузка заказа со склада.</p>
+                </div>
+            </section>
 
-                    <div class="es-filter__drop-down-list">
-                        <div class="es-filter__title">
-                            <h3 class="es-title--h3-bold">Бренды</h3>
-                            <span class="es-filter__title-image"></span>
-                        </div>
-                        <ul class="es-filter__list es-overflow-show">
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand" checked>
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Все бренды</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Aquaton</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">DreamLine</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Dimax</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Lonax</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Affalina</p>
-                                </label>
-                            </li>
-                            <li class="es-filter__item">
-                                <label class="es-input">
-                                    <input class="es-input__radio" type="radio" name="brand">
-                                    <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                    <p class="es-input__text">Alleri</p>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+            <section class="es-tables">
+                <table class="es-table es-margin-right" border="1" align="center" class="es-text" cellspacing="0px"">
+                   <tr align="center">
+                        <td class="es-table__title--h1" colspan="2" width="572px">Стоимость доставки <strong>МЕБЕЛИ</strong> в пределах МКАД + 5 км</td>
+                    <tr>
 
-                <section class="es-catalog__cards-container">
-                    <div class="es-catalog__cards-absent es-hide">
-                        <h3 class="es-catalog__cards-absent-title">Товары отсутствуют</h3>
-                    </div>
-                    <ul class="es-catalog__cards-list"></ul>
-                    <button class="es-catalog-more-cards es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top es-hide">Больше товаров</button>
-                </section>
-                    
-            </div>
+                    <tr align="center">
+                        <td class="es-table__td-border-top es-table__title--h2" width="50%">Сумма заказа</td>
+                        <td class="es-table__td-border-left es-table__td-border-top es-table__title--h2" width="50%">Стоимость доставки</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td class="es-table__td-border-top">До 10 000 руб</td>
+                        <td class="es-table__td-border-left es-table__td-border-top">500 руб</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td class="es-table__td-border-top">От 10 000 руб</td>
+                        <td class="es-table__td-border-left es-table__td-border-top">Бесплатно</td>
+                    </tr>
+                </table>
+
+                <table class="es-table" border="1" align="center" class="es-text" cellspacing="0px">
+                   <tr align="center">
+                        <td colspan="2" width="572px">Стоимость доставки <strong>ДИВАНОВ</strong> в пределах МКАД + 5 км</td>
+                    <tr>
+
+                    <tr align="center">
+                        <td class="es-table__td-border-top es-table__title--h2" width="50%">Сумма заказа</td>
+                        <td class="es-table__td-border-left es-table__td-border-top es-table__title--h2" width="50%">Стоимость доставки</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td class="es-table__td-border-top">До 20 000 руб</td>
+                        <td class="es-table__td-border-left es-table__td-border-top">1 800 руб</td>
+                    </tr>
+
+                    <tr align="center">
+                        <td class="es-table__td-border-top">От 20 000 руб</td>
+                        <td class="es-table__td-border-left es-table__td-border-top">1 000 руб</td>
+                    </tr>
+                </table>
+            </section>
         </div>
     </main>
 
@@ -523,9 +402,8 @@
         </div>
         
     </footer>
-    <script  src = "blocks/nouislider/nouislider.min.js" ></script> 
+    
     <script  src = " https://unpkg.com/simplebar@latest/dist/simplebar.min.js " ></script> 
-    <script type="module" src="js/range-slider.js"></script>
-    <script type="module" src="js/filter.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
