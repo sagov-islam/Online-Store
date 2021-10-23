@@ -84,6 +84,7 @@
     border: 1px solid #c0c0c0;
 }
 .es-input--focus:focus {
+    border: 1px solid #c0c0c0;
     outline: none;
     background-color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
@@ -92,7 +93,6 @@
 // Type - text
 .es-input-text {
     width: 100%;
-    background-color: $bg;
     border: 1px solid #DBDBDB;
     border-radius: 5px;
     height: 45px;
