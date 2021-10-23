@@ -1,3 +1,4 @@
+'use strict';
 
 if (window.location.pathname=='/index.html') {
     const btnRight = document.querySelector('#btn-right');

@@ -1,3 +1,4 @@
+'use strict';
 
 if (window.location.pathname == '/index.html') {
     const daysValue = document.querySelector('.es-timer__days');

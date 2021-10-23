@@ -1,3 +1,6 @@
+'use strict';
+
+
 import {Card} from "./card.js";
 
 const cardsContainer = document.querySelector('.es-catalog__cards-list');

@@ -1,3 +1,4 @@
+'use strict';
 
 if (window.location.pathname=='/index.html') {
     const slidesContainer = document.querySelector('.es-slider__list');

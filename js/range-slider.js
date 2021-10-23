@@ -1,3 +1,5 @@
+'use strict';
+
 const rangeSlider = document.getElementById('range-slider');
 if (rangeSlider) {
     noUiSlider.create(rangeSlider, {

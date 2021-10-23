@@ -1,3 +1,5 @@
+'use strict';
+
 import {Card} from "/js/card.js";
 
 if (window.location.pathname == "/index.html") {
