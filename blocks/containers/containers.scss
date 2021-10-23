@@ -69,5 +69,11 @@
             grid-template-columns: 279px 1fr;
             gap: 18px;
         }
+
+        &--offers {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
     }
     
