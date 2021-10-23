@@ -9,7 +9,7 @@ const brandButtons = document.getElementsByName('brand');
 const btnMoreCards = document.querySelector('.es-catalog-more-cards');
 let category = 'Все категории';
 let brand = 'Все бренды';
-let numForBtnMore = 9;
+let numForBtnMore = 18;
 
 // Карточки товара которые добавляются в каталог при загрузке страницы
 Card('es-catalog__cards-list', 'Все категории', 'Все бренды', [0,9]).render().then(() => {
@@ -77,7 +77,7 @@ categoryButtons.forEach(btn => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 9;
+            numForBtnMore = 18;
         })
     });
 });
@@ -95,7 +95,7 @@ brandButtons.forEach(btn => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 9;
+            numForBtnMore = 18;
         })
     });
 });
@@ -112,7 +112,7 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
     .then(() => {
         ifNoProducts();
         showBtnMoreCards();
-        numForBtnMore = 9;
+        numForBtnMore = 18;
     })
 
 });
@@ -132,7 +132,7 @@ inputs.forEach(input => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 9;
+            numForBtnMore = 18;
         })
     });
 });
@@ -140,7 +140,8 @@ inputs.forEach(input => {
 
 // Кнопка <<Больше товаров>>
 btnMoreCards.addEventListener('click', () => {
-    Card('es-catalog__cards-list', category, brand, [numForBtnMore,9]).render()
+    cardsContainer.innerHTML = '';
+    Card('es-catalog__cards-list', category, brand, [0,numForBtnMore]).render()
     .then(() => {
         filtrationDesiredPrice();
         numForBtnMore += 9;
