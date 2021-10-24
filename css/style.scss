@@ -93,30 +93,6 @@ a {
         transition: 0.1s linear;
     }
 }
-.es-title-and-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-// Скрытие стрелок у инпутов с типом number
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-.es-star {
-    fill: #CCCCCC;
-    &--focus {
-        fill: $yellow;
-    }
-    &--hover {
-        cursor: pointer;
-        fill: $yellow;
-    }
-}
-
 
 // ОСНОВНЫЕ СТИЛИ ДЛЯ БЛОКОВ И ЭЛЕМЕНТОВ
 // Преимущества
@@ -242,8 +218,8 @@ input[type=number]::-webkit-outer-spin-button {
     }
 }
 
-// Страница <<Каталог>>
 
+// Страница <<Каталог>>
 .es-filter {
     background-color: $bg;
     border: 1px solid $border;
@@ -318,7 +294,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .es-catalog__cards {
-
     &-list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -468,7 +443,49 @@ td {
     }
 }
 
+// Страница <<Контакты>>
+.es-contacts {
+    &__map {
+        margin-top: 30px;
+    }
+}
 
+// Стили второстепенных элементов
+.es-title-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Скрытие стрелок у инпутов с типом number
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.es-star {
+    fill: #CCCCCC;
+    &--focus {
+        fill: $yellow;
+    }
+    &--hover {
+        cursor: pointer;
+        fill: $yellow;
+    }
+}
+
+.es-contacts-onformation {
+    &__contact {
+        color: $silver;
+        font-size: 14px;
+        margin-top: 6px;
+        & span {
+            color: $black;
+            margin-left: 15px;
+        }
+    }
+}
 
 
 
@@ -560,7 +577,8 @@ td {
 
 // Социальные сети
 .es-social-networks {
-    display: grid;
+    margin-top: 14px;
+    display: flex;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
     transition: .5s;
