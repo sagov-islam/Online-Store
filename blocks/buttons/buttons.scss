@@ -136,10 +136,12 @@
         &__svg-right {
             transform: rotate(90deg);
             fill: #707070;
+            margin: 0 0 2px 2px;
         }
         &__svg-left {
             transform: rotate(-90deg);
             fill: #707070;
+            margin: 0 2px 2px 0px;
         }
    }
 
