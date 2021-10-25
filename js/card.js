@@ -45,8 +45,16 @@ function Card(containerName, categoryName, brandName, count) {
                     <li class="es-card" id="${id}">
                         <div class="es-card__slider slider${i}">
                             <div class="es-card__slider-buttons">
-                                <button class="es-btn-slider es-card__slider-btn-left"><img class="es-rotate180" src="images/arrow.png" alt="Налево"></button>
-                                <button class="es-btn-slider es-card__slider-btn-right"><img src="images/arrow.png" alt="Направо"></button>
+                                <button class="es-btn-slider es-card__slider-btn-left" id="btn-left">
+                                    <svg class="es-btn-slider__svg-left" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                                    </svg>
+                                </button>
+                                <button class="es-btn-slider es-card__slider-btn-right" id="btn-right">
+                                    <svg class="es-btn-slider__svg-right es-rotate" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                                    </svg>
+                                </button>
                             </div>
                             <div class="es-card__slider-container">
                                 <div class="es-card__slider-list">

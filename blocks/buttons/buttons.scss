@@ -133,6 +133,14 @@
         background-color: white;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
         border-radius: 100%;
+        &__svg-right {
+            transform: rotate(90deg);
+            fill: #707070;
+        }
+        &__svg-left {
+            transform: rotate(-90deg);
+            fill: #707070;
+        }
    }
 
    // Стили для кнопок-ссылок
