@@ -275,12 +275,8 @@ a {
         &-image {
             transition: .1s;
             display: inline-block;
-            background-image: url(/images/arrow-svg.svg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            width: 10px;
-            height: 10px;
             margin-top: 3px;
+            fill: $black;
         }
     }
     &__list {
@@ -415,6 +411,7 @@ td {
 
 // Страница <<Отзывы>>
 .es-write-review {
+    margin-bottom: 50px;
     &__stars {
         margin-top: 10px;
     }
@@ -520,7 +517,7 @@ td {
         &-price {
             font-weight: $extra-bold;
             font-style: italic;
-            font-size: 30px;
+            font-size: 23px;
             color: $black;
         }
         &-old-price {
@@ -556,11 +553,146 @@ td {
         }
     }
 
+    &__specifications {
+        margin-top: 18px;
+        &-item {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           position: relative;
+           margin-bottom: 8px;
+           &:last-child {
+               margin-bottom: 0px;
+           }
+        }
+        &-key {
+            margin-right: 8px;
+            color: $silver;
+        }
+        &-line {
+            display: flex;
+            flex: 1;
+            top: 1px;
+            border: none;
+            height: 1px;
+            background-color: #CFCFCF;
+            margin-top: 7.5px;
+        }
+        &-value {
+            color: $black;
+            margin-left: 8px;
+        }
+    }
+
+    &__footer {
+        &-tabs {
+            margin-bottom: 30px;
+            margin-top: 50px;
+            display: flex;
+            max-width: 259px;
+            height: 45px;
+            border: 1px solid $orange;
+            border-radius: 5px 5px 0 0;
+            &-label {
+                flex: 1;
+                cursor: pointer;
+                &:last-child .es-product__footer-tabs-input-style {
+                    border-radius: 0 5px 0 0;
+                    border-left: 1px solid $orange;
+                }
+            }
+            &-input {
+                position: absolute;
+                height: 1px;
+                width: 1px;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+                &:checked + .es-product__footer-tabs-input-style {
+                    background-color: $orange;
+                    color: white;
+                }
+            }
+            &-input-style {
+                border-radius: 5px 0 0 0;
+                display: inline-block;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                color: $orange;
+                font-weight: $semi-bold;
+                transition: background-color .1s, color .1s;
+                &:hover {
+                    background-color: rgb(255, 228, 224);
+                }
+            }
+        }
+    }
 }
 
 
 
+
 // CТИЛИ ВТОРОСТЕПЕННЫХ ЭЛЕМЕНТОВ
+.es-counter {
+    display: inline-block;
+    height: 34px;
+    width: 116px;
+    background-color: white;
+    box-shadow: 0px 1.2px 3px rgba(0, 0, 0, 0.17);
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    &__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 46px;
+        padding-bottom: 2px;
+        font-size: 14px;
+        color: $silver
+    };
+    &__arrow {
+        position: relative;
+        padding-bottom: 1px;
+        width: 36px;
+        transition: background-color .2s;
+        &:hover {
+            background-color: rgb(238, 238, 238);
+        }
+        &-1 {
+            border-radius: 5px 0 0 5px;
+            border-right: 1px solid #CCCCCC;
+        }
+        &-2 {
+            float: right;
+            border-radius: 0 5px 5px 0;
+            border-left: 1px solid #CCCCCC;
+        }
+    }
+
+    &__svg {
+        fill: $black;
+        position: absolute;
+        top: 13px;
+        left: 13px;
+        &-minus {
+            fill: #8b8b8b;
+            transform: rotate(-90deg);
+        }
+        &-plus {
+            fill: #8b8b8b;
+            transform: rotate(90deg);
+        }
+    }
+}
+
 .es-title-and-button {
     display: flex;
     justify-content: space-between;

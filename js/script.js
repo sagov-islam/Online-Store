@@ -7,3 +7,7 @@ if (window.location.pathname == "/index.html") {
     Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', [0,4]).render();
 }
 
+if (window.location.pathname == "/product-page.html") {
+    Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', [0,4]).render();
+}
+
