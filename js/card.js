@@ -1,6 +1,7 @@
 'use strict';
-
 export {Card};
+
+
 let i = 0
 let cardSliderId = []
 function Card(containerName, categoryName, brandName, count) {
