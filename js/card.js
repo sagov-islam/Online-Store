@@ -175,20 +175,3 @@ function Card(containerName, categoryName, brandName, count) {
 
     return new Card(containerName, categoryName, brandName, count)
 }
-
-
-// if(this.prices) {
-//     const inputValue0 = this.prices[0]
-//     const inputValue1 = this.prices[1]
-
-//     if (this.prices[2].leader !== 0) {
-//         this.prices[2].forEach((card, id) => {
-//             let cardPrice = card.querySelector('.es-card-prices__price').innerHTML;
-//             cardPrice = parseInt(cardPrice.replace(/\D/g,''));
-//             if (cardPrice < inputValue0 || cardPrice > inputValue1) {
-//                 this.prices[2][id].remove()
-//             }
-//         });
-//     }
-    
-// }
