@@ -8,7 +8,6 @@ class Header {
     }
 
     render() {
-        const container = document.querySelector(`.${this.container}`);
         const headerHtml = () => {
             return `
             <header class="es-header">
