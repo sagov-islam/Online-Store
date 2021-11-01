@@ -1,12 +1,11 @@
 'use strict';
-export {Header};
-
 
 class Header {
-    constructor() {
-        
+    showModal(modalName) {
+        const modal = document.querySelector(`#modal-${modalName}`);
+        modal.classList.remove('es-hide--animation')
+        modal.classList.add('es-show--animation')
     }
-
     render() {
         const headerHtml = () => {
             return `
@@ -98,7 +97,7 @@ class Header {
                                 </button>
                             </div>
 
-                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left">
+                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left" onclick="header.showModal('call')">
                                 <span class="es-btn-orange__text">Заказать звонок</span>
                                 <div class="es-btn-orange__bg-1"></div>
                                 <div class="es-btn-orange__bg-2"></div>
@@ -116,10 +115,10 @@ class Header {
                                         <div class="es-header__account-bg2">
                                             <ul class="es-drop-down">
                                                 <li class="es-drop-down__item">
-                                                    <button class="es-text es-drop-down__link es-center" href="#">Зарегистрироваться</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('register')">Зарегистрироваться</button>
                                                 </li>
                                                 <li class="es-drop-down__item ">
-                                                    <button class="es-text es-drop-down__link es-center" href="#">Войти</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('login')">Войти</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -135,11 +134,27 @@ class Header {
                                         <div class="es-header__cart-bg-2" >
                                             <div class="es-header__cart-products" data-simplebar>
                                                 <ul class="es-header__cart-products-list">
+                                                    <li class="es-header__cart-products-item">
+                                                        <img class="es-header__cart-image" src="images/product-images/product9/image1.png"  alt="Chair">
+                                                        <div class="es-header__cart-info">
+                                                            <a class="es-header__cart-title" href="">Кресло Hygge, темно-бирюзовыs df sdsdds</a>
+                                                            <div class="es-card-prices">
+                                                                <span class="es-card-prices__price">12 000 ₽</span>
+                                                                <span class="es-card-prices__old-price"><span class="es-card-prices__old-price-line"></span> 16 000 ₽</span>
+                                                                <span class="es-card-prices__discount">-50%</span>
+                                                            </div>
+                                                        </div>
+                                                        <button class="es-btn-delete">
+                                                            <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
+                                                            </svg>
+                                                        </button>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="es-header__cart-footer">
                                                 <p class="es-amount">Итого: <span class="es-amount-sum">64 000 ₽</span></p>
-                                                <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="#">Перейти в коризну</a>
+                                                <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html">Перейти в коризну</a>
                                             </div>
                                         </div>
                                     </div>
@@ -154,3 +169,4 @@ class Header {
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
     }
 }
+
