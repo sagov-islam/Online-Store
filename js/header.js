@@ -170,3 +170,4 @@ class Header {
     }
 }
 
+const header = new Header();

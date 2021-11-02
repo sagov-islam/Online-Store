@@ -11,13 +11,12 @@ if (loc == "/index.html" || loc == "/product-page.html" || loc == "/cart.html") 
 
 
 // HEADER
-const header = new Header();
-header.render()
-
+new Header().render();
 
 
 // МОДАЛЬНЫЕ ОКНА:
 // <<Заказать звонок>>
+
 new Modal('call', 'Заказать звонок', 'Отправить', [
     {
         type: 'text',
@@ -31,7 +30,7 @@ new Modal('call', 'Заказать звонок', 'Отправить', [
         placeholder: 'Телефон',
         required: true
     }
-]).render()
+]).render();
 
 // <<Регистрация>>
 new Modal('register', 'Регистрация', 'Зарегистрироваться', [
@@ -77,12 +76,3 @@ new Modal('login', 'Вход', 'Войти', [
         required: true
     }
 ]).render();
-
-// Кнопки закрытия модальных окон //ВРЕМЕННО//
-const btnsClose = document.querySelectorAll('.es-modal__btn-delete');
-btnsClose.forEach(btn => {
-    btn.addEventListener('click', () => {
-        btn.parentNode.parentNode.classList.add('es-hide--animation')
-        btn.parentNode.parentNode.classList.remove('es-show--animation')
-    });
-});
