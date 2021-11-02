@@ -51,7 +51,20 @@
         }
         &:active &__image {
             top: 15px;
-        } 
+        }
+
+        &--checked {
+            & .es-btn-orange__bg-1 {
+                top: 1.2px;
+                background-color: rgb(163, 163, 163);
+            }
+            & .es-btn-orange__text {
+                top: 1.2px;
+            }
+            & .es-btn-orange__bg-2 {
+                background-color: #777777;
+            }
+        }
     }
 
     

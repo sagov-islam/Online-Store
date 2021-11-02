@@ -1,4 +1,25 @@
 'use strict';
+function addStyleChecked() {
+    const storage = JSON.parse(localStorage.getItem('products'));
+    if (storage) {
+        const cards = document.querySelectorAll('.es-card')
+        storage.forEach(item => {
+            cards.forEach(card => {
+                if (card.dataset.id === item.id) {
+                    const btn = card.querySelector('.es-btn-orange')
+                    const count = card.querySelector('.es-counter__count');
+                    const text = btn.querySelector('span')
+                    btn.id = 'checked'
+                    text.textContent = 'Удалить из корзины'
+                    count.textContent = item.count
+                    btn.classList.add('es-btn-orange--checked')
+                }
+            });
+        });
+    };
+}
+addStyleChecked()
+
 
 let i = 0
 let cardSliderId = []
@@ -36,8 +57,8 @@ function Card(containerName, categoryName, brandName, count) {
         minusNumber(btn) {
             const count = btn.nextElementSibling
             let countNum = count.innerHTML
-            if (countNum <= 0) {
-                countNum = 0
+            if (countNum <= 1) {
+                countNum = 1
             } else {
                 count.textContent = --countNum
             }
@@ -48,6 +69,58 @@ function Card(containerName, categoryName, brandName, count) {
             let countNum = count.innerHTML
             count.textContent = ++countNum
         }
+        
+        deleteFromLocalStorage(btn) {
+            btn.id = ''
+            const parent = btn.parentNode.parentNode.parentNode.parentNode;
+            const cards = document.querySelectorAll('.es-card')
+            const storage = JSON.parse(localStorage.getItem('products'))
+            if (storage) {
+                storage.forEach((item, index) => {
+                    if (parent.dataset.id === item.id) {
+                        storage.splice(index, 1)
+                        cards.forEach(card => {
+                            if (card.dataset.id == item.id) {
+                                const button = card.querySelector('.es-btn-orange');
+                                const text = button.querySelector('span')
+                                text.textContent = 'Добавить в корзину'
+                                button.classList.remove('es-btn-orange--checked')
+                            }
+                        })
+                    }
+                })
+                localStorage.setItem('products', JSON.stringify(storage));
+            }
+        }
+
+        addToLocalStorage(btn) {
+            if (btn.id === 'checked') {
+                // Если товар уже есть в LocalStorage, то он удаляется из него
+                this.deleteFromLocalStorage(btn)
+            } else {
+                // Если его нет, то он добавляется в LocalStorage
+                const parent = btn.parentNode.parentNode.parentNode.parentNode;
+                const id = parent.dataset.id;
+                const count = parent.querySelector('.es-counter__count').innerHTML;
+                const priceString = parent.querySelector('.es-card-prices__price').innerHTML;
+                const price = parseInt(priceString.replace(/\D/g,''));
+    
+                const productProps = {id, price, count}
+                const storage = localStorage.getItem('products')
+    
+                if (!storage) {
+                    const array = []
+                    array.push(productProps)
+                    localStorage.setItem('products', JSON.stringify(array))
+                } else {
+                    const parsedStorage = JSON.parse(storage);
+                    parsedStorage.push(productProps)
+                    localStorage.setItem('products', JSON.stringify(parsedStorage))
+                }
+                addStyleChecked()
+            }
+            
+        }
 
         render() {
             return new Promise((resolve,reject) => {
@@ -57,7 +130,7 @@ function Card(containerName, categoryName, brandName, count) {
                 let container = document.querySelector(`.${this.container}`);
                 const cardHtml = (title, description, inStock, price, discountHtml, id, images) => {
                     return`
-                    <li class="es-card" id="${id}">
+                    <li class="es-card" data-id="${id}">
                         <div class="es-card__slider slider${i}">
                             <div class="es-card__slider-buttons">
                                 <button class="es-btn-slider es-card__slider-btn-left" id="btn-left">
@@ -99,7 +172,7 @@ function Card(containerName, categoryName, brandName, count) {
                                                 <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
                                             </svg>
                                         </button>
-                                        <span class="es-counter__count">0</span>
+                                        <span class="es-counter__count">1</span>
                                         <button class="es-counter__arrow es-counter__arrow-2" onclick="card.plusNumber(this)">
                                             <svg class="es-counter__svg es-counter__svg-plus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
@@ -112,7 +185,7 @@ function Card(containerName, categoryName, brandName, count) {
                                     ${discountHtml}
                                 </div>
                                 <div class="es-card__buttons">
-                                    <button class="es-btn-orange es-btn es-btn--size-all-width ">
+                                    <button class="es-btn-orange es-btn es-btn--size-all-width" onclick="card.addToLocalStorage(this)">
                                         <span class="es-btn-orange__text">Добавить в корзину</span>
                                         <div class="es-btn-orange__bg-1"></div>
                                         <div class="es-btn-orange__bg-2"></div>
@@ -197,8 +270,10 @@ function Card(containerName, categoryName, brandName, count) {
                     });
                     resolve()
                 })
+            })
+            .then(() => {
+                addStyleChecked()
             });
-            
         };
     };
     // -------- Класс для карточки товара -------- \\
@@ -207,3 +282,12 @@ function Card(containerName, categoryName, brandName, count) {
 }
 
 const card = new Card();
+
+
+// storage.forEach((item, index) => {
+//     if(item.id === productProps.id) {
+//         // productsStorage.splice(index, 1)
+//         delete storage[index]
+//         itemIndex = index
+//     }
+// });
