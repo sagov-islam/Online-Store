@@ -1,18 +1,32 @@
 'use strict';
 function addStyleChecked() {
     const storage = JSON.parse(localStorage.getItem('products'));
+    const cards = document.querySelectorAll('.es-card')
     if (storage) {
-        const cards = document.querySelectorAll('.es-card')
-        storage.forEach(item => {
-            cards.forEach(card => {
+        cards.forEach(card => {
+            const btn = card.querySelector('.es-btn-orange')
+            const counter = card.querySelector('.es-counter');
+            const counterArrow = counter.querySelectorAll('.es-counter__arrow')
+            const count = card.querySelector('.es-counter__count');
+            const text = btn.querySelector('span')
+
+            btn.id = ''
+            text.textContent = 'Добавить в корзину'
+            btn.classList.remove('es-btn-orange--checked')
+            counter.classList.remove('es-counter--checked')
+            counterArrow[0].attributes.onclick.nodeValue = 'card.minusNumber(this)'
+            counterArrow[1].attributes.onclick.nodeValue = 'card.plusNumber(this)'
+
+            storage.forEach(item => {
                 if (card.dataset.id === item.id) {
-                    const btn = card.querySelector('.es-btn-orange')
-                    const count = card.querySelector('.es-counter__count');
-                    const text = btn.querySelector('span')
+
                     btn.id = 'checked'
-                    text.textContent = 'Удалить из корзины'
-                    count.textContent = item.count
+                    text.textContent = 'Удалить из коризины'
                     btn.classList.add('es-btn-orange--checked')
+                    count.textContent = item.count
+                    counter.classList.add('es-counter--checked')
+                    counterArrow[0].attributes.onclick.nodeValue = ''
+                    counterArrow[1].attributes.onclick.nodeValue = ''
                 }
             });
         });
@@ -71,25 +85,16 @@ function Card(containerName, categoryName, brandName, count) {
         }
         
         deleteFromLocalStorage(btn) {
-            btn.id = ''
             const parent = btn.parentNode.parentNode.parentNode.parentNode;
-            const cards = document.querySelectorAll('.es-card')
             const storage = JSON.parse(localStorage.getItem('products'))
             if (storage) {
                 storage.forEach((item, index) => {
                     if (parent.dataset.id === item.id) {
                         storage.splice(index, 1)
-                        cards.forEach(card => {
-                            if (card.dataset.id == item.id) {
-                                const button = card.querySelector('.es-btn-orange');
-                                const text = button.querySelector('span')
-                                text.textContent = 'Добавить в корзину'
-                                button.classList.remove('es-btn-orange--checked')
-                            }
-                        })
                     }
                 })
                 localStorage.setItem('products', JSON.stringify(storage));
+                addStyleChecked()
             }
         }
 
