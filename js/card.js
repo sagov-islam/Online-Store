@@ -287,12 +287,3 @@ function Card(containerName, categoryName, brandName, count) {
 }
 
 const card = new Card();
-
-
-// storage.forEach((item, index) => {
-//     if(item.id === productProps.id) {
-//         // productsStorage.splice(index, 1)
-//         delete storage[index]
-//         itemIndex = index
-//     }
-// });
