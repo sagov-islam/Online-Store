@@ -56,7 +56,7 @@
         &--checked {
             & .es-btn-orange__bg-1 {
                 top: 1.2px;
-                background-color: rgb(163, 163, 163);
+                background-color: #a3a3a3;
             }
             & .es-btn-orange__text {
                 top: 1.2px;
@@ -192,18 +192,30 @@
         height: 48px;
         padding: 3px 0 0 2px;
         transition: .2s;
-        &:hover {
-            border-color: $orange;
-            transition: .2s;
-            background-color: $orange;
-        }
-        &:hover > svg {
-            fill: #ffffff;
-            transition: .2s;
-        }
         & svg {
             fill:#808080;
             transition: .2s;
+        }
+
+        &--hover {
+            &:hover {
+                border-color: $orange;
+                transition: .2s;
+                background-color: $orange;
+            }
+            &:hover > svg {
+                fill: #ffffff;
+                transition: .2s;
+            }
+        }
+        
+        
+        &--checked {
+            background-color: #e6e6e6;
+            border-color: #afafaf;
+            & svg {
+                fill: #a1a1a1;
+            }
         }
    }
 }
