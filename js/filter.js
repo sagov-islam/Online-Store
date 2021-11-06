@@ -18,7 +18,7 @@ Card('es-catalog__cards-list', 'Все категории', 'Все бренды
 // --------- ФУНКЦИИ --------- \\
 // Функция которая проверяет: если в контейнере нету элементов то визуально показать что товаров нет:
 const ifNoProducts = () => {
-    const cardsAbsentBlock = document.querySelector('.es-catalog__cards-absent');
+    const cardsAbsentBlock = document.querySelector('.es-absence__catalog');
     let count = document.querySelectorAll('.es-card').length
     if (count === 0) {
         cardsAbsentBlock.classList.remove('es-hide');

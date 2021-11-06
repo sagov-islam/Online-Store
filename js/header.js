@@ -138,7 +138,7 @@ class Header {
                                                 </ul>
                                             </div>
                                             <div class="es-header__cart-footer">
-                                                <p class="es-amount">Итого: <span class="es-amount-sum">64 000 ₽</span></p>
+                                                <p class="es-amount">Итого: <span class="es-amount-sum"></span></p>
                                                 <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html">Перейти в коризну</a>
                                             </div>
                                         </div>
@@ -152,7 +152,8 @@ class Header {
             `
         };
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
-        addToCart()
+        addToCart();
+        updateCartSum();
     }
 }
 
