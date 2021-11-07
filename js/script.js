@@ -11,6 +11,7 @@ function minusNumber(btn) {
     } else {
         count.textContent = --countNum
     }
+    updateLocalStorageProducts(btn)
 }
 
 
@@ -18,16 +19,21 @@ function plusNumber(btn) {
     const count = btn.previousElementSibling
     let countNum = count.innerHTML
     count.textContent = ++countNum
+    updateLocalStorageProducts(btn)
 }
 
+
+
 function checkForEmptyCart() {
+    const btn = document.getElementById('cart-btn');
+    const cartProductsContainer = document.querySelector('.es-header__cart-products-list')
+    const cartProducts = document.querySelectorAll('.es-header__cart-products-item');
     const html = `
     <div class="es-absence">
         <h3 class="es-absence__text">Товары отсутствуют</h3>
     </div>
     `
-    const cartProductsContainer = document.querySelector('.es-header__cart-products-list')
-    if (cartProductsContainer.children.length === 0) {
+    if (cartProducts.length === 0) {
         cartProductsContainer.innerHTML = html
     }
 }
@@ -48,9 +54,7 @@ function addStyleCheckedCardBtn(){
             btn.id = ''
             text.textContent = 'Добавить в корзину'
             btn.classList.remove('es-btn-orange--checked')
-            counter.classList.remove('es-counter--checked')
-            counterArrow[0].attributes.onclick.nodeValue = 'minusNumber(this)'
-            counterArrow[1].attributes.onclick.nodeValue = 'plusNumber(this)'
+            count.textContent = 1
 
             storage.forEach(item => {
                 if (card.dataset.id === item.id) {
@@ -59,9 +63,6 @@ function addStyleCheckedCardBtn(){
                     text.textContent = 'Удалить из коризины'
                     btn.classList.add('es-btn-orange--checked')
                     count.textContent = item.count
-                    counter.classList.add('es-counter--checked')
-                    counterArrow[0].attributes.onclick.nodeValue = ''
-                    counterArrow[1].attributes.onclick.nodeValue = ''
                 }
             });
         });
@@ -115,7 +116,8 @@ function deleteCardFromCart(btn) {
         });
         checkForEmptyCart()
         addStyleCheckedCardBtn()
-        updateCartSum()
+        updateCartSum('es-amount-sum')
+        addLocalStorageProductsToCartPage()
     }
     
 }
@@ -126,7 +128,7 @@ function addToCart() {
     container.innerHTML = ''
     let storage = localStorage.getItem('products')
 
-    const cardHtml = (id, name, price, discount, image, category) => {
+    const cardHtml = (id, name, price, discount, image, category, count) => {
         return `
         <li class="es-header__cart-products-item" data-id="${id}">
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
@@ -135,6 +137,21 @@ function addToCart() {
                 <div class="es-card-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
+                </div>
+                <div class="es-counter es-header__cart-counter" data-id="${id}">
+                    <div class="es-counter__content">
+                        <button class="es-counter__arrow es-counter__arrow-1" onclick="minusNumber(this), updateLocalStorageProducts(this), addLocalStorageProductsToCartPage()">
+                            <svg class="es-counter__svg es-counter__svg-minus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                            </svg>
+                        </button>
+                        <span class="es-counter__count">${count}</span>
+                        <button class="es-counter__arrow es-counter__arrow-2" onclick="plusNumber(this), updateLocalStorageProducts(this), addLocalStorageProductsToCartPage()">
+                            <svg class="es-counter__svg es-counter__svg-plus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
             <button class="es-btn-delete" onclick="deleteCardFromCart(this)">
@@ -148,9 +165,8 @@ function addToCart() {
 
     if (storage) {
         storage = JSON.parse(storage);
-        fetch('/database.json')
-        .then(data => data.json())
-        .then(data => {
+
+        database.then(data => {
             storage.forEach(item => {
                 data.cards.forEach(card => {
                     let discountHtml = ''
@@ -170,7 +186,8 @@ function addToCart() {
                             price,
                             discountHtml,
                             card.images[0],
-                            card.information.category
+                            card.information.category,
+                            item.count
                         )
                     }
                 });
@@ -184,20 +201,58 @@ function addToCart() {
 }
 
 
-
-function updateCartSum() {
-    let storage = localStorage.getItem('products')
-    let sumContainer = document.querySelector('.es-amount-sum');
-    let sum = 0
+function updateLocalStorageProducts(btn) {
+    const counter = btn.parentNode.parentNode;
+    const counterId = counter.dataset.id;
+    const counterNum = counter.querySelector('.es-counter__count').textContent
+    let storage = localStorage.getItem('products');
     if (storage) {
         storage = JSON.parse(storage);
         storage.forEach(item => {
-            sum += item.price
+            if (item.id == counterId) {
+                item.count = counterNum
+                localStorage.setItem('products', JSON.stringify(storage))
+            }
         });
-        sumContainer.textContent = `${sum} ₽`
+        updateCartSum('es-amount-sum')
+        updateCartSum('es-specifications__value-sum')
+        sumOfPaymentAndDelivery()
     }
 }
 
+
+function updateCartSum(container) {
+    let storage = localStorage.getItem('products');
+    let sumContainers = document.querySelectorAll(`.${container}`);
+    let sum = 0;
+    if (storage) {
+        storage = JSON.parse(storage);
+        storage.forEach(item => {
+            sum += item.price * item.count;
+        });
+        sumContainers.forEach(item => {
+            item.textContent = `${sum} ₽`;
+        });
+        sumOfPaymentAndDelivery();
+    }
+}
+updateCartSum('es-specifications__value-sum');
+
+
+
+function sumOfPaymentAndDelivery() {
+    if (loc == '/cart.html') {
+        const sumContainer = document.querySelector('.es-cart__sum');
+        const values = document.querySelectorAll('.es-specifications__value');
+        let sum = null
+        values.forEach(item => {
+            sum += parseInt(item.innerHTML.replace(/\D/ig, ''));
+        });
+        sumContainer.textContent = `${sum} ₽`
+    };
+    
+}
+sumOfPaymentAndDelivery()
 
 
 function addLocalStorageProductsToCartPage() {
@@ -249,15 +304,15 @@ function addLocalStorageProductsToCartPage() {
                     </div>
 
                     <div class="es-cart__product-buttons-container">
-                        <div class="es-counter es-cart__product-counter">
+                        <div class="es-counter es-cart__product-counter" data-id="${id}">
                             <div class="es-counter__content">
-                                <button class="es-counter__arrow es-counter__arrow-1" onclick="minusNumber(this)">
+                                <button class="es-counter__arrow es-counter__arrow-1" onclick="minusNumber(this), updateLocalStorageProducts(this), addToCart(), updateCartSum('es-specifications__value-sum')">
                                     <svg class="es-counter__svg es-counter__svg-minus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
                                     </svg>
                                 </button>
                                 <span class="es-counter__count">${count}</span>
-                                <button class="es-counter__arrow es-counter__arrow-2" onclick="plusNumber(this)">
+                                <button class="es-counter__arrow es-counter__arrow-2" onclick="plusNumber(this), updateLocalStorageProducts(this), addToCart(), updateCartSum('es-specifications__value-sum')">
                                     <svg class="es-counter__svg es-counter__svg-plus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
                                     </svg>
@@ -279,6 +334,9 @@ function addLocalStorageProductsToCartPage() {
     
 }
 addLocalStorageProductsToCartPage()
+
+
+
 
 
 

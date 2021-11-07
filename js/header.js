@@ -139,7 +139,7 @@ class Header {
                                             </div>
                                             <div class="es-header__cart-footer">
                                                 <p class="es-amount">Итого: <span class="es-amount-sum"></span></p>
-                                                <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html">Перейти в коризну</a>
+                                                <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html" id="cart-btn">Перейти в коризну</a>
                                             </div>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@ class Header {
         };
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
         addToCart();
-        updateCartSum();
+        updateCartSum('es-amount-sum');
     }
 }
 

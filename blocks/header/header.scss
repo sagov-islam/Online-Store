@@ -179,7 +179,7 @@
                     height: 0;
             }
             &-item {
-                height: 80px;
+                height: 90px;
                 width: 100%;
                 background-color: $bg;
                 padding: 8px;
@@ -219,6 +219,11 @@
             width: 100%;
             padding: 15px;
             border-top: 1px solid #DBDBDB;
+        }
+        &-counter {
+            margin-top: 3px;
+            transform: scale(0.9);
+            transform-origin: left;
         }
     }
 }
