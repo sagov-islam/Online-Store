@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 let i = 0
 let cardSliderId = []
 function Card(containerName, categoryName, brandName, count) {
@@ -32,24 +34,6 @@ function Card(containerName, categoryName, brandName, count) {
             this.numOfCards = numOfCards
             this.brand = brand
         }
-
-        minusNumber(btn) {
-            const count = btn.nextElementSibling
-            let countNum = count.innerHTML
-            if (countNum <= 1) {
-                countNum = 1
-            } else {
-                count.textContent = --countNum
-            }
-        }
-
-
-        plusNumber(btn) {
-            const count = btn.previousElementSibling
-            let countNum = count.innerHTML
-            count.textContent = ++countNum
-        }
-        
 
         deleteFromLocalStorage(btn) {
             const parent = btn.parentNode.parentNode.parentNode.parentNode;
@@ -100,6 +84,7 @@ function Card(containerName, categoryName, brandName, count) {
                 addStyleCheckedCardBtn()
                 addToCart()
                 updateCartSum()
+                addLocalStorageProductsToCartPage()
             } else {
                 // Если его нет, то он добавляется в LocalStorage
                 const parent = btn.parentNode.parentNode.parentNode.parentNode;
@@ -123,6 +108,7 @@ function Card(containerName, categoryName, brandName, count) {
                 addStyleCheckedCardBtn()
                 addToCart()
                 updateCartSum()
+                addLocalStorageProductsToCartPage()
             }
             
         }
@@ -173,13 +159,13 @@ function Card(containerName, categoryName, brandName, count) {
                             <div class="es-margin-top">
                                 <div class="es-counter es-card__counter">
                                     <div class="es-counter__content">
-                                        <button class="es-counter__arrow es-counter__arrow-1" onclick="card.minusNumber(this)">
+                                        <button class="es-counter__arrow es-counter__arrow-1" onclick="minusNumber(this)">
                                             <svg class="es-counter__svg es-counter__svg-minus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
                                             </svg>
                                         </button>
                                         <span class="es-counter__count">1</span>
-                                        <button class="es-counter__arrow es-counter__arrow-2" onclick="card.plusNumber(this)">
+                                        <button class="es-counter__arrow es-counter__arrow-2" onclick="plusNumber(this)">
                                             <svg class="es-counter__svg es-counter__svg-plus" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
                                             </svg>

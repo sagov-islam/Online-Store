@@ -614,20 +614,21 @@ td {
             margin-bottom: 0;
         }
         &-main-content {
+            display: block;
             display: flex;
             align-items: center;
+            width: 50%;
+            min-width: 323px;
         }
         &-img-container {
             display: inline-block;
-            height: 100%;
-            width: 90px;
-            overflow: hidden;
+            height: 80px;
+            width: 80px;
         }
         &-img {
-            height: 100%;
-            width: 100%;
+            height: 80px;
+            width: 80px;
             object-fit: contain;
-            transform: scale(1.2,1.2)
         }
 
         &-info {
@@ -653,11 +654,12 @@ td {
         &-prices {
             margin-top: 4px;
         }
-        &-counter {
+        &-buttons-container {
             margin-left: 20px;
-        }
-        &-btn {
-            margin-left: 20px;
+            width: 35%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
     }
 
