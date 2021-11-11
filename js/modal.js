@@ -16,8 +16,7 @@ class Modal {
         parent.classList.remove('es-show--animation');
         parent.classList.add('es-hide--animation');
 
-        deleteWarning('es-warning-signUp-success');
-        deleteWarning('es-warning-signUp-error');
+        deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
     }
 
 
