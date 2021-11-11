@@ -22,6 +22,13 @@ class Modal {
 
 
     render() {
+        let btn = '';
+        if (this.btnText !== false) {
+            btn = `
+            <button class="es-btn es-btn--style-inherit-orange" type="submit">${this.btnText}</button>
+            `
+        }
+
         let inputs = ''
         this.inputsProps.forEach(item => {
             let required = ''
@@ -33,7 +40,6 @@ class Modal {
             `
             inputs += input
         });
-        
         
 
         const modalHtml = () => {
@@ -48,7 +54,9 @@ class Modal {
                     <h2 class="es-title--h2 es-modal__title">${this.title}</h2>
                     <form class="es-modal__form" id="es-form-${this.modalName}" action="#" name="${this.modalName}">
                         ${inputs}
-                        <button class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top" type="submit">${this.btnText}</button>
+                        <div class="es-modal__buttons es-margin-top">
+                        ${btn}
+                        </div>
                     </form>
 
                 </div>
@@ -57,6 +65,7 @@ class Modal {
         };
 
         document.body.insertAdjacentHTML("afterbegin", modalHtml());
+
         if (this.functionName) {
             this.functionName()
         }

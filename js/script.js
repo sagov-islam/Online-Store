@@ -421,6 +421,7 @@ function signIn() {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
+
         let storage = localStorage.getItem('user');
         const formData = new FormData(form);
         const object = Object.fromEntries(formData.entries());
@@ -428,7 +429,7 @@ function signIn() {
         if (storage) {
             storage = JSON.parse(storage);
             if (storage.email === object.email && storage.password === object.password) {
-                if (storage.loggedIn !== true) {
+                if (storage.loggedIn === false) {
                     deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
                     addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы вошли в аккаунт');
                     storage.loggedIn = true;
@@ -439,14 +440,6 @@ function signIn() {
                         modal.classList.add('es-hide--animation')
                     }, 2000);
                     checkLoggedInOrNot()
-                } else {
-                    deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
-                    addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы уже в аккаунте');
-                    setTimeout(() => {
-                        deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
-                        modal.classList.remove('es-show--animation')
-                        modal.classList.add('es-hide--animation')
-                    }, 2000);
                 }
             } else {
                 deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
@@ -461,8 +454,9 @@ function signIn() {
                 modal.classList.add('es-hide--animation')
             }, 2000);
         }
-    });
 
+
+    });
 }
 
 
@@ -478,16 +472,16 @@ function checkLoggedInOrNot() {
                 <a class="es-text es-drop-down__link es-center" href="/account.html">В профиль</a>
             </li>
             <li class="es-drop-down__item ">
-                <button class="es-text es-drop-down__link es-center" onclick="logOut()">Выйти из аккаунта</button>
+                <button class="es-text es-drop-down__link es-center" onclick="showModal('logOut')">Выйти из аккаунта</button>
             </li>
             `
         }  else {
             dropDown.innerHTML = `
             <li class="es-drop-down__item">
-                <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signUp')">Зарегистрироваться</button>
+                <button class="es-text es-drop-down__link es-center" onclick="showModal('signUp')">Зарегистрироваться</button>
             </li>
             <li class="es-drop-down__item ">
-                <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signIn')">Войти</button>
+                <button class="es-text es-drop-down__link es-center" onclick="showModal('signIn')">Войти</button>
             </li>
             `
         }
@@ -497,11 +491,35 @@ function checkLoggedInOrNot() {
 
 // Функция для выхода из аккаунта
 function logOut() {
-    const storage = JSON.parse(localStorage.getItem('user'));
-    storage.loggedIn = false;
-    localStorage.setItem('user', JSON.stringify(storage));
-    checkLoggedInOrNot();
+    const modal = document.querySelector('#es-modal-logOut')
+    const form = modal.querySelector('form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+    });
+    const btn = form.querySelector('button');
+    btn.addEventListener('click', () => {
+        const storage = JSON.parse(localStorage.getItem('user'));
+        storage.loggedIn = false;
+        localStorage.setItem('user', JSON.stringify(storage));
+        checkLoggedInOrNot();
+
+        addWarning('es-form-logOut', 'green', 'es-warning-logOut-success', 'Вы вышли из аккаунта');
+        setTimeout(() => {
+            deleteWarning(['es-warning-logOut-success']);
+            modal.classList.remove('es-show--animation')
+            modal.classList.add('es-hide--animation')
+        }, 2000);
+    });
 }
+
+
+function showModal(modalName) {
+    const modal = document.querySelector(`#es-modal-${modalName}`);
+    modal.classList.remove('es-hide--animation')
+    modal.classList.add('es-show--animation')
+}
+
+
 
 if (loc == "/index.html") {
     Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
@@ -579,3 +597,6 @@ new Modal('signIn', 'Вход', 'Войти', [
         required: true
     }
 ], signIn).render();
+
+
+new Modal('logOut', 'Вы уверены что хотите выйти из аккаунта?', 'Да', [], logOut).render();

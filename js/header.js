@@ -1,11 +1,6 @@
 'use strict';
 
 class Header {
-    showModal(modalName) {
-        const modal = document.querySelector(`#es-modal-${modalName}`);
-        modal.classList.remove('es-hide--animation')
-        modal.classList.add('es-show--animation')
-    }
     render() {
         const headerHtml = () => {
             return `
@@ -97,7 +92,7 @@ class Header {
                                 </button>
                             </div>
 
-                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left" onclick="header.showModal('call')">
+                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left" onclick="showModal('call')">
                                 <span class="es-btn-orange__text">Заказать звонок</span>
                                 <div class="es-btn-orange__bg-1"></div>
                                 <div class="es-btn-orange__bg-2"></div>
@@ -115,10 +110,10 @@ class Header {
                                         <div class="es-header__account-bg2">
                                             <ul class="es-drop-down" id="es-header-account-drop-down">
                                                 <li class="es-drop-down__item">
-                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signUp')">Зарегистрироваться</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="showModal('signUp')">Зарегистрироваться</button>
                                                 </li>
                                                 <li class="es-drop-down__item ">
-                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signIn')">Войти</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="showModal('signIn')">Войти</button>
                                                 </li>
                                             </ul>
                                         </div>
