@@ -23,7 +23,7 @@ function plusNumber(btn) {
 }
 
 
-
+// Фунция проверки корзины на пустоту
 function checkForEmptyCart() {
     const cartProductsContainer = document.querySelector('.es-header__cart-products-list')
     const storage = JSON.parse(localStorage.getItem('products'))
@@ -39,6 +39,7 @@ function checkForEmptyCart() {
 
 
 
+// Функция добавления стилей на кнопки <<Добавить в корзину>> карточек товара
 function addStyleCheckedCardBtn(){
     const storage = JSON.parse(localStorage.getItem('products'));
     const cards = document.querySelectorAll('.es-card')
@@ -71,6 +72,7 @@ addStyleCheckedCardBtn()
 
 
 
+// Функция добавления стилей на кнопку <<Добавить в избранное>> карточки товара
 function addStyleCheckedChosenBtn() {
     let storage = localStorage.getItem('chosen')
     const cards = document.querySelectorAll('.es-card')
@@ -99,7 +101,7 @@ addStyleCheckedChosenBtn();
 
 
 
-
+// Функция удаления продукта из корзины и обновления LocalStorage
 function deleteCardFromLocalStorage(parent) {
     let storage = localStorage.getItem('products');
     if (storage) {
@@ -116,10 +118,11 @@ function deleteCardFromLocalStorage(parent) {
         addStyleCheckedCardBtn()
         updateCartSum('es-amount-sum')
     }
-    
 }
 
 
+
+// Фунция добавления карточки товара в корзину
 function addToCart() {
     const container = document.querySelector('.es-header__cart-products-list')
     container.innerHTML = ''
@@ -198,41 +201,43 @@ function addToCart() {
     }
 }
 
-
+// Функция обновления LocalStorage при использовании counter'а
 function updateLocalStorageProducts(btn) {
     const counter = btn.parentNode.parentNode;
     const counterId = counter.dataset.id;
-    const counterNum = counter.querySelector('.es-counter__count').textContent
+    const counterNum = counter.querySelector('.es-counter__count').textContent;
     let storage = localStorage.getItem('products');
     if (storage) {
         storage = JSON.parse(storage);
         storage.forEach(item => {
             if (item.id == counterId) {
-                item.count = counterNum
-                localStorage.setItem('products', JSON.stringify(storage))
+                item.count = counterNum;
+                localStorage.setItem('products', JSON.stringify(storage));
             }
         });
-        updateCartSum('es-amount-sum')
-        updateCartSum('es-specifications__value-sum')
-        sumOfPaymentAndDelivery()
+        updateCartSum('es-amount-sum');
+        updateCartSum('es-specifications__value-sum');
+        sumOfPaymentAndDelivery();
     }
 }
 
-
+// Функция обновления суммы всех товаров в корзине
 function updateCartSum(container) {
     let storage = localStorage.getItem('products');
-    let sumContainers = document.querySelectorAll(`.${container}`);
+    let sumContainer = document.querySelector(`.${container}`);
     let sum = 0;
-    if (storage) {
-        storage = JSON.parse(storage);
-        storage.forEach(item => {
-            sum += item.price * item.count;
-        });
-        sumContainers.forEach(item => {
-            item.textContent = `${sum} ₽`;
-        });
-        sumOfPaymentAndDelivery();
+
+    if (sumContainer) {
+        if (storage) {
+            storage = JSON.parse(storage);
+            storage.forEach(item => {
+                sum += item.price * item.count;
+            });
+            sumContainer.textContent = `${sum} ₽`;
+            sumOfPaymentAndDelivery();
+        }
     }
+
 }
 updateCartSum('es-specifications__value-sum');
 
@@ -366,17 +371,19 @@ function addWarning(container, color, warningBlockId, text) {
 
 
 // Функция удаляющая предупреждения и уведомления
-function deleteWarning(warningBlock) {
-    const warning = document.getElementById(`${warningBlock}`);
-    if (warning) {
-        warning.remove();
-    }
+function deleteWarning(warningBlocks) {
+    warningBlocks.forEach(item => {
+        const warning = document.getElementById(`${item}`);
+        if (warning) {
+            warning.remove();
+        }
+    });
 };
 
 
 
 // Функция для формы регистрации
-function registration() {
+function signUp() {
     const modal = document.getElementById('es-modal-signUp')
     const form = modal.querySelector('#es-form-signUp');
     form.addEventListener('submit', (e) => {
@@ -387,26 +394,114 @@ function registration() {
         if (!storage) {
             const formData = new FormData(form);
             const object = Object.fromEntries(formData.entries());
+            object.loggedIn = false;
             localStorage.setItem('user', JSON.stringify(object))
 
-            deleteWarning('es-warning-signUp-error');
+            deleteWarning(['es-warning-signUp-error', 'es-warning-signUp-success']);
             addWarning('es-form-signUp', 'green', 'es-warning-signUp-success', 'Вы зарегистрировались');
         } else {
-            deleteWarning('es-warning-signUp-error');
-            deleteWarning('es-warning-signUp-success');
+            deleteWarning(['es-warning-signUp-error', 'es-warning-signUp-success']);
             addWarning('es-form-signUp', 'red', 'es-warning-signUp-error', 'Вы уже зарегистрированы');
         }
 
         setTimeout(() => {
-            deleteWarning('es-warning-signUp-error');
-            deleteWarning('es-warning-signUp-success');
+            deleteWarning(['es-warning-signUp-error', 'es-warning-signUp-success']);
             modal.classList.remove('es-show--animation')
             modal.classList.add('es-hide--animation')
-        }, 3000);
+        }, 2000);
     });
 }
 
 
+
+function signIn() {
+    const modal = document.getElementById('es-modal-signIn')
+    const form = modal.querySelector('#es-form-signIn');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        let storage = localStorage.getItem('user');
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData.entries());
+
+        if (storage) {
+            storage = JSON.parse(storage);
+            if (storage.email === object.email && storage.password === object.password) {
+                if (storage.loggedIn !== true) {
+                    deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                    addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы вошли в аккаунт');
+                    storage.loggedIn = true;
+                    localStorage.setItem('user', JSON.stringify(storage));
+                    setTimeout(() => {
+                        deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                        modal.classList.remove('es-show--animation')
+                        modal.classList.add('es-hide--animation')
+                    }, 2000);
+                    checkLoggedInOrNot()
+                } else {
+                    deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                    addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы уже в аккаунте');
+                    setTimeout(() => {
+                        deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                        modal.classList.remove('es-show--animation')
+                        modal.classList.add('es-hide--animation')
+                    }, 2000);
+                }
+            } else {
+                deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                addWarning('es-form-signIn', 'red', 'es-warning-signIn-error', 'Вы неправильно ввели Email или пароль');
+            }
+        } else {
+            deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+            addWarning('es-form-signIn', 'red', 'es-warning-signIn-success', 'Вы еще не зарегистрированы');
+            setTimeout(() => {
+                deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                modal.classList.remove('es-show--animation')
+                modal.classList.add('es-hide--animation')
+            }, 2000);
+        }
+    });
+
+}
+
+
+
+function checkLoggedInOrNot() {
+    let storage = localStorage.getItem('user');
+    const dropDown = document.querySelector('#es-header-account-drop-down');
+    if (storage) {
+        storage = JSON.parse(storage)
+        if (storage.loggedIn !== false) {
+            dropDown.innerHTML = `
+            <li class="es-drop-down__item ">
+                <a class="es-text es-drop-down__link es-center" href="/account.html">В профиль</a>
+            </li>
+            <li class="es-drop-down__item ">
+                <button class="es-text es-drop-down__link es-center" onclick="logOut()">Выйти из аккаунта</button>
+            </li>
+            `
+        }  else {
+            dropDown.innerHTML = `
+            <li class="es-drop-down__item">
+                <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signUp')">Зарегистрироваться</button>
+            </li>
+            <li class="es-drop-down__item ">
+                <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signIn')">Войти</button>
+            </li>
+            `
+        }
+    }
+}
+
+
+// Функция для выхода из аккаунта
+function logOut() {
+    const storage = JSON.parse(localStorage.getItem('user'));
+    storage.loggedIn = false;
+    localStorage.setItem('user', JSON.stringify(storage));
+    checkLoggedInOrNot();
+}
 
 if (loc == "/index.html") {
     Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
@@ -466,14 +561,14 @@ new Modal('signUp', 'Регистрация', 'Зарегистрировать�
         placeholder: 'Пароль',
         required: true
     }
-], registration).render()
+], signUp).render()
 
 
 // <<Вход>>
 new Modal('signIn', 'Вход', 'Войти', [
     {
         type: 'email',
-        name: 'Email',
+        name: 'email',
         placeholder: 'Email',
         required: true
     },
@@ -483,4 +578,4 @@ new Modal('signIn', 'Вход', 'Войти', [
         placeholder: 'Пароль',
         required: true
     }
-]).render();
+], signIn).render();

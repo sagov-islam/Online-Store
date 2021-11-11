@@ -113,7 +113,7 @@ class Header {
                                     <a class="es-header__account-btn" href="#"><img src="images/account.svg" alt="Account"></a>
                                     <div class="es-header__account-bg1 es-opacity-hide es-opacity-hide--hover">
                                         <div class="es-header__account-bg2">
-                                            <ul class="es-drop-down">
+                                            <ul class="es-drop-down" id="es-header-account-drop-down">
                                                 <li class="es-drop-down__item">
                                                     <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signUp')">Зарегистрироваться</button>
                                                 </li>
@@ -155,6 +155,7 @@ class Header {
         addToCart();
         updateCartSum('es-amount-sum');
         checkForEmptyCart()
+        checkLoggedInOrNot()
     }
 }
 
