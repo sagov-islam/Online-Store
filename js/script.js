@@ -25,15 +25,14 @@ function plusNumber(btn) {
 
 
 function checkForEmptyCart() {
-    const btn = document.getElementById('cart-btn');
     const cartProductsContainer = document.querySelector('.es-header__cart-products-list')
-    const cartProducts = document.querySelectorAll('.es-header__cart-products-item');
+    const storage = JSON.parse(localStorage.getItem('products'))
     const html = `
     <div class="es-absence">
         <h3 class="es-absence__text">Товары отсутствуют</h3>
     </div>
     `
-    if (cartProducts.length === 0) {
+    if (!storage || storage.length == 0) {
         cartProductsContainer.innerHTML = html
     }
 }
@@ -101,11 +100,10 @@ addStyleCheckedChosenBtn();
 
 
 
-function deleteCardFromCart(btn) {
+function deleteCardFromLocalStorage(parent) {
     let storage = localStorage.getItem('products');
     if (storage) {
         storage = JSON.parse(storage)
-        const parent = btn.parentNode
         const parentId = parent.dataset.id
         parent.remove();
         storage.forEach((item, index) => {
@@ -117,7 +115,6 @@ function deleteCardFromCart(btn) {
         checkForEmptyCart()
         addStyleCheckedCardBtn()
         updateCartSum('es-amount-sum')
-        addLocalStorageProductsToCartPage()
     }
     
 }
@@ -154,7 +151,7 @@ function addToCart() {
                     </div>
                 </div>
             </div>
-            <button class="es-btn-delete" onclick="deleteCardFromCart(this)">
+            <button class="es-btn-delete" onclick="deleteCardFromLocalStorage(this.parentNode), addLocalStorageProductsToCartPage(), updateQuantityProducts()">
                 <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
                 </svg>
@@ -195,6 +192,7 @@ function addToCart() {
         })
         .then(() => {
             checkForEmptyCart()
+            updateCartSum('es-specifications__value-sum');
         });
         
     }
@@ -319,7 +317,7 @@ function addLocalStorageProductsToCartPage() {
                                 </button>
                             </div>
                         </div>
-                        <button class="es-btn-delete es-cart__product-btn">
+                        <button class="es-btn-delete es-cart__product-btn" onclick="deleteCardFromLocalStorage(this.parentNode.parentNode), addToCart(), updateQuantityProducts()">
                             <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
                             </svg>
@@ -337,6 +335,76 @@ addLocalStorageProductsToCartPage()
 
 
 
+// Функция обновляющая количество продуктов на странице корзингы
+function updateQuantityProducts() {
+    if (loc == '/cart.html') {
+        let storage = localStorage.getItem('products');
+        const container = document.querySelector('.es-specifications__key span')
+        if (storage) {
+            storage = JSON.parse(storage);
+            const quantity = storage.length;
+            container.textContent = quantity
+        }
+
+    }
+};
+updateQuantityProducts()
+
+
+
+// Функция добавляющая предупреждения и уведомления
+function addWarning(container, color, warningBlockId, text) {
+    const modal = document.getElementById(`${container}`);
+    const html = `
+    <div class="es-absence es-absence--${color} es-margin-top" id="${warningBlockId}">
+        <h3 class="es-absence__text">${text}</h3>
+    </div>
+    `
+    modal.innerHTML += html
+}
+
+
+
+// Функция удаляющая предупреждения и уведомления
+function deleteWarning(warningBlock) {
+    const warning = document.getElementById(`${warningBlock}`);
+    if (warning) {
+        warning.remove();
+    }
+};
+
+
+
+// Функция для формы регистрации
+function registration() {
+    const modal = document.getElementById('es-modal-signUp')
+    const form = modal.querySelector('#es-form-signUp');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const storage = localStorage.getItem('user');
+        
+        if (!storage) {
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData.entries());
+            localStorage.setItem('user', JSON.stringify(object))
+
+            deleteWarning('es-warning-signUp-error');
+            addWarning('es-form-signUp', 'green', 'es-warning-signUp-success', 'Вы зарегистрировались');
+        } else {
+            deleteWarning('es-warning-signUp-error');
+            deleteWarning('es-warning-signUp-success');
+            addWarning('es-form-signUp', 'red', 'es-warning-signUp-error', 'Вы уже зарегистрированы');
+        }
+
+        setTimeout(() => {
+            deleteWarning('es-warning-signUp-error');
+            deleteWarning('es-warning-signUp-success');
+            modal.classList.remove('es-show--animation')
+            modal.classList.add('es-hide--animation')
+        }, 3000);
+    });
+}
 
 
 
@@ -349,6 +417,7 @@ if (loc == "/index.html" || loc == "/product-page.html" || loc == "/cart.html") 
 }
 
 
+
 // HEADER
 new Header().render();
 
@@ -359,49 +428,49 @@ new Header().render();
 new Modal('call', 'Заказать звонок', 'Отправить', [
     {
         type: 'text',
-        name: 'Имя',
+        name: 'firstName',
         placeholder: 'Имя',
         required: true
     },
     {
         type: 'tel',
-        name: 'Телефон',
+        name: 'number',
         placeholder: 'Телефон',
         required: true
     }
 ]).render();
 
 // <<Регистрация>>
-new Modal('register', 'Регистрация', 'Зарегистрироваться', [
+new Modal('signUp', 'Регистрация', 'Зарегистрироваться', [
     {
         type: 'text',
-        name: 'Имя',
+        name: 'firstName',
         placeholder: 'Имя',
         required: true
     },
     {
         type: 'text',
-        name: 'Фамилия',
+        name: 'lastName',
         placeholder: 'Фамилия',
         required: true
     },
     {
         type: 'email',
-        name: 'Email',
+        name: 'email',
         placeholder: 'Email',
         required: true
     },
     {
         type: 'password',
-        name: 'Пароль',
+        name: 'password',
         placeholder: 'Пароль',
         required: true
     }
-]).render()
+], registration).render()
 
 
 // <<Вход>>
-new Modal('login', 'Вход', 'Войти', [
+new Modal('signIn', 'Вход', 'Войти', [
     {
         type: 'email',
         name: 'Email',
@@ -410,7 +479,7 @@ new Modal('login', 'Вход', 'Войти', [
     },
     {
         type: 'password',
-        name: 'Пароль',
+        name: 'password',
         placeholder: 'Пароль',
         required: true
     }

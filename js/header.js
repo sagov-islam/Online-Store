@@ -2,7 +2,7 @@
 
 class Header {
     showModal(modalName) {
-        const modal = document.querySelector(`#modal-${modalName}`);
+        const modal = document.querySelector(`#es-modal-${modalName}`);
         modal.classList.remove('es-hide--animation')
         modal.classList.add('es-show--animation')
     }
@@ -115,10 +115,10 @@ class Header {
                                         <div class="es-header__account-bg2">
                                             <ul class="es-drop-down">
                                                 <li class="es-drop-down__item">
-                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('register')">Зарегистрироваться</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signUp')">Зарегистрироваться</button>
                                                 </li>
                                                 <li class="es-drop-down__item ">
-                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('login')">Войти</button>
+                                                    <button class="es-text es-drop-down__link es-center" onclick="header.showModal('signIn')">Войти</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -138,7 +138,7 @@ class Header {
                                                 </ul>
                                             </div>
                                             <div class="es-header__cart-footer">
-                                                <p class="es-amount">Итого: <span class="es-amount-sum"></span></p>
+                                                <p class="es-amount">Итого: <span class="es-amount-sum">0 ₽</span></p>
                                                 <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html" id="cart-btn">Перейти в коризну</a>
                                             </div>
                                         </div>
@@ -154,6 +154,7 @@ class Header {
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
         addToCart();
         updateCartSum('es-amount-sum');
+        checkForEmptyCart()
     }
 }
 

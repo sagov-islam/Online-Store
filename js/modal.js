@@ -1,18 +1,26 @@
 'use strict'
 
+
+
 class Modal {
-    constructor(modalName, title, btnText, inputs) {
+    constructor(modalName, title, btnText, inputs, functionName) {
         this.modalName = modalName
         this.title = title;
         this.btnText = btnText;
         this.inputsProps = inputs;
+        this.functionName = functionName
     }
 
     closeModal(btn) {
         const parent = btn.parentNode.parentNode;
         parent.classList.remove('es-show--animation');
         parent.classList.add('es-hide--animation');
+
+        deleteWarning('es-warning-signUp-success');
+        deleteWarning('es-warning-signUp-error');
     }
+
+
 
     render() {
         let inputs = ''
@@ -27,9 +35,11 @@ class Modal {
             inputs += input
         });
         
+        
+
         const modalHtml = () => {
             return `
-            <div class="es-modal-bg es-hide--animation" id="modal-${this.modalName}">
+            <div class="es-modal-bg es-hide--animation" id="es-modal-${this.modalName}">
                 <div class="es-modal">
                     <button class="es-btn-delete es-modal__btn-delete" onclick="modal.closeModal(this)">
                         <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,17 +47,20 @@ class Modal {
                         </svg>
                     </button>
                     <h2 class="es-title--h2 es-modal__title">${this.title}</h2>
-                    <form class="es-modal__form" action="#">
+                    <form class="es-modal__form" id="es-form-${this.modalName}" action="#" name="${this.modalName}">
                         ${inputs}
                         <button class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top" type="submit">${this.btnText}</button>
                     </form>
+
                 </div>
             </div>
             `
         };
 
         document.body.insertAdjacentHTML("afterbegin", modalHtml());
-
+        if (this.functionName) {
+            this.functionName()
+        }
     }
 }
 

@@ -722,10 +722,22 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #868686;
+    font-size: 14px;
     &__text {
-        font-size: 14px;
         font-weight: $regular;
-        color: #868686;
+    }
+    &--red {
+        background-color: #ffcece;
+        border: 2px solid #ff7a7a;
+        font-size: 13px;
+        color: rgb(255, 87, 87);
+    }
+    &--green {
+        background-color: #d5ffc8;
+        border: 2px solid #67df5d;
+        font-size: 13px;
+        color: rgb(67, 202, 26);
     }
 }
 
