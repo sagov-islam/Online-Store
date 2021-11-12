@@ -100,7 +100,7 @@ class Header {
 
                             <div class="es-header__user-buttons">
                                 <a class="es-header__chosen-btn" href="#">
-                                    <span class="es-header__quantity-products">3</span>
+                                    <span class="es-header__quantity-products" id="chosen-quantity-products">3</span>
                                     <img src="images/chosen.svg" alt="Chosen">
                                 </a>
 
@@ -121,10 +121,9 @@ class Header {
                                 </div>
                                 
                                 <div class="es-header__cart">
-                                    <a class="es-header__cart-btn" href="#">
-                                        <span class="es-header__quantity-products">3</span>
+                                    <button class="es-header__cart-btn">
                                         <img src="images/cart.svg" alt="Cart">
-                                    </a>
+                                    </button>
                                     <div class="es-header__cart-bg-1 es-opacity-hide es-opacity-hide--hover">
                                         <div class="es-header__cart-bg-2" >
                                             <div class="es-header__cart-products" data-simplebar>
@@ -149,9 +148,9 @@ class Header {
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
         addToCart();
         updateCartSum('es-amount-sum');
-        checkForEmptyCart()
         checkLoggedInOrNot()
         stickyHeader()
+        updateQuantityProductsOnCartBtn();
     }
 }
 

@@ -80,14 +80,15 @@ function Card(containerName, categoryName, brandName, count) {
         addToLocalStorageProducts(btn) {
             if (btn.id === 'checked') {
                 // Если товар уже есть в LocalStorage, то он удаляется из него
-                this.deleteFromLocalStorage(btn)
-                addStyleCheckedCardBtn()
-                addToCart()
-                updateCartSum('es-amount-sum')
+                this.deleteFromLocalStorage(btn);
+                addStyleCheckedCardBtn();
+                addToCart();
+                updateCartSum('es-amount-sum');
+                updateQuantityProductsOnCartBtn();
                 if (loc == '/cart.html') {
-                    updateCartSum('es-specifications__value-sum')
-                    sumOfPaymentAndDelivery()
-                    addLocalStorageProductsToCartPage()
+                    updateCartSum('es-specifications__value-sum');
+                    sumOfPaymentAndDelivery();
+                    addLocalStorageProductsToCartPage();
                 };
             } else {
                 // Если его нет, то он добавляется в LocalStorage
@@ -109,13 +110,14 @@ function Card(containerName, categoryName, brandName, count) {
                     parsedStorage.push(productProps)
                     localStorage.setItem('products', JSON.stringify(parsedStorage))
                 }
-                addStyleCheckedCardBtn()
-                addToCart()
-                updateCartSum('es-amount-sum')
+                addStyleCheckedCardBtn();
+                addToCart();
+                updateCartSum('es-amount-sum');
+                updateQuantityProductsOnCartBtn();
                 if (loc == '/cart.html') {
-                    updateCartSum('es-specifications__value-sum')
-                    sumOfPaymentAndDelivery()
-                    addLocalStorageProductsToCartPage()
+                    updateCartSum('es-specifications__value-sum');
+                    sumOfPaymentAndDelivery();
+                    addLocalStorageProductsToCartPage();
                 };
             }
             
@@ -185,7 +187,7 @@ function Card(containerName, categoryName, brandName, count) {
                                     ${discountHtml}
                                 </div>
                                 <div class="es-card__buttons">
-                                    <button class="es-btn-orange es-btn es-btn--size-all-width" onclick="card.addToLocalStorageProducts(this), updateQuantityProducts()">
+                                    <button class="es-btn-orange es-btn es-btn--size-all-width" onclick="card.addToLocalStorageProducts(this), updateQuantityProductsOnCartPage()">
                                         <span class="es-btn-orange__text">Добавить в корзину</span>
                                         <div class="es-btn-orange__bg-1"></div>
                                         <div class="es-btn-orange__bg-2"></div>

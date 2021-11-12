@@ -23,21 +23,6 @@ function plusNumber(btn) {
 }
 
 
-// Фунция проверки корзины на пустоту
-function checkForEmptyCart() {
-    const cartProductsContainer = document.querySelector('.es-header__cart-products-list')
-    const storage = JSON.parse(localStorage.getItem('products'))
-    const html = `
-    <div class="es-absence">
-        <h3 class="es-absence__text">Товары отсутствуют</h3>
-    </div>
-    `
-    if (!storage || storage.length == 0) {
-        cartProductsContainer.innerHTML = html
-    }
-}
-
-
 
 // Функция добавления стилей на кнопки <<Добавить в корзину>> карточек товара
 function addStyleCheckedCardBtn(){
@@ -99,7 +84,27 @@ function addStyleCheckedChosenBtn() {
 }
 addStyleCheckedChosenBtn();
 
+function updateQuantityProductsOnCartBtn() {
+    const container = document.querySelector('.es-header__cart-btn');
+    const countContainer = document.querySelector('#cart-quantity-products');
+    const cartBg = document.querySelector('.es-header__cart-bg-1');
+    let storage = localStorage.getItem('products');
 
+    if (storage) {
+        storage = JSON.parse(storage);
+
+        if (storage.length > 0) {
+            if (countContainer) countContainer.remove();
+            container.innerHTML += `<span class="es-header__quantity-products" id="cart-quantity-products">${storage.length}</span>`;
+            cartBg.classList.add('es-show--block');
+            cartBg.classList.remove('es-hide');
+        } else {
+            if (countContainer) countContainer.remove();
+            cartBg.classList.remove('es-show--block');
+            cartBg.classList.add('es-hide');
+        }
+    }
+}
 
 // Функция удаления продукта из корзины и обновления LocalStorage
 function deleteCardFromLocalStorage(parent) {
@@ -114,7 +119,6 @@ function deleteCardFromLocalStorage(parent) {
                 localStorage.setItem('products', JSON.stringify(storage));
             }
         });
-        checkForEmptyCart()
         addStyleCheckedCardBtn()
         updateCartSum('es-amount-sum')
     }
@@ -154,7 +158,7 @@ function addToCart() {
                     </div>
                 </div>
             </div>
-            <button class="es-btn-delete" onclick="deleteCardFromLocalStorage(this.parentNode), addLocalStorageProductsToCartPage(), updateQuantityProducts()">
+            <button class="es-btn-delete" onclick="deleteCardFromLocalStorage(this.parentNode), addLocalStorageProductsToCartPage(), updateQuantityProductsOnCartPage(), updateQuantityProductsOnCartBtn()">
                 <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
                 </svg>
@@ -194,7 +198,6 @@ function addToCart() {
             });
         })
         .then(() => {
-            checkForEmptyCart()
             updateCartSum('es-specifications__value-sum');
         });
         
@@ -322,7 +325,7 @@ function addLocalStorageProductsToCartPage() {
                                 </button>
                             </div>
                         </div>
-                        <button class="es-btn-delete es-cart__product-btn" onclick="deleteCardFromLocalStorage(this.parentNode.parentNode), addToCart(), updateQuantityProducts()">
+                        <button class="es-btn-delete es-cart__product-btn" onclick="deleteCardFromLocalStorage(this.parentNode.parentNode), addToCart(), updateQuantityProductsOnCartPage(), updateQuantityProductsOnCartBtn()">
                             <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
                             </svg>
@@ -341,7 +344,7 @@ addLocalStorageProductsToCartPage()
 
 
 // Функция обновляющая количество продуктов на странице корзингы
-function updateQuantityProducts() {
+function updateQuantityProductsOnCartPage() {
     if (loc == '/cart.html') {
         let storage = localStorage.getItem('products');
         const container = document.querySelector('.es-specifications__key span')
@@ -353,7 +356,7 @@ function updateQuantityProducts() {
 
     }
 };
-updateQuantityProducts()
+updateQuantityProductsOnCartPage()
 
 
 
