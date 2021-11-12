@@ -520,6 +520,17 @@ function showModal(modalName) {
 }
 
 
+function stickyHeader() {
+    const header = document.querySelector('.es-header');
+    window.addEventListener('scroll', () => {
+        let scrollPos = window.scrollY;
+        if (scrollPos > 0) {
+            header.classList.add('sticky-header');
+        } else {
+            header.classList.remove('sticky-header');
+        }
+    });
+}
 
 if (loc == "/index.html") {
     Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();

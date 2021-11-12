@@ -1,6 +1,10 @@
 @import "../../css/variables/variables.scss";
 .es-header {
-    
+    z-index: 100;
+    width: 100%;
+    transition: 0.2s;
+    position: sticky;
+    top: 0;
     // Header top
    &__top {
        background-color: $bg;
@@ -41,6 +45,7 @@
 
    // Header bottom
    &__bottom {
+       background-color: white;
        height: 74px;
        padding: 13px 0 13px 0;
        &-content {
@@ -228,3 +233,7 @@
     }
 }
 
+.sticky-header {
+    transition: 0.2s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.185);
+}

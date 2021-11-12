@@ -151,6 +151,7 @@ class Header {
         updateCartSum('es-amount-sum');
         checkForEmptyCart()
         checkLoggedInOrNot()
+        stickyHeader()
     }
 }
 
