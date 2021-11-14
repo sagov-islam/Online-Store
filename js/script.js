@@ -103,6 +103,10 @@ function updateQuantityProductsOnCartBtn() {
             cartBg.classList.remove('es-show--block');
             cartBg.classList.add('es-hide');
         }
+    } else {
+        if (countContainer) countContainer.remove();
+        cartBg.classList.remove('es-show--block');
+        cartBg.classList.add('es-hide');
     }
 }
 

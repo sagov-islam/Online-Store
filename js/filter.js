@@ -6,7 +6,6 @@ const brandButtons = document.getElementsByName('brand');
 const btnMoreCards = document.querySelector('.es-catalog-more-cards');
 let category = 'Все категории';
 let brand = 'Все бренды';
-let numForBtnMore = 18;
 
 // Карточки товара которые добавляются в каталог при загрузке страницы
 Card('es-catalog__cards-list', 'Все категории', 'Все бренды', [0,9]).render().then(() => {
@@ -74,7 +73,6 @@ categoryButtons.forEach(btn => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 18;
         })
     });
 });
@@ -92,7 +90,6 @@ brandButtons.forEach(btn => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 18;
         })
     });
 });
@@ -109,7 +106,6 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
     .then(() => {
         ifNoProducts();
         showBtnMoreCards();
-        numForBtnMore = 18;
     })
 
 });
@@ -129,20 +125,45 @@ inputs.forEach(input => {
         .then(() => {
             ifNoProducts();
             showBtnMoreCards();
-            numForBtnMore = 18;
         })
     });
 });
 
+// const arrayForCards = [];
+// let indexForArray = 0
+
+// function showOnly9ProductCards() {
+//     let i = 9;
+//     const cards = document.querySelectorAll('.es-card');
+//     let coint = cards.length / 9
+//     cards.forEach((card, index) => {
+//         if (++index <= i) {
+//             arrayForCards.push([]);
+//             arrayForCards[indexForArray].push(card);
+//         } else {
+//             i += 9
+//             ++indexForArray
+//             arrayForCards[indexForArray].push(card);
+//         }
+//     });
+//     cardsContainer.innerHTML = '';
+//     arrayForCards.forEach((item, index) => {
+//         if (index == 0) {
+//             item.forEach(card => {
+//                 cardsContainer.append(card)
+//             });
+//         }
+        
+//     });
+// }
 
 // Кнопка <<Больше товаров>>
 btnMoreCards.addEventListener('click', () => {
-    cardsContainer.innerHTML = '';
-    Card('es-catalog__cards-list', category, brand, [0,numForBtnMore]).render()
+    let lastCardId = parseInt(document.querySelector('.es-catalog__cards-list').lastElementChild.dataset.id);
+    Card('es-catalog__cards-list', category, brand, [lastCardId, 9]).render()
     .then(() => {
         filtrationDesiredPrice();
-        numForBtnMore += 9;
-    })
+    });
 });
 
 
