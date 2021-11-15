@@ -1,5 +1,5 @@
 'use strict';
-const database = fetch('../database.json').then(data => data.json());
+const database = fetch('../database.json').then(data => data.json())
 const loc = window.location.pathname;
 
 
@@ -539,23 +539,22 @@ function stickyHeader() {
     });
 }
 
+
+
 if (loc == "/index.html") {
-    Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
+    new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
-
 if (loc == "/index.html" || loc == "/product-page.html" || loc == "/cart.html") {
-    Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', [0,4]).render();
+    new Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', [0,4]).render();
 }
 
 
-
-// HEADER
+// HEADER:
 new Header().render();
 
 
 // МОДАЛЬНЫЕ ОКНА:
 // <<Заказать звонок>>
-
 new Modal('call', 'Заказать звонок', 'Отправить', [
     {
         type: 'text',
