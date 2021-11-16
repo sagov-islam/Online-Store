@@ -14,8 +14,6 @@ let arrayForCards = []
 new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render().then(() => {
     btnMoreCards.classList.remove('es-hide');
     btnMoreCards.classList.add('es-show--block');
-    filter();
-
 })
 
 

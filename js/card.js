@@ -8,9 +8,8 @@ class Card {
     constructor (container, category, brand, numOfCards) {
         this.container = container
         this.category = category
-        this.numOfCards = numOfCards
         this.brand = brand
-        this.numOfPiexels = 0
+        this.numOfCards = numOfCards
     }
 
     deleteFromLocalStorage(btn) {
@@ -200,32 +199,24 @@ class Card {
             .then(data => data.json())
             .then(data => {
                 data.cards.forEach(card => {
-                    if (this.category === 'Лидеры продаж') {
-                        if (card.information.leader === true) {
-                            cards.push(card)
+                    if (this.category === 'Все категории') cards.push(card)
+                    else {
+                        if (this.category === 'Лидеры продаж') {
+                            if (card.information.leader === true) cards.push(card)
                         }
+                        else if (this.category === card.information.category) cards.push(card)
                     }
-
-                    if (this.category === card.information.category) {
-                        cards.push(card)
-                    }
-
-                    if (this.category === 'Все категории') {
-                        cards.push(card)
-                    };
+                    
 
                 })
             })
             .then(() => {
+
                 // Фильтрация по брендам
-                let i = 0;
                 if (this.brand !== 'Все бренды') {
-                    cards.forEach((card, id) => {
-                        for (i; i < 1; i++) {
-                            cards = []
-                        }
-                        if (card.information.brand === this.brand) {
-                            cards.push(card);
+                    cards.forEach((card, index) => {
+                        if (card.information.brand !== this.brand) {
+                            delete cards[index]
                         }
                     });
                 }
