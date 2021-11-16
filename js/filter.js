@@ -11,7 +11,7 @@ let indexForCard = 8
 let arrayForCards = []
 
 // Карточки товара которые добавляются в каталог при загрузке страницы
-new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', [0, 9]).render().then(() => {
+new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render().then(() => {
     btnMoreCards.classList.remove('es-hide');
     btnMoreCards.classList.add('es-show--block');
     filter();
@@ -32,9 +32,10 @@ function filter() {
     .then((data) => {
         data.cards.forEach((card)=> {
             let price = card.price;
+            let cardId = parseInt(card.id)
             if (card.discount !== false) price = card.price * card.discount;
             if (price >= inputValue0 && price <= inputValue1) {
-                new Card('es-catalog__cards-list', category, brand, 'Все товары', card.id).render()
+                new Card('es-catalog__cards-list', category, brand, cardId).render()
                 .then(() => {
                     showBtnMoreCards();
                     ifNoProducts();
