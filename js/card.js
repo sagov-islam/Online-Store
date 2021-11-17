@@ -153,7 +153,7 @@ class Card {
                     </div>
                     <div class="es-card__info">
                         <div>
-                            <h3 class="es-title--h3 es-card__title"><a href="#">${title}</a></h3>
+                            <h3 class="es-title--h3 es-card__title"><a href="/product-page.html" onclick="saveСardId(this)" onauxclick="saveСardId(this)">${title}</a></h3>
                             <p class="es-card__description">${description}</p>
                             <p class="es-card__description">В наличии: ${inStock}</p>
                         </div>

@@ -541,6 +541,34 @@ function stickyHeader() {
 
 
 
+/*  При нажатии на карточку товара, Id этой карточки сохраняется в LocalStorage,
+что бы при загрузке страницы product-page отобразить
+информацию о товаре с таким id  */
+function saveСardId(btn) {
+    const card = btn.parentNode.parentNode.parentNode.parentNode;
+    localStorage.setItem('cardIdForProductPage', JSON.stringify(card.dataset.id))
+}
+
+
+/*  При загрузке страницы product-page срабатывает эта функция,
+которая берет id из LocalStorage, находит товар с таким id
+в базе данных, и добавляет на страницу  */
+function addCardInformation() {
+    const id = JSON.parse(localStorage.getItem('cardIdForProductPage'));
+    database.then((data) => {
+        data.cards.forEach(card => {
+            if (card.id == id) {
+                new ProductPageHtml(card.id, card.name, card.description, card.images, card.price, card.discount, card.discountPercent).render();
+            }
+        });
+    });
+}
+
+
+
+
+
+
 if (loc == "/index.html") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
