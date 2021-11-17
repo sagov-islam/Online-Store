@@ -155,6 +155,7 @@ class Card {
                         <div>
                             <h3 class="es-title--h3 es-card__title"><a href="#">${title}</a></h3>
                             <p class="es-card__description">${description}</p>
+                            <p class="es-card__description">В наличии: ${inStock}</p>
                         </div>
 
                         <div class="es-margin-top">
@@ -249,6 +250,7 @@ class Card {
                         <span class="es-card-prices__discount">-${card.discountPercent}%</span>
                         `
                         price = card.price * card.discount;
+                        price = parseInt(price)
                     }
                     container.innerHTML += cardHtml(
                         card.name,
