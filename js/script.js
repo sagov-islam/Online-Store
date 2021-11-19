@@ -51,9 +51,10 @@ function addStyleCheckedCardBtn(){
                 }
             });
         });
+        
     };
 }
-addStyleCheckedCardBtn()
+
 
 
 
@@ -123,8 +124,8 @@ function deleteCardFromLocalStorage(parent) {
                 localStorage.setItem('products', JSON.stringify(storage));
             }
         });
-        addStyleCheckedCardBtn()
-        updateCartSum('es-amount-sum')
+        addStyleCheckedCardBtn();
+        updateCartSum('es-amount-sum');
     }
 }
 
@@ -162,7 +163,7 @@ function addToCart() {
                     </div>
                 </div>
             </div>
-            <button class="es-btn-delete" onclick="deleteCardFromLocalStorage(this.parentNode), addLocalStorageProductsToCartPage(), updateQuantityProductsOnCartPage(), updateQuantityProductsOnCartBtn()">
+            <button class="es-btn-delete" onclick="deleteCardFromLocalStorage(this.parentNode), addLocalStorageProductsToCartPage(), updateQuantityProductsOnCartPage(), updateQuantityProductsOnCartBtn(), updateStyleForProductPageBtn()">
                 <svg class="es-btn-delete-icon" width="16" height="16" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0.908239 1.8135C0.697254 1.60257 0.697254 1.25151 0.908239 1.0332C1.1266 0.822267 1.47038 0.822267 1.68874 1.0332L6.37223 5.72338L11.0636 1.0332C11.2746 0.822267 11.6257 0.822267 11.8362 1.0332C12.0546 1.25151 12.0546 1.60306 11.8362 1.8135L7.15273 6.49631L11.8362 11.1865C12.0546 11.3974 12.0546 11.7485 11.8362 11.9668C11.6252 12.1777 11.2741 12.1777 11.0636 11.9668L6.37223 7.27662L1.68874 11.9668C1.47038 12.1777 1.1266 12.1777 0.908239 11.9668C0.697254 11.7485 0.697254 11.3969 0.908239 11.1865L5.59173 6.49631L0.908239 1.8135Z"/>
                 </svg>
@@ -208,6 +209,8 @@ function addToCart() {
     }
 }
 
+
+
 // Функция обновления LocalStorage при использовании counter'а
 function updateLocalStorageProducts(btn) {
     const counter = btn.parentNode.parentNode;
@@ -227,6 +230,8 @@ function updateLocalStorageProducts(btn) {
         sumOfPaymentAndDelivery();
     }
 }
+
+
 
 // Функция обновления суммы всех товаров в корзине
 function updateCartSum(container) {
@@ -540,6 +545,45 @@ function stickyHeader() {
 }
 
 
+function FunctionalityOfStars() {
+    const starsList = document.querySelectorAll('.es-write-review__star');
+    const radioList = document.querySelectorAll('.es-write-review__radio');
+    
+    // При наведение на звезду, все звезды идущие за этой звездой, приобредают hover эффект
+    starsList.forEach((star, index) => {
+        star.addEventListener('mouseover', () => {
+            starsList.forEach(star => {
+                star.classList.remove('es-star--hover');
+            })
+            for (let i = 0; i <= index; i++) {
+                starsList[i].classList.add('es-star--hover');
+            };
+        });
+    });
+    
+    // Если курсор покидает звезду, то все звезды лишаются hover эффекта
+    starsList.forEach((star) => {
+        star.addEventListener('mouseout', () => {
+            starsList.forEach(star => {
+                star.classList.remove('es-star--hover');
+            });
+        });
+    });
+    
+    
+    // При клике на звезду, все звезды идущие за этой звездой, приобретают focus эффект
+    radioList.forEach((radio, index) => {
+        radio.addEventListener('click', () => {
+            starsList.forEach(star => {
+                star.classList.remove('es-star--focus');
+            });
+            for (let i = 0; i <= index; i++) {
+                starsList[i].classList.add('es-star--focus');
+            };
+        });
+    });
+}
+FunctionalityOfStars()
 
 /*  При нажатии на карточку товара, Id этой карточки сохраняется в LocalStorage,
 что бы при загрузке страницы product-page отобразить
@@ -558,7 +602,7 @@ function addCardInformation() {
     database.then((data) => {
         data.cards.forEach(card => {
             if (card.id == id) {
-                new ProductPageHtml(card.id, card.name, card.description, card.images, card.price, card.discount, card.discountPercent).render();
+                new ProductPageHtml(card).render();
             }
         });
     });

@@ -9,7 +9,7 @@
             "discountPercent": 50,
             "information": {
                 "inStock": 12,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -32,7 +32,7 @@
             "discountPercent": 50,
             "information": {
                 "inStock": 12,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -55,7 +55,7 @@
             "discountPercent": false,
             "information": {
                 "inStock": 2,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -78,7 +78,7 @@
             "discountPercent": 50,
             "information": {
                 "inStock": 5,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -101,7 +101,7 @@
             "discountPercent": 20,
             "information": {
                 "inStock": 20,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -124,7 +124,7 @@
             "discountPercent": 50,
             "information": {
                 "inStock": 14,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -147,7 +147,7 @@
             "discountPercent": false,
             "information": {
                 "inStock": 2,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -170,7 +170,7 @@
             "discountPercent": false,
             "information": {
                 "inStock": 2,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -193,7 +193,7 @@
             "discountPercent": 10,
             "information": {
                 "inStock": 2,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -216,7 +216,7 @@
             "discountPercent": 10,
             "information": {
                 "inStock": 42,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -239,7 +239,7 @@
             "discountPercent": 10,
             "information": {
                 "inStock": 1,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -262,7 +262,7 @@
             "discountPercent": 10,
             "information": {
                 "inStock": 3,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -286,7 +286,7 @@
             "discountPercent": false,
             "information": {
                 "inStock": 3,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -309,7 +309,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 10,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -332,7 +332,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 22,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -356,7 +356,7 @@
             "discountPercent": 10,
             "information": {
                 "inStock": 1,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -379,7 +379,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 12,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -403,7 +403,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 7,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -427,7 +427,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 8,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",
@@ -450,7 +450,7 @@
             "discountPercent": 80,
             "information": {
                 "inStock": 14,
-                "vendor-code": 875456,
+                "vendorCode": 875456,
                 "width": "50",
                 "height": "70",
                 "depth": "70",

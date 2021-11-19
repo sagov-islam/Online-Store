@@ -22,7 +22,8 @@ class Card {
                 }
             })
             localStorage.setItem('products', JSON.stringify(storage));
-            addStyleCheckedCardBtn()
+            addStyleCheckedCardBtn();
+            updateStyleForProductPageBtn();
         }
     }
 
@@ -40,7 +41,8 @@ class Card {
                     localStorage.setItem('chosen', JSON.stringify(storage))
                 }
             });
-            addStyleCheckedChosenBtn()
+            addStyleCheckedChosenBtn();
+
         } else {
             if (storage) {
                 storage = JSON.parse(storage)
@@ -49,7 +51,7 @@ class Card {
             } else {
                 localStorage.setItem('chosen', JSON.stringify([{id: parentId}]))
             }
-            addStyleCheckedChosenBtn()
+            addStyleCheckedChosenBtn();
         }
     }
 
@@ -58,7 +60,6 @@ class Card {
         if (btn.id === 'checked') {
             // Если товар уже есть в LocalStorage, то он удаляется из него
             this.deleteFromLocalStorage(btn);
-            addStyleCheckedCardBtn();
             addToCart();
             updateCartSum('es-amount-sum');
             updateQuantityProductsOnCartBtn();
@@ -87,10 +88,13 @@ class Card {
                 parsedStorage.push(productProps)
                 localStorage.setItem('products', JSON.stringify(parsedStorage))
             }
+
             addStyleCheckedCardBtn();
             addToCart();
             updateCartSum('es-amount-sum');
             updateQuantityProductsOnCartBtn();
+            updateStyleForProductPageBtn();
+
             if (loc == '/cart.html') {
                 updateCartSum('es-specifications__value-sum');
                 sumOfPaymentAndDelivery();
@@ -153,7 +157,7 @@ class Card {
                     </div>
                     <div class="es-card__info">
                         <div>
-                            <h3 class="es-title--h3 es-card__title"><a href="/product-page.html" onclick="saveСardId(this)" onauxclick="saveСardId(this)">${title}</a></h3>
+                            <h3 class="es-title--h3 es-card__title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)">${title}</a></h3>
                             <p class="es-card__description">${description}</p>
                             <p class="es-card__description">В наличии: ${inStock}</p>
                         </div>
