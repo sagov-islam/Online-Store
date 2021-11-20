@@ -94,31 +94,7 @@ function addProductPageInfoToLocalSotrage(btn) {
 
 
 
-// Добавляет стиль checked для кнопки на странице продукта, если этот продут есть в LocalStorage
-function updateStyleForProductPageBtn() {
-    let storage = localStorage.getItem('products');
-    const parent = document.querySelector('.es-product__information');
-    const btn = parent.querySelector('.es-product-btn-add-to-card')
-    const text = btn.querySelector('.es-btn-orange__text');
-    const id = parent.dataset.id;
-    const price = parent.querySelector('.es-product__prices-price').textContent;
-    const count = parent.querySelector('.es-counter__count');
-    btn.id = '';
-    text.textContent = 'Добавить в корзину';
-    btn.classList.remove('es-btn-orange--checked');
 
-    if (storage) {
-        storage = JSON.parse(storage);
-        storage.forEach((item, index) => {
-            if (item.id == id) {
-                btn.id = 'checked';
-                count.textContent = item.count;
-                text.textContent = 'Удалить из корзины';
-                btn.classList.add('es-btn-orange--checked');
-            }
-        });
-    }
-}
 
 
 

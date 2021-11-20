@@ -85,6 +85,37 @@ function addStyleCheckedChosenBtn() {
 }
 addStyleCheckedChosenBtn();
 
+
+
+// Добавляет стиль checked для кнопки <<Добавить в корзину>> на странице продукта, если этот продукт есть в LocalStorage
+function updateStyleForProductPageBtn() {
+    if (loc == '/product-page.html') {
+        let storage = localStorage.getItem('products');
+        const parent = document.querySelector('.es-product__information');
+        const btn = parent.querySelector('.es-product-btn-add-to-card')
+        const text = btn.querySelector('.es-btn-orange__text');
+        const id = parent.dataset.id;
+        const price = parent.querySelector('.es-product__prices-price').textContent;
+        const count = parent.querySelector('.es-counter__count');
+        btn.id = '';
+        text.textContent = 'Добавить в корзину';
+        btn.classList.remove('es-btn-orange--checked');
+
+        if (storage) {
+            storage = JSON.parse(storage);
+            storage.forEach((item, index) => {
+                if (item.id == id) {
+                    btn.id = 'checked';
+                    count.textContent = item.count;
+                    text.textContent = 'Удалить из корзины';
+                    btn.classList.add('es-btn-orange--checked');
+                }
+            });
+        }
+    };
+    
+}
+
 function updateQuantityProductsOnCartBtn() {
     const container = document.querySelector('.es-header__cart-btn');
     const countContainer = document.querySelector('#cart-quantity-products');
@@ -111,6 +142,29 @@ function updateQuantityProductsOnCartBtn() {
     }
 }
 
+
+
+function udateQuantityProductsOnChosenBtn() {
+    let storage = localStorage.getItem('chosen');
+    const container = document.querySelector('.es-header__chosen-btn');
+    const countContainer = document.querySelector('#chosen-quantity-products');
+    if (storage) {
+        storage = JSON.parse(storage);
+        if (storage.length > 0) {
+            if (countContainer) countContainer.remove();
+            container.innerHTML += `<span class="es-header__quantity-products" id="chosen-quantity-products">${storage.length}</span>`;
+        } else {
+            if (countContainer) countContainer.remove();
+        }
+    } else {
+        if (countContainer) countContainer.remove();
+    }
+}
+
+
+
+
+
 // Функция удаления продукта из корзины и обновления LocalStorage
 function deleteCardFromLocalStorage(parent) {
     let storage = localStorage.getItem('products');
@@ -128,6 +182,9 @@ function deleteCardFromLocalStorage(parent) {
         updateCartSum('es-amount-sum');
     }
 }
+
+
+
 
 
 
@@ -589,8 +646,8 @@ FunctionalityOfStars()
 что бы при загрузке страницы product-page отобразить
 информацию о товаре с таким id  */
 function saveСardId(btn) {
-    const card = btn.parentNode.parentNode.parentNode.parentNode;
-    localStorage.setItem('cardIdForProductPage', JSON.stringify(card.dataset.id))
+    const cardId = btn.dataset.id;
+    localStorage.setItem('cardIdForProductPage', JSON.stringify(cardId))
 }
 
 
@@ -608,6 +665,57 @@ function addCardInformation() {
     });
 }
 
+
+
+function addProductsWithADiscount(containerName, percent) {
+    if (loc == '/index.html') {
+        const container = document.querySelector(`.${containerName}`);
+        function smallCardHtml(id, name, image, price, discountHtml) {
+            return `
+            <li class="es-small-card">
+                <a href="/product-page.html">
+                    <div class="es-small-card__image-container">
+                        <img class="es-small-card__image" src="${image}" alt="${name}">
+                    </div>
+                    <h3 class="es-title--h3 es-small-card__title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a></h3>
+    
+                    <div class="es-card-prices es-small-card__prices">
+                        <span class="es-card-prices__price">${price} ₽</span>
+                        ${discountHtml}
+                    </div>
+                </a>
+            </li>
+            `
+        }
+        database.then((data) => {
+            data.cards.forEach((card, index) => {
+                if (card.discountPercent === percent) {
+                    let discountHtml = ''
+                    let price = card.price;
+                    if (card.discount !== false) {
+                        discountHtml = `
+                        <span class="es-card-prices__old-price"><span class="es-card-prices__old-price-line"></span>${card.price} ₽</span>
+                        <span class="es-card-prices__discount">-${card.discountPercent}%</span>
+                        `
+                        price = card.price * card.discount;
+                        price = parseInt(price)
+                    }
+                    container.innerHTML += smallCardHtml(card.id, card.name, card.images[0], price, discountHtml)
+                }
+            });
+        })
+        .then(() => {
+            const container = document.querySelector(`.${containerName}`);
+            container.children.forEach((card, index)=> {
+                if (index >= 6) {
+                    card.remove();
+                }
+            });
+        });
+    }
+}
+addProductsWithADiscount('es-discount__small-cards-list-1', 80);
+addProductsWithADiscount('es-discount__small-cards-list-2', 40);
 
 
 

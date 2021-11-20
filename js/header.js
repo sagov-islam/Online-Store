@@ -151,6 +151,7 @@ class Header {
         checkLoggedInOrNot()
         stickyHeader()
         updateQuantityProductsOnCartBtn();
+        udateQuantityProductsOnChosenBtn()
     }
 }
 
