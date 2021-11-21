@@ -218,6 +218,9 @@
             font-style: italic;
             color: $black;
             width: 245px;
+            &:hover {
+                text-decoration: underline;
+            }
         }
         &-footer {
             height: 100%;

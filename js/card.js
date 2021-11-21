@@ -64,7 +64,8 @@ class Card {
             this.deleteFromLocalStorage(btn);
             addToCart();
             updateCartSum('es-amount-sum');
-
+            updateQuantityProductsOnCartBtn();
+            
             if (loc == '/product-page.html') {
                 updateStyleForProductPageBtn();
             }
@@ -263,8 +264,8 @@ class Card {
                         <span class="es-card-prices__discount">-${card.discountPercent}%</span>
                         `
                         price = card.price * card.discount;
-                        price = parseInt(price)
                     }
+                    price = parseInt(price)
                     container.innerHTML += cardHtml(
                         card.name,
                         card.description,

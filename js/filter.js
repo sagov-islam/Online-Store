@@ -6,16 +6,15 @@ const brandButtons = document.getElementsByName('brand');
 const btnMoreCards = document.querySelector('.es-catalog-more-cards');
 let category = 'Все категории';
 let brand = 'Все бренды';
-
 let indexForCard = 8
 let arrayForCards = []
 
 // Карточки товара которые добавляются в каталог при загрузке страницы
-new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render().then(() => {
-    btnMoreCards.classList.remove('es-hide');
-    btnMoreCards.classList.add('es-show--block');
-    filter();
-})
+// new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render().then(() => {
+//     btnMoreCards.classList.remove('es-hide');
+//     btnMoreCards.classList.add('es-show--block');
+//     filter();
+// })
 
 
 

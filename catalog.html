@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="addCategoryCardsToCatalog()">
     <main>
         <div class="es-container">
             <div class="es-breadcrumbs">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="es-filter__drop-down-list">
+                        <div class="es-filter__drop-down-list" id="es-drop-down-category">
                             <div class="es-filter__title">
                                 <h3 class="es-title--h3-bold">Категория</h3>
                                 <svg class="es-filter__title-image" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">

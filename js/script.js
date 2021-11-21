@@ -199,7 +199,7 @@ function addToCart() {
         <li class="es-header__cart-products-item" data-id="${id}">
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
             <div class="es-header__cart-info">
-                <a class="es-header__cart-title" href="">${name}</a>
+                <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a>
                 <div class="es-card-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
@@ -244,7 +244,7 @@ function addToCart() {
                         `
                         price = card.price * card.discount;
                     }
-
+                    price = parseInt(price)
                     if (card.id == item.id) {
                         container.innerHTML += cardHtml(
                             card.id,
@@ -347,6 +347,8 @@ function addLocalStorageProductsToCartPage() {
                                 `
                                 price = card.price * card.discount;
                             }
+                            price = parseInt(price)
+
                             container.innerHTML += cardHtml(
                                 card.id,
                                 card.name,
@@ -667,17 +669,51 @@ function addCardInformation() {
 
 
 
+/*  При нажатии на кнопку срабатывает эта функция, которая берет category и сохраняет его в LocalStorage  */
+function saveCategoryName(category) {
+    localStorage.setItem('categoryForCatalog', JSON.stringify(category));
+}
+
+
+
+/*  Эта функция срабатывает при загрузке станицы catalog.
+Она берет из LocalStorage сохраненную категорию,
+и фильтрует товар в соответствии с этой категорией  */
+function addCategoryCardsToCatalog() {
+    let savedCategoryName = localStorage.getItem('categoryForCatalog');
+    if (savedCategoryName) {
+        savedCategoryName = JSON.parse(savedCategoryName);
+
+        const categoriesParent = document.getElementById('es-drop-down-category');
+        const categories = categoriesParent.querySelectorAll('.es-input__radio');
+        categories.forEach(radio => {
+            const categoryName = radio.parentNode.querySelector('p').textContent;
+            if (categoryName !== savedCategoryName) radio.checked = false
+            else {
+                radio.checked = true;
+                category = savedCategoryName;
+                filter();
+            }
+        });
+    } else {
+        category = 'Все категории';
+        filter();
+    }
+    localStorage.setItem('categoryForCatalog', JSON.stringify('Все категории'));
+}
+
+
 function addProductsWithADiscount(containerName, percent) {
     if (loc == '/index.html') {
         const container = document.querySelector(`.${containerName}`);
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
             <li class="es-small-card">
-                <a href="/product-page.html">
+                <a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">
                     <div class="es-small-card__image-container">
                         <img class="es-small-card__image" src="${image}" alt="${name}">
                     </div>
-                    <h3 class="es-title--h3 es-small-card__title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a></h3>
+                    <h3 class="es-title--h3 es-small-card__title">${name}</h3>
     
                     <div class="es-card-prices es-small-card__prices">
                         <span class="es-card-prices__price">${price} ₽</span>
@@ -716,8 +752,6 @@ function addProductsWithADiscount(containerName, percent) {
 }
 addProductsWithADiscount('es-discount__small-cards-list-1', 80);
 addProductsWithADiscount('es-discount__small-cards-list-2', 40);
-
-
 
 
 

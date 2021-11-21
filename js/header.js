@@ -52,31 +52,31 @@ class Header {
                                     <div class="es-header__catalog-bg2" data-simplebar>
                                         <ul class="es-drop-down">
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Кровати</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Кровати')" onauxclick="saveCategoryName('Кровати')">Кровати</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Матрасы</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Матрасы')" onauxclick="saveCategoryName('Матрасы')">Матрасы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Диваны</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Диваны')" onauxclick="saveCategoryName('Диваны')">Диваны</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Шкафы</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Шкафы')" onauxclick="saveCategoryName('Шкафы')">Шкафы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Комоды</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Комоды')" onauxclick="saveCategoryName('Комоды')">Комоды</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Тумбочки</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Тумбочки')" onauxclick="saveCategoryName('Тумбочки')">Тумбочки</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Зеркала</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Зеркала')" onauxclick="saveCategoryName('Зеркала')">Зеркала</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Столы</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Столы')" onauxclick="saveCategoryName('Столы')">Столы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="#">Стулья</a>
+                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveCategoryName('Стулья')" onauxclick="saveCategoryName('Стулья')">Стулья</a>
                                             </li>
                                         </ul>
                                     </div>
