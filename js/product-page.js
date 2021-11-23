@@ -219,34 +219,34 @@ class ProductPageHtml {
                         <div class="es-text es-product__footer-info">${this.card.description}</div>
                         <div class="es-product__footer-reviews es-hide">
                             <div class="es-write-review">
-                                <form action="#">
+                                <form action="#" data-id="${this.card.id}" data-name="${this.card.name}" id="es-write-review-form">
                                     <div class="es-write-review__stars">
                                         <label class="es-write-review__star-container">
-                                            <input type="radio" class="es-write-review__radio" name="star" value="1">
+                                            <input type="radio" class="es-write-review__radio" name="stars" value="1">
                                             <svg class="es-star es-write-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
                                             </svg>
                                         </label>
                                         <label class="es-write-review__star-container">
-                                            <input type="radio" class="es-write-review__radio" name="star" value="2">
+                                            <input type="radio" class="es-write-review__radio" name="stars" value="2">
                                             <svg class="es-star es-write-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
                                             </svg>
                                         </label>
                                         <label class="es-write-review__star-container">
-                                            <input type="radio" class="es-write-review__radio" name="star" value="3">
+                                            <input type="radio" class="es-write-review__radio" name="stars" value="3">
                                             <svg class="es-star es-write-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
                                             </svg>
                                         </label>
                                         <label class="es-write-review__star-container">
-                                            <input type="radio" class="es-write-review__radio" name="star" value="4">
+                                            <input type="radio" class="es-write-review__radio" name="stars" value="4">
                                             <svg class="es-star es-write-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
                                             </svg>
                                         </label>
                                         <label class="es-write-review__star-container">
-                                            <input type="radio" class="es-write-review__radio" name="star" value="5">
+                                            <input type="radio" class="es-write-review__radio" name="stars" value="5">
                                             <svg class="es-star es-write-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
                                             </svg>
@@ -258,33 +258,6 @@ class ProductPageHtml {
                             </div>
                 
                             <ul class="es-grid-container--reviews">
-                                <li class="es-review">
-                                    <div class="es-review__header">
-                                        <h3 class="es-title--h3">Николай Березов</h3>
-                                        <span class="es-review__line"></span>
-                                        <p class="es-review__product-name">Кресло Hygge, темно-бирюзовый/орех</p>
-                                    </div>
-                                    <p class="es-review__date">2021.02.13</p>
-                                    <div class="es-review__stars">
-                                        <svg class="es-review__star es-review__star--active" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
-                                        </svg>
-                                        <svg class="es-review__star es-review__star--active" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
-                                        </svg>
-                                        <svg class="es-review__star es-review__star--active" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
-                                        </svg>
-                                        <svg class="es-review__star es-review__star--active" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
-                                        </svg>
-                                        <svg class="es-review__star" width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.34 0L13.886 7.83575L22.125 7.83575L15.4595 12.6785L18.0055 20.5143L11.34 15.6715L4.67452 20.5143L7.2205 12.6785L0.555019 7.83575L8.79401 7.83575L11.34 0Z"/>
-                                        </svg>
-                                    </div>
-                                    <p class="es-text es-review__text">Все понравилось, от оформления заказа до его получения. Все чётко, быстро. Курьеры вежливые, доставили в интервал, позвонили за 30 мин. Очень доволен!</p>
-                                </li>
-
                             </ul>
                         </div>
                     </div>
@@ -294,6 +267,7 @@ class ProductPageHtml {
         container.insertAdjacentHTML('afterbegin', cardInformationHtml());
         FunctionalityOfStars();
         updateStyleForProductPageBtn();
-
+        reviewFunctional();
+        addReviewFromLocalStorage(this.card.id);
     }
 }

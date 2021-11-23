@@ -369,7 +369,7 @@ function addLocalStorageProductsToCartPage() {
                     <div class="es-cart__product-main-content">
                         <img class="es-cart__product-img" src="${image}" alt="${category}">
                         <div class="es-cart__product-info">
-                            <h3 class="es-title--h3 es-cart__product-title"><a href="#">${name}</a></h3>
+                            <h3 class="es-title--h3 es-cart__product-title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a></h3>
                             <div class="es-card-prices es-cart__product-prices">
                                 <span class="es-card-prices__price">${price} ₽</span>
                                 ${discount}
@@ -429,17 +429,18 @@ updateQuantityProductsOnCartPage()
 
 
 // Функция добавляющая предупреждения и уведомления
-function addWarning(container, color, warningBlockId, text) {
+function addWarning(container, color, warningBlockId, text, postiton) {
     const modal = document.getElementById(`${container}`);
     const html = `
     <div class="es-absence es-absence--${color} es-margin-top" id="${warningBlockId}">
         <h3 class="es-absence__text">${text}</h3>
     </div>
     `
-    modal.innerHTML += html
+    // modal.innerHTML += html
+    modal.insertAdjacentHTML(postiton, html);
 }
 
-
+// ert
 
 // Функция удаляющая предупреждения и уведомления
 function deleteWarning(warningBlocks) {
@@ -469,10 +470,10 @@ function signUp() {
             localStorage.setItem('user', JSON.stringify(object))
 
             deleteWarning(['es-warning-signUp-error', 'es-warning-signUp-success']);
-            addWarning('es-form-signUp', 'green', 'es-warning-signUp-success', 'Вы зарегистрировались');
+            addWarning('es-form-signUp', 'green', 'es-warning-signUp-success', 'Вы зарегистрировались', 'beforeend');
         } else {
             deleteWarning(['es-warning-signUp-error', 'es-warning-signUp-success']);
-            addWarning('es-form-signUp', 'red', 'es-warning-signUp-error', 'Вы уже зарегистрированы');
+            addWarning('es-form-signUp', 'red', 'es-warning-signUp-error', 'Вы уже зарегистрированы', 'beforeend');
         }
 
         setTimeout(() => {
@@ -502,7 +503,7 @@ function signIn() {
             if (storage.email === object.email && storage.password === object.password) {
                 if (storage.loggedIn === false) {
                     deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
-                    addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы вошли в аккаунт');
+                    addWarning('es-form-signIn', 'green', 'es-warning-signIn-success', 'Вы вошли в аккаунт', 'beforeend');
                     storage.loggedIn = true;
                     localStorage.setItem('user', JSON.stringify(storage));
                     setTimeout(() => {
@@ -514,11 +515,11 @@ function signIn() {
                 }
             } else {
                 deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
-                addWarning('es-form-signIn', 'red', 'es-warning-signIn-error', 'Вы неправильно ввели Email или пароль');
+                addWarning('es-form-signIn', 'red', 'es-warning-signIn-error', 'Вы неправильно ввели Email или пароль', 'beforeend');
             }
         } else {
             deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
-            addWarning('es-form-signIn', 'red', 'es-warning-signIn-success', 'Вы еще не зарегистрированы');
+            addWarning('es-form-signIn', 'red', 'es-warning-signIn-success', 'Вы еще не зарегистрированы', 'beforeend');
             setTimeout(() => {
                 deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
                 modal.classList.remove('es-show--animation')
@@ -574,7 +575,7 @@ function logOut() {
         localStorage.setItem('user', JSON.stringify(storage));
         checkLoggedInOrNot();
 
-        addWarning('es-form-logOut', 'green', 'es-warning-logOut-success', 'Вы вышли из аккаунта');
+        addWarning('es-form-logOut', 'green', 'es-warning-logOut-success', 'Вы вышли из аккаунта', 'beforeend');
         setTimeout(() => {
             deleteWarning(['es-warning-logOut-success']);
             modal.classList.remove('es-show--animation')
@@ -753,6 +754,103 @@ function addProductsWithADiscount(containerName, percent) {
 addProductsWithADiscount('es-discount__small-cards-list-1', 80);
 addProductsWithADiscount('es-discount__small-cards-list-2', 40);
 
+
+function reviewFunctional() {
+    const form = document.querySelector('#es-write-review-form');
+    const textarea = form.querySelector('textarea');
+    const productName = form.dataset.name;
+    const productId = form.dataset.id;
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let storageUser = localStorage.getItem('user');
+        if (storageUser) {
+            storageUser = JSON.parse(storageUser);
+
+            if (storageUser.loggedIn === true) {
+                const formData = new FormData(form);
+                let object = Object.fromEntries(formData.entries());
+                object.productId = productId;
+                object.productName = productName;
+                object.date = `${new Date().getFullYear()}.${new Date().getMonth()}.${new Date().getDate()}`;
+    
+                let storageReviews = localStorage.getItem('reviews');
+                if (!storageReviews) {
+                    let array = [];
+                    array.push(object);
+                    localStorage.setItem('reviews', JSON.stringify(array));
+                }
+                else {
+                    storageReviews = JSON.parse(storageReviews);
+                    storageReviews.push(object);
+                    localStorage.setItem('reviews', JSON.stringify(storageReviews));
+                }
+                textarea.value = '';
+                addWarning('es-write-review-form', 'green', 'es-warning-reviews', 'Отзыв успешно оставлен', 'afterbegin');
+                setTimeout(() => deleteWarning(['es-warning-reviews']), 3000);
+                addReviewFromLocalStorage(productId);
+            } else {
+                addWarning('es-write-review-form', 'red', 'es-warning-reviews', 'Вы не зарегистрированы или не вошли в аккаунт', 'afterbegin');
+                setTimeout(() => deleteWarning(['es-warning-reviews']), 3000);
+                textarea.value = '';
+            }
+        } else {
+            addWarning('es-write-review-form', 'red', 'es-warning-reviews', 'Вы не зарегистрированы или не вошли в аккаунт', 'afterbegin');
+            setTimeout(() => deleteWarning(['es-warning-reviews']), 3000);
+            textarea.value = '';
+        }
+    });
+}
+
+
+
+function addReviewFromLocalStorage(id) {
+    let storage = localStorage.getItem('reviews');
+    const cont = document.querySelector('.es-grid-container--reviews');
+    cont.innerHTML = '';
+    
+    database.then((data) => {
+        data.reviews.forEach(item => {
+            if (id) {
+                if (item.productId == id) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
+            }
+            else new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
+        });
+        
+    }).then(() => {
+        if (storage) {
+            storage = JSON.parse(storage);
+            storage.forEach(item => {
+                if (id) {
+                    if (item.productId == id) new Review('es-grid-container--reviews', 'Имя пользователя', item.productId, item.stars, item.date, item.review, item.productName).render();
+                }
+                else new Review('es-grid-container--reviews', 'Имя пользователя', item.productId, item.stars, item.date, item.review, item.productName).render();
+            });
+        }
+    });
+}
+
+
+
+
+
+
+
+// Все отзывы на странице reviews
+if (loc == '/reviews.html') {
+    reviewFunctional();
+    addReviewFromLocalStorage();
+}
+
+
+// 4 отзыва на главной странице
+if (loc == '/index.html') {
+    database.then((data) => {
+        data.reviews.forEach((item, index)=> {
+            if (index < 4) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
+        });
+    })
+}
 
 
 if (loc == "/index.html") {

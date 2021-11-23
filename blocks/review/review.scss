@@ -16,10 +16,32 @@
         transform: rotate(90deg);
         background-color: $black;
     }
+    &__userName {
+        display: block;
+        
+    }
     &__product-name {
+        flex: 1;
+
         font-weight: $regular;
         font-size: 14px;
         color: #989898;
+        margin-left: 5px;
+
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 1;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+        &:hover {
+            text-decoration: underline;
+        }
     }
     &__date {
         margin-top: 4px;
