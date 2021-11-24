@@ -671,8 +671,13 @@ function addCardInformation() {
 
 
 /*  При нажатии на кнопку срабатывает эта функция, которая берет category и сохраняет его в LocalStorage  */
-function saveCategoryName(category) {
-    localStorage.setItem('categoryForCatalog', JSON.stringify(category));
+function saveFilterProps(name, brandOrCategory) {
+    if (brandOrCategory === 'Бренды') {
+        localStorage.setItem('categoryForCatalog', JSON.stringify({category: 'Все категории', brand: name}));
+    }
+    else if (brandOrCategory === 'Категории') {
+        localStorage.setItem('categoryForCatalog', JSON.stringify({category: name, brand: 'Все бренды'}));
+    }
 }
 
 
@@ -680,28 +685,40 @@ function saveCategoryName(category) {
 /*  Эта функция срабатывает при загрузке станицы catalog.
 Она берет из LocalStorage сохраненную категорию,
 и фильтрует товар в соответствии с этой категорией  */
-function addCategoryCardsToCatalog() {
+function runFilterWithSavedParameters() {
     let savedCategoryName = localStorage.getItem('categoryForCatalog');
     if (savedCategoryName) {
         savedCategoryName = JSON.parse(savedCategoryName);
 
         const categoriesParent = document.getElementById('es-drop-down-category');
-        const categories = categoriesParent.querySelectorAll('.es-input__radio');
-        categories.forEach(radio => {
-            const categoryName = radio.parentNode.querySelector('p').textContent;
-            if (categoryName !== savedCategoryName) radio.checked = false
+        const brandButtons = document.querySelectorAll('#es-drop-down-brand .es-input__radio');
+        const categoryButtons = document.querySelectorAll('#es-drop-down-category .es-input__radio');
+
+        brandButtons.forEach(btn => {
+            const name = btn.parentNode.querySelector('p').textContent;
+            if (name !== savedCategoryName.brand) btn.checked = false;
             else {
-                radio.checked = true;
-                category = savedCategoryName;
-                filter();
+                btn.checked = true;
             }
         });
+        categoryButtons.forEach(btn => {
+            const name = btn.parentNode.querySelector('p').textContent;
+            if (name !== savedCategoryName.category) btn.checked = false;
+            else {
+                btn.checked = true;
+            }
+        });
+        category = savedCategoryName.category;
+        brand = savedCategoryName.brand;
+        filter();
     } else {
         category = 'Все категории';
+        brand = 'Все бренды';
         filter();
     }
-    localStorage.setItem('categoryForCatalog', JSON.stringify('Все категории'));
+    localStorage.setItem('categoryForCatalog', JSON.stringify({category: 'Все категории', brand: 'Все бренды'}));
 }
+
 
 
 function addProductsWithADiscount(containerName, percent) {

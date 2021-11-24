@@ -16,26 +16,26 @@ class Footer {
                             <div class="es-footer__menu">
                                 <h3 class="es-title--h3">Каталог</h3>
                                 <ul class="es-footer__links-list">
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Кровати</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Матрасы</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Диваны</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Шкафы</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Комоды</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Тумбочки</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Зеркала</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Столы</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Стулья</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Кровати', 'Категории')" onauxclick="saveFilterProps('Кровати', 'Категории')">Кровати</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Матрасы', 'Категории')" onauxclick="saveFilterProps('Матрасы', 'Категории')">Матрасы</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Диваны', 'Категории')" onauxclick="saveFilterProps('Диваны', 'Категории')">Диваны</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Шкафы', 'Категории')" onauxclick="saveFilterProps('Шкафы', 'Категории')">Шкафы</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Комоды', 'Категории')" onauxclick="saveFilterProps('Комоды', 'Категории')">Комоды</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Тумбочки', 'Категории')" onauxclick="saveFilterProps('Тумбочки', 'Категории')">Тумбочки</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Зеркала', 'Категории')" onauxclick="saveFilterProps('Зеркала', 'Категории')">Зеркала</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Столы', 'Категории')" onauxclick="saveFilterProps('Столы', 'Категории')">Столы</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Стулья', 'Категории')" onauxclick="saveFilterProps('Стулья', 'Категории')">Стулья</a></li>
                                 </ul>
                             </div>
                             <div class="es-footer__menu">
                                 <h3 class="es-title--h3">Поставшики</h3>
                                 <ul class="es-footer__links-list">
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Aquaton</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">DreamLine</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Dimax</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Lonax</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Affalina</a></li>
-                                    <li class="es-footer__links-item"><a class="es-link" href="#">Alleri</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Aquaton', 'Бренды')" onauxclick="saveFilterProps('Aquaton', 'Бренды')">Aquaton</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('DreamLine', 'Бренды')" onauxclick="saveFilterProps('DreamLine', 'Бренды')">DreamLine</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Dimax', 'Бренды')" onauxclick="saveFilterProps('Dimax', 'Бренды')">Dimax</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Lonax', 'Бренды')" onauxclick="saveFilterProps('Lonax', 'Бренды')">Lonax</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Affalina', 'Бренды')" onauxclick="saveFilterProps('Affalina', 'Бренды')">Affalina</a></li>
+                                    <li class="es-footer__links-item"><a class="es-link" href="/catalog.html" onclick="saveFilterProps('Alleri', 'Бренды')" onauxclick="saveFilterProps('Alleri', 'Бренды')">Alleri</a></li>
                                 </ul>
                             </div>
                             <div class="es-footer__menu">
@@ -104,9 +104,7 @@ class Footer {
             </footer>
             `
         }
-
         document.body.insertAdjacentHTML("beforeend", footerHtml());
-
     };
 }
 
