@@ -864,6 +864,8 @@ if (loc == "/index.html" || loc == "/product-page.html" || loc == "/cart.html") 
 // HEADER:
 new Header().render();
 
+// FOOTER:
+new Footer().render();
 
 // МОДАЛЬНЫЕ ОКНА:
 // <<Заказать звонок>>
