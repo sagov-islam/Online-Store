@@ -99,13 +99,13 @@ class Header {
                             </button>
 
                             <div class="es-header__user-buttons">
-                                <a class="es-header__chosen-btn" href="#">
+                                <a class="es-header__chosen-btn" href="/account.html">
                                     <span class="es-header__quantity-products" id="chosen-quantity-products">3</span>
                                     <img src="images/chosen.svg" alt="Chosen">
                                 </a>
 
                                 <div class="es-header__account">
-                                    <a class="es-header__account-btn" href="#"><img src="images/account.svg" alt="Account"></a>
+                                    <button class="es-header__account-btn" href="#"><img src="images/account.svg" alt="Account"></button>
                                     <div class="es-header__account-bg1 es-opacity-hide es-opacity-hide--hover">
                                         <div class="es-header__account-bg2">
                                             <ul class="es-drop-down" id="es-header-account-drop-down">

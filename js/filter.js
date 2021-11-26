@@ -9,14 +9,6 @@ let brand = 'Все бренды';
 let indexForCard = 8
 let arrayForCards = []
 
-// Карточки товара которые добавляются в каталог при загрузке страницы
-// new Card('es-catalog__cards-list', 'Все категории', 'Все бренды', 'Все товары').render().then(() => {
-//     btnMoreCards.classList.remove('es-hide');
-//     btnMoreCards.classList.add('es-show--block');
-//     filter();
-// })
-
-
 
 function filter() {
     indexForCard = 8
@@ -63,20 +55,6 @@ btnMoreCards.addEventListener('click', () => {
     indexForCard += 9
 });
 
-
-
-// Если в контейнере нету элементов то визуально показать что товаров нет:
-function ifNoProducts() {
-    const cardsAbsentBlock = document.querySelector('.es-absence__catalog');
-    let count = document.querySelectorAll('.es-card').length
-    if (count === 0) {
-        cardsAbsentBlock.classList.remove('es-hide');
-        cardsAbsentBlock.classList.add('es-show--flex');
-    } else {
-        cardsAbsentBlock.classList.add('es-hide');
-        cardsAbsentBlock.classList.remove('es-show--flex');
-    }
-};
 
 
 
@@ -131,16 +109,3 @@ const rangeSlider = document.getElementById('range-slider');
 rangeSlider.noUiSlider.on('change', (values, handle) => {
     filter();
 });
-
-
-
-// Анимация для элементов фильтра
-// const filterTitle = document.querySelectorAll(".es-filter__title");
-// filterTitle.forEach(item => {
-//     item.addEventListener('click', () => {
-//         item.nextElementSibling.classList.toggle('es-overflow-hide');
-//         item.nextElementSibling.classList.toggle('es-overflow-show');
-//         item.lastElementChild.classList.toggle('es-rotate180');
-//         item.lastElementChild.classList.toggle('es-rotate180');
-//     });
-// });

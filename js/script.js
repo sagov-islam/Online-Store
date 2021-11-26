@@ -313,7 +313,7 @@ updateCartSum('es-specifications__value-sum');
 
 
 function sumOfPaymentAndDelivery() {
-    if (loc == '/cart.html') {
+    if (loc == '/cart.html' || loc == '/account.html') {
         const sumContainer = document.querySelector('.es-cart__sum');
         const values = document.querySelectorAll('.es-specifications__value');
         let sum = null
@@ -328,7 +328,7 @@ sumOfPaymentAndDelivery()
 
 
 function addLocalStorageProductsToCartPage() {
-    if (loc == '/cart.html') {
+    if (loc == '/cart.html' || loc == '/account.html') {
         const container = document.querySelector('.es-cart__products');
         let storage = localStorage.getItem('products');
         container.innerHTML = ''
@@ -413,7 +413,7 @@ addLocalStorageProductsToCartPage()
 
 // Функция обновляющая количество продуктов на странице корзингы
 function updateQuantityProductsOnCartPage() {
-    if (loc == '/cart.html') {
+    if (loc == '/cart.html' || loc == '/account.html') {
         let storage = localStorage.getItem('products');
         const container = document.querySelector('.es-specifications__key span')
         if (storage) {
@@ -579,8 +579,8 @@ function logOut() {
         addWarning('es-form-logOut', 'green', 'es-warning-logOut-success', 'Вы вышли из аккаунта', 'beforeend');
         setTimeout(() => {
             deleteWarning(['es-warning-logOut-success']);
-            modal.classList.remove('es-show--animation')
-            modal.classList.add('es-hide--animation')
+            modal.classList.remove('es-show--animation');
+            modal.classList.add('es-hide--animation');
         }, 2000);
     });
 }
@@ -848,6 +848,8 @@ function addReviewFromLocalStorage(id) {
     });
 }
 
+
+
 // Показать или  скрыть блок
 function showBlock(containerName, arrowName) {
     const container = document.getElementById(`${containerName}`);
@@ -857,6 +859,7 @@ function showBlock(containerName, arrowName) {
         arrow.classList.toggle('es-rotate180');
     }
 }
+
 
 
 // Если у btnName стоит checked, то показывает containerName
@@ -869,6 +872,51 @@ function checkedOrNotChecked(btnName, containerName) {
         container.classList.add('es-hide')
     }
 }
+
+
+
+// Функция добавляющая избранные тоавры на странцу аккаунта
+function addChosenProducts() {
+    if (window.location.pathname === '/account.html') {
+        const container = document.querySelector('.es-account__cards-container');
+        container.innerHTML = '';
+        let storage = localStorage.getItem('chosen');
+        if (storage) {
+            storage = JSON.parse(storage);
+            storage.forEach(item => {
+                fetch('../database.json').then(data => data.json())
+                .then(data => {
+                    data.cards.forEach(card => {
+                        if (card.id == item.id) {
+                            new Card('es-account__cards-container', 'Все категории', 'Все бренды', card.id).render()
+                            .then(() => {
+                                ifNoProducts();
+                            })
+                        }
+                    });
+                })
+            });
+        }
+        ifNoProducts();
+    }
+}
+addChosenProducts();
+
+
+
+// Если в контейнере нету элементов то визуально показать что товаров нет:
+function ifNoProducts() {
+    const cardsAbsentBlock = document.querySelector(`.es-absence__catalog`);
+    let count = document.querySelectorAll('.es-card').length
+    if (count === 0) {
+        cardsAbsentBlock.classList.remove('es-hide');
+        cardsAbsentBlock.classList.add('es-show--flex');
+    } else {
+        cardsAbsentBlock.classList.add('es-hide');
+        cardsAbsentBlock.classList.remove('es-show--flex');
+    }
+};
+
 
 
 // Все отзывы на странице reviews
@@ -917,7 +965,7 @@ new Modal('call', 'Заказать звонок', 'Отправить', [
         placeholder: 'Телефон',
         required: true
     }
-]).render();
+], true).render();
 
 // <<Регистрация>>
 new Modal('signUp', 'Регистрация', 'Зарегистрироваться', [
@@ -945,7 +993,7 @@ new Modal('signUp', 'Регистрация', 'Зарегистрировать�
         placeholder: 'Пароль',
         required: true
     }
-], signUp).render()
+], true, signUp).render()
 
 
 // <<Вход>>
@@ -962,7 +1010,7 @@ new Modal('signIn', 'Вход', 'Войти', [
         placeholder: 'Пароль',
         required: true
     }
-], signIn).render();
+], true, signIn).render();
 
 
-new Modal('logOut', 'Вы уверены что хотите выйти из аккаунта?', 'Да', [], logOut).render();
+new Modal('logOut', 'Вы уверены что хотите выйти из аккаунта?', 'Да', [], true, logOut).render();
