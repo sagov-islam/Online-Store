@@ -167,7 +167,7 @@ class Card {
                     </div>
                     <div class="es-card__info">
                         <div>
-                            <h3 class="es-title--h3 es-card__title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${title}</a></h3>
+                            <h3 class="es-title--h3 es-card__title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${title}</a></h3>
                             <p class="es-card__description">${description}</p>
                             <p class="es-card__description">В наличии: ${inStock}</p>
                         </div>

@@ -199,7 +199,7 @@ function addToCart() {
         <li class="es-header__cart-products-item" data-id="${id}">
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
             <div class="es-header__cart-info">
-                <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a>
+                <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
                 <div class="es-card-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
@@ -369,7 +369,7 @@ function addLocalStorageProductsToCartPage() {
                     <div class="es-cart__product-main-content">
                         <img class="es-cart__product-img" src="${image}" alt="${category}">
                         <div class="es-cart__product-info">
-                            <h3 class="es-title--h3 es-cart__product-title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">${name}</a></h3>
+                            <h3 class="es-title--h3 es-cart__product-title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a></h3>
                             <div class="es-card-prices es-cart__product-prices">
                                 <span class="es-card-prices__price">${price} ₽</span>
                                 ${discount}
@@ -440,7 +440,6 @@ function addWarning(container, color, warningBlockId, text, postiton) {
     modal.insertAdjacentHTML(postiton, html);
 }
 
-// ert
 
 // Функция удаляющая предупреждения и уведомления
 function deleteWarning(warningBlocks) {
@@ -646,6 +645,8 @@ function FunctionalityOfStars() {
 }
 FunctionalityOfStars()
 
+
+
 /*  При нажатии на карточку товара, Id этой карточки сохраняется в LocalStorage,
 что бы при загрузке страницы product-page отобразить
 информацию о товаре с таким id  */
@@ -728,7 +729,7 @@ function addProductsWithADiscount(containerName, percent) {
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
             <li class="es-small-card">
-                <a href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}">
+                <a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">
                     <div class="es-small-card__image-container">
                         <img class="es-small-card__image" src="${image}" alt="${name}">
                     </div>
@@ -919,6 +920,53 @@ function ifNoProducts() {
 
 
 
+function saveIdViewedProduct(id) {
+    let storage = localStorage.getItem('viewedProducts');
+    if (storage) {
+        storage = JSON.parse(storage);
+        storage.forEach((item, index) => {if (item == id) storage.splice(index, 1)});
+        storage.push(id);
+        if (storage.length > 4) {
+            storage.splice(0, 1);
+        }
+        localStorage.setItem('viewedProducts', JSON.stringify(storage));
+    } else {
+        let array = [];
+        array.push(id);
+        localStorage.setItem('viewedProducts', JSON.stringify(array));
+    }
+}
+
+function addViewedProducts() {
+    const container = document.querySelector('.es-viewed-products__cards-list');
+    let storage = localStorage.getItem('viewedProducts');
+    if (container) {
+        if (storage) {
+            storage = JSON.parse(storage);
+            if (storage.length > 0) {
+                fetch('../database.json').then(data => data.json())
+                .then(data => {
+                    storage.forEach(item => {
+                        data.cards.forEach(card => {
+                            if (card.id === item) {
+                                new Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', card.id).render()
+                            }
+                        });
+                    });
+                });
+            } else addWarning('es-viewed-products__cards-list', 'silver', 'absence-of.products', 'Товары отсутствуют' , 'beforeend');
+        }
+        else addWarning('es-viewed-products__cards-list', 'silver', 'absence-of.products', 'Товары отсутствуют' , 'beforeend');
+    }
+}
+addViewedProducts();
+
+
+
+
+
+
+
 // Все отзывы на странице reviews
 if (loc == '/reviews.html') {
     reviewFunctional();
@@ -938,9 +986,6 @@ if (loc == '/index.html') {
 
 if (loc == "/index.html") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
-}
-if (loc == "/index.html" || loc == "/product-page.html" || loc == "/cart.html") {
-    new Card('es-viewed-products__cards-list', 'Все категории', 'Все бренды', [0,4]).render();
 }
 
 
