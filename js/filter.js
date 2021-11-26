@@ -135,11 +135,12 @@ rangeSlider.noUiSlider.on('change', (values, handle) => {
 
 
 // Анимация для элементов фильтра
-const filterTitle = document.querySelectorAll(".es-filter__title");
-filterTitle.forEach(item => {
-    item.addEventListener('click', () => {
-        item.nextElementSibling.classList.toggle('es-overflow-hide');
-        item.nextElementSibling.classList.toggle('es-overflow-show');
-        item.lastElementChild.classList.toggle('es-rotate180');
-    });
-});
+// const filterTitle = document.querySelectorAll(".es-filter__title");
+// filterTitle.forEach(item => {
+//     item.addEventListener('click', () => {
+//         item.nextElementSibling.classList.toggle('es-overflow-hide');
+//         item.nextElementSibling.classList.toggle('es-overflow-show');
+//         item.lastElementChild.classList.toggle('es-rotate180');
+//         item.lastElementChild.classList.toggle('es-rotate180');
+//     });
+// });

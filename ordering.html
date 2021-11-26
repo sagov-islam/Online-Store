@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Shop</title>
+    <link rel="icon" href="images/icon.svg">
+    <link rel = "stylesheet" href = " https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="css/blocks.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="es-container">
+            <div class="es-ordering">
+                <div class="es-ordering__content es-margin-top80">
+                    <h2 class="es-title--h2 es-modal__title">Оформление заказа</h2>
+                    <form class="es-ordering__form">
+                        <input class="es-input-text es-input--hover es-input--focus" type="text" name="firstName" placeholder="Имя" required>
+                        <input class="es-input-text es-input--hover es-input--focus es-margin-top" type="email" name="email" placeholder="Email" required>
+                        <input class="es-input-text es-input--hover es-input--focus es-margin-top" type="tel" name="number" placeholder="Телефон" required>
+                        <textarea class="es-input-text es-input--hover es-input--focus es-ordering__textarea es-margin-top" type="textarea" name="comment" placeholder="Комментарий"></textarea>
+                        
+                        <div class="es-ordering__shipping-and-payment">
+                            <div class="es-ordering__shipping-and-payment-item es-margin-top">
+                                <h3 class="es-title--h3-bold">Способы доставки</h3>
+                                <div class="es-ordering__radio-btns">
+                                    <label class="es-input es-modal__radio-btn">
+                                        <input class="es-input__radio" type="radio" name="shipping" value="Курьером" required>
+                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                        <p class="es-input__text">Курьером</p>
+                                    </label>
+                                    <label class="es-input">
+                                        <input class="es-input__radio" type="radio" name="shipping" value="Самовывоз" required>
+                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                        <p class="es-input__text">Самовывоз</p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="es-ordering__shipping-and-payment-item es-margin-top">
+                                <h3 class="es-title--h3-bold">Способы оплаты</h3>
+                                <div class="es-ordering__radio-btns">
+                                    <label class="es-input es-modal__radio-btn">
+                                        <input class="es-input__radio" id="btn-bank-card" type="radio" name="payment" value="Банковская карта" onclick="checkedOrNotChecked('btn-bank-card', 'es-ordering__bank-card')" required>
+                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                        <p class="es-input__text">Банковская карта</p>
+                                    </label>
+                                    <label class="es-input">
+                                        <input class="es-input__radio" type="radio" name="payment" value="Наличными" onclick="checkedOrNotChecked('btn-bank-card', 'es-ordering__bank-card')" required>
+                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                        <p class="es-input__text">Наличными</p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="es-ordering__bank-card es-hide" id="es-ordering__bank-card">
+                            <input class="es-input-text es-input--hover es-input--focus es-margin-top es-ordering__input-card-number" type="number" name="сard number" placeholder="Номер карты" onkeypress="this.value=this.value.substring(0,15)" required>
+                            <input class="es-input-text es-input--hover es-input--focus es-margin-top es-ordering__input-cvv" type="number" name="CVV" placeholder="CVV" onkeypress="this.value=this.value.substring(0,2)" required>
+                            <input class="es-input-text es-input--hover es-input--focus es-margin-top es-ordering__input-mmgg" type="text" name="ММ/ГГ" placeholder="ММ / ГГ" onkeypress="this.value=this.value.substring(0,4)" required>
+                        </div>
+
+                        <button class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top" type="submit">Оформить заказ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script  src = " https://unpkg.com/simplebar@latest/dist/simplebar.min.js " ></script> 
+    <script src="js/modal.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+ 
+
+
+<!-- <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left">
+    <span class="es-btn-orange__text">Заказать звонок</span>
+    <div class="es-btn-orange__bg-1"></div>
+    <div class="es-btn-orange__bg-2"></div>
+</button> -->

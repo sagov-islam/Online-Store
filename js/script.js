@@ -575,6 +575,7 @@ function logOut() {
         localStorage.setItem('user', JSON.stringify(storage));
         checkLoggedInOrNot();
 
+        deleteWarning(['es-warning-logOut-success']);
         addWarning('es-form-logOut', 'green', 'es-warning-logOut-success', 'Вы вышли из аккаунта', 'beforeend');
         setTimeout(() => {
             deleteWarning(['es-warning-logOut-success']);
@@ -673,10 +674,10 @@ function addCardInformation() {
 /*  При нажатии на кнопку срабатывает эта функция, которая берет category и сохраняет его в LocalStorage  */
 function saveFilterProps(name, brandOrCategory) {
     if (brandOrCategory === 'Бренды') {
-        localStorage.setItem('categoryForCatalog', JSON.stringify({category: 'Все категории', brand: name}));
+        localStorage.setItem('filterProps', JSON.stringify({category: 'Все категории', brand: name}));
     }
     else if (brandOrCategory === 'Категории') {
-        localStorage.setItem('categoryForCatalog', JSON.stringify({category: name, brand: 'Все бренды'}));
+        localStorage.setItem('filterProps', JSON.stringify({category: name, brand: 'Все бренды'}));
     }
 }
 
@@ -686,9 +687,9 @@ function saveFilterProps(name, brandOrCategory) {
 Она берет из LocalStorage сохраненную категорию,
 и фильтрует товар в соответствии с этой категорией  */
 function runFilterWithSavedParameters() {
-    let savedCategoryName = localStorage.getItem('categoryForCatalog');
-    if (savedCategoryName) {
-        savedCategoryName = JSON.parse(savedCategoryName);
+    let filterProps = localStorage.getItem('filterProps');
+    if (filterProps) {
+        filterProps = JSON.parse(filterProps);
 
         const categoriesParent = document.getElementById('es-drop-down-category');
         const brandButtons = document.querySelectorAll('#es-drop-down-brand .es-input__radio');
@@ -696,27 +697,27 @@ function runFilterWithSavedParameters() {
 
         brandButtons.forEach(btn => {
             const name = btn.parentNode.querySelector('p').textContent;
-            if (name !== savedCategoryName.brand) btn.checked = false;
+            if (name !== filterProps.brand) btn.checked = false;
             else {
                 btn.checked = true;
             }
         });
         categoryButtons.forEach(btn => {
             const name = btn.parentNode.querySelector('p').textContent;
-            if (name !== savedCategoryName.category) btn.checked = false;
+            if (name !== filterProps.category) btn.checked = false;
             else {
                 btn.checked = true;
             }
         });
-        category = savedCategoryName.category;
-        brand = savedCategoryName.brand;
+        category = filterProps.category;
+        brand = filterProps.brand;
         filter();
     } else {
         category = 'Все категории';
         brand = 'Все бренды';
         filter();
     }
-    localStorage.setItem('categoryForCatalog', JSON.stringify({category: 'Все категории', brand: 'Все бренды'}));
+    localStorage.setItem('filterProps', JSON.stringify({category: 'Все категории', brand: 'Все бренды'}));
 }
 
 
@@ -847,10 +848,27 @@ function addReviewFromLocalStorage(id) {
     });
 }
 
+// Показать или  скрыть блок
+function showBlock(containerName, arrowName) {
+    const container = document.getElementById(`${containerName}`);
+    container.classList.toggle('es-hide');
+    if (arrowName) {
+        const arrow = document.getElementById(`${arrowName}`);
+        arrow.classList.toggle('es-rotate180');
+    }
+}
 
 
-
-
+// Если у btnName стоит checked, то показывает containerName
+function checkedOrNotChecked(btnName, containerName) {
+    const btn = document.querySelector(`#${btnName}`);
+    const container = document.querySelector(`#${containerName}`);
+    if (btn.checked === true) {
+        container.classList.remove('es-hide')
+    } else {
+        container.classList.add('es-hide')
+    }
+}
 
 
 // Все отзывы на странице reviews
