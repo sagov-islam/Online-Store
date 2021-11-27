@@ -85,11 +85,11 @@ class Header {
                                 
                             <div class="es-input-search">
                                 <input class="es-input-search__input" type="search" placeholder="Поиск">
-                                <button class="es-input-search__btn">
+                                <a class="es-input-search__btn" href="/search-page.html" onclick="saveSearchValue(this)" onauxclick="saveSearchValue(this)">
                                     <svg width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path  class="es-input-search__btn-icon" d="M34.4678 31.8795L25.8397 23.2158C28.0582 20.6697 29.2737 17.4662 29.2737 14.1312C29.2737 6.3394 22.7075 0 14.6368 0C6.56621 0 0 6.3394 0 14.1312C0 21.9231 6.56621 28.2625 14.6368 28.2625C17.6667 28.2625 20.5539 27.3802 23.0225 25.7053L31.7161 34.4348C32.0795 34.7991 32.5682 35 33.092 35C33.5877 35 34.058 34.8175 34.415 34.4857C35.1736 33.781 35.1978 32.6124 34.4678 31.8795ZM14.6368 3.68641C20.6023 3.68641 25.4554 8.37184 25.4554 14.1312C25.4554 19.8906 20.6023 24.5761 14.6368 24.5761C8.67137 24.5761 3.81831 19.8906 3.81831 14.1312C3.81831 8.37184 8.67137 3.68641 14.6368 3.68641Z"/>
                                     </svg>
-                                </button>
+                                </a>
                             </div>
 
                             <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left" onclick="showModal('call')">
@@ -148,10 +148,11 @@ class Header {
         document.body.insertAdjacentHTML("afterbegin", headerHtml());
         addToCart();
         updateCartSum('es-amount-sum');
-        checkLoggedInOrNot()
-        stickyHeader()
+        checkLoggedInOrNot();
+        stickyHeader();
         updateQuantityProductsOnCartBtn();
-        udateQuantityProductsOnChosenBtn()
+        udateQuantityProductsOnChosenBtn();
+        eventKeydownOnTheSearchInput();
     }
 }
 
