@@ -26,7 +26,6 @@ let user = localStorage.getItem('user');
 const userNameContainer = document.querySelector('.es-account__user-name');
 if (user) {
     user = JSON.parse(user);
-    userNameContainer.textContent = `${user.firstName} ${user.lastName}`;
-} else {
-    userNameContainer.textContent = 'Гость'
-}
+    if (user.loggedIn === true) userNameContainer.textContent = `${user.firstName} ${user.lastName}`;
+    else userNameContainer.textContent = 'Гость'
+} else userNameContainer.textContent = 'Гость'

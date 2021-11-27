@@ -32,9 +32,20 @@
     &__title {
         font-weight: $extra-bold;
         font-style: italic;
-        font-size: 40px;
+        font-size: 26px;
         margin-bottom: 4px;
         width: 330px;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -ms-line-clamp: 2;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        display: -webkit-box;
+        display: box;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
     }
     &__price {
         font-weight: $extra-bold;
@@ -53,8 +64,8 @@
             top: 9px;
             left: -5px;
             display: inline-block;
-            width: 80px;
             height: 1.8px;
+            width: 120%;
             background-color: white;
             opacity: 0.8;
         }
@@ -63,19 +74,17 @@
         margin-top: 11px;
     }
     &__discount {
-        font-weight: $extra-bold;
+        margin-left: 8px;
+        font-weight: $medium;
         font-style: italic;
-        font-size: 102px;
-        opacity: .1;
-        position: absolute;
-        z-index: 1;
-        left: 420px;
-        top: 0;   
+        font-size: 16px;
+        opacity: 0.5;
     }
     &__image {
         width: 281px;
         height: 236px;
         object-fit: contain;
+        transform: scale(1.2);
         
     }
     &__slide-buttons {
