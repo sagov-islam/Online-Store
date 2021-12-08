@@ -816,7 +816,8 @@ td {
     align-items: center;
 }
 .es-modal {
-    width: 398px;
+    max-width: 398px;
+    margin: 0 15px 0 15px;
     padding: 40px 60px 60px 60px;
     box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.22);
     border-radius: 5px;
@@ -868,18 +869,6 @@ td {
     }
 }
 
-
-.es-big-modal {
-    width: 695px;
-    padding: 40px 60px 60px 60px;
-    box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.22);
-    border-radius: 5px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-}
 // CТИЛИ ВТОРОСТЕПЕННЫХ ЭЛЕМЕНТОВ
 
 .es-absence {

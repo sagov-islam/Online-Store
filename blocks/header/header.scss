@@ -153,6 +153,7 @@
         position: relative;
         &-btn {
             display: inline-block;
+            position: relative;
             &:hover + .es-header__cart-bg-1 {
                 visibility:visible;
                 transform: translate(0px, 0px);
@@ -185,8 +186,6 @@
                     height: 0;
             }
             &-item {
-                height: 90px;
-                width: 100%;
                 background-color: $bg;
                 padding: 8px;
                 border-radius: 5px;
@@ -201,6 +200,7 @@
             } 
        }
        &-image {
+            margin-right: 5px;
             width: 72px;
             height: 60px;
             object-fit: contain;
@@ -218,7 +218,6 @@
             font-weight: $medium;
             font-style: italic;
             color: $black;
-            width: 245px;
             &:hover {
                 text-decoration: underline;
             }
