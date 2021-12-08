@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptation/adaptation.css">
 </head>
 <body>
     <main>
@@ -19,15 +20,17 @@
                 <span>Аккаунт</span>
             </div>
             <div class="es-account">
-                <div class="es-account__buttons">
+                <div class="es-account__account-info">
                     <h2 class="es-title--h3-bold es-account__user-name"></h2>
-                    <button class="es-account__btn es-account__btn--hover">Избранное</button>
-                    <button class="es-account__btn es-account__btn--hover">Корзина</button>
+                    <div class="es-account__buttons">
+                        <button class="es-account__btn es-account__btn--hover">Избранное</button>
+                        <button class="es-account__btn es-account__btn--hover">Корзина</button>
+                    </div>
                 </div>
 
                 <section class="es-cart es-hide" id="es-cart-container">
                     <div class="es-cart__container">
-                        <ul class="es-cart__products">
+                        <ul class="es-cart__products es-account-cart">
                             
                         </ul>
                         <div class="es-cart__sidebar">

@@ -95,7 +95,7 @@ class Footer {
                 </div>
                 <div class="es-footer__content-bottom-bg">
                     <div class="es-container es-footer__content-bottom">
-                        <p class="es-text es-text--size-14">© 2000-2021 Интернет-магазин EliteMebel.ru — недорогая мебель от производителя в Москве</p>
+                        <p class="es-text es-text--size-14">© 2000-2021 Интернет-магазин EliteShop.ru — недорогая мебель от производителя в Москве</p>
                         <a class="es-logo" href="index.html">
                             <img class="es-logo-image" src="images/logo.svg" alt="Logo" width="160" height="27.57">
                         </a>

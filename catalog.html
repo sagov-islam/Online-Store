@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="css/blocks.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adaptation/adaptation.css">
 </head>
 <body onload="runFilterWithSavedParameters()">
     <main>
@@ -40,154 +41,156 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="es-filter__drop-down-list" id="es-drop-down-category">
-                            <div class="es-filter__title" onclick="showBlock('es-filter__categories', 'es-filter__category-arrow')">
-                                <h3 class="es-title--h3-bold">Категория</h3>
-                                <svg class="es-filter__title-image" id="es-filter__category-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
-                                </svg>
+                        <div class="es-filter__drop-down-lists">
+                            <div class="es-filter__drop-down-list" id="es-drop-down-category">
+                                <div class="es-filter__title" onclick="showBlock('es-filter__categories', 'es-filter__category-arrow')">
+                                    <h3 class="es-title--h3-bold">Категория</h3>
+                                    <svg class="es-filter__title-image" id="es-filter__category-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                                    </svg>
+                                </div>
+                                <ul class="es-filter__list" id="es-filter__categories">
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category" checked>
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Все категории</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Кровати</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Матрасы</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Диваны</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Шкафы</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Комоды</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Тумбочки</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Зеркала</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Столы</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Стулья</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="category">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Лидеры продаж</p>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="es-filter__list" id="es-filter__categories">
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category" checked>
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Все категории</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Кровати</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Матрасы</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Диваны</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Шкафы</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Комоды</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Тумбочки</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Зеркала</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Столы</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Стулья</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="category">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Лидеры продаж</p>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="es-filter__drop-down-list" id="es-drop-down-brand">
-                            <div class="es-filter__title" onclick="showBlock('es-filter__brands', 'es-filter__brand-arrow')">
-                                <h3 class="es-title--h3-bold">Бренды</h3>
-                                <svg class="es-filter__title-image" id="es-filter__brand-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
-                                </svg>
+    
+                            <div class="es-filter__drop-down-list" id="es-drop-down-brand">
+                                <div class="es-filter__title" onclick="showBlock('es-filter__brands', 'es-filter__brand-arrow')">
+                                    <h3 class="es-title--h3-bold">Бренды</h3>
+                                    <svg class="es-filter__title-image" id="es-filter__brand-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261L5.00207 2.01616L1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874301 6C0.727717 6 0.590401 5.94196 0.487313 5.83684L0.159754 5.50214C0.056747 5.39694 -2.29018e-07 5.2567 -2.27233e-07 5.10708C-2.25449e-07 4.95746 0.056747 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575419 4.85516 -0.000330684 5.00183 1.44263e-06C5.14906 -0.00033068 5.28695 0.0575419 5.3902 0.162908Z"/>
+                                    </svg>
+                                </div>
+                                <ul class="es-filter__list" id="es-filter__brands">
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand" checked>
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Все бренды</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Aquaton</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">DreamLine</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Dimax</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Lonax</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Affalina</p>
+                                        </label>
+                                    </li>
+                                    <li class="es-filter__item">
+                                        <label class="es-input">
+                                            <input class="es-input__radio" type="radio" name="brand">
+                                            <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
+                                            <p class="es-input__text">Alleri</p>
+                                        </label>
+                                    </li>
+                                </ul>
                             </div>
-                            <ul class="es-filter__list" id="es-filter__brands">
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand" checked>
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Все бренды</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Aquaton</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">DreamLine</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Dimax</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Lonax</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Affalina</p>
-                                    </label>
-                                </li>
-                                <li class="es-filter__item">
-                                    <label class="es-input">
-                                        <input class="es-input__radio" type="radio" name="brand">
-                                        <span class="es-input__radio-style"><span class="es-input__radio-style-span"></span></span>
-                                        <p class="es-input__text">Alleri</p>
-                                    </label>
-                                </li>
-                            </ul>
                         </div>
+                        
                     </section>
 
                     <section class="es-catalog__cards-container">

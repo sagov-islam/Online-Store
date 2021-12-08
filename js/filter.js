@@ -18,7 +18,7 @@ function filter() {
     const inputValue1 = parseInt(document.getElementById('input-1').value);
     
     const cards = document.querySelectorAll('.es-card');
-    fetch('../database.json').then(data => data.json())
+    fetch('/database.json').then(data => data.json())
     .then((data) => {
         data.cards.forEach((card)=> {
             let price = card.price;

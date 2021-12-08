@@ -1,5 +1,4 @@
 'use strict';
-const database = fetch('../database.json').then(data => data.json())
 const loc = window.location.pathname;
 
 
@@ -232,7 +231,8 @@ function addToCart() {
     if (storage) {
         storage = JSON.parse(storage);
 
-        database.then(data => {
+        fetch('../database.json').then(data => data.json())
+        .then(data => {
             storage.forEach(item => {
                 data.cards.forEach(card => {
                     let discountHtml = ''
@@ -334,7 +334,8 @@ function addLocalStorageProductsToCartPage() {
         container.innerHTML = ''
         if (storage) {
             storage = JSON.parse(storage)
-            database.then(data => {
+            fetch('../database.json').then(data => data.json())
+            .then(data => {
                 storage.forEach(item => {
                     data.cards.forEach(card => {
                         if (item.id == card.id) {
@@ -436,7 +437,6 @@ function addWarning(container, color, warningBlockId, text, postiton) {
         <h3 class="es-absence__text">${text}</h3>
     </div>
     `
-    // modal.innerHTML += html
     modal.insertAdjacentHTML(postiton, html);
 }
 
@@ -515,6 +515,9 @@ function signIn() {
             } else {
                 deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
                 addWarning('es-form-signIn', 'red', 'es-warning-signIn-error', 'Вы неправильно ввели Email или пароль', 'beforeend');
+                setTimeout(() => {
+                    deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
+                }, 2000);
             }
         } else {
             deleteWarning(['es-warning-signIn-error', 'es-warning-signIn-success']);
@@ -661,7 +664,8 @@ function saveСardId(btn) {
 в базе данных, и добавляет на страницу  */
 function addCardInformation() {
     const id = JSON.parse(localStorage.getItem('cardIdForProductPage'));
-    database.then((data) => {
+    fetch('../database.json').then(data => data.json())
+    .then((data) => {
         data.cards.forEach(card => {
             if (card.id == id) {
                 new ProductPageHtml(card).render();
@@ -743,7 +747,8 @@ function addProductsWithADiscount(containerName, percent) {
             </li>
             `
         }
-        database.then((data) => {
+        fetch('../database.json').then(data => data.json())
+        .then((data) => {
             data.cards.forEach((card, index) => {
                 if (card.discountPercent === percent) {
                     let discountHtml = ''
@@ -828,7 +833,8 @@ function addReviewFromLocalStorage(id) {
     const cont = document.querySelector('.es-grid-container--reviews');
     cont.innerHTML = '';
     
-    database.then((data) => {
+    fetch('../database.json').then(data => data.json())
+    .then((data) => {
         data.reviews.forEach(item => {
             if (id) {
                 if (item.productId == id) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
@@ -1048,8 +1054,10 @@ function addOfferInformation() {
 
 
 function saveSearchValue(btn) {
-    const value = btn.parentNode.querySelector('.es-input-search__input').value
-    value.toLowerCase();
+    let value = btn.parentNode.querySelector('.es-input-search__input').value
+    value = value.toLowerCase();
+
+
     localStorage.setItem('searchValue', JSON.stringify(value))
 }
 
@@ -1059,8 +1067,8 @@ function eventKeydownOnTheSearchInput() {
     searchInputs.forEach(item => {
         item.addEventListener('keydown', (e) => {
             if (e.keyCode === 13) {
-                const value = item.value;
-                value.toLowerCase();
+                let value = item.value;
+                value = value.toLowerCase();
                 localStorage.setItem('searchValue', JSON.stringify(value))
                 window.location = '/search-page.html'
               }
@@ -1073,8 +1081,6 @@ eventKeydownOnTheSearchInput();
 function addCardsToTheSearchPage() {
     const value = JSON.parse(localStorage.getItem('searchValue'));
     document.querySelector('#es-search-page__search-input').value = value
-
-    // if (value === '') addWarning('es-search-container', 'silver', 'noProductCardsFound', 'Товар не найден', 'afterbegin');
 
     fetch('/database.json').then(data => data.json())
     .then(data => {
@@ -1103,7 +1109,8 @@ if (loc == '/reviews.html') {
 
 // 4 отзыва на главной странице
 if (loc == '/index.html') {
-    database.then((data) => {
+    fetch('../database.json').then(data => data.json())
+    .then((data) => {
         data.reviews.forEach((item, index)=> {
             if (index < 4) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
         });

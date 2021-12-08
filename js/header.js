@@ -83,7 +83,7 @@ class Header {
                                 </div>
                             </div>
                                 
-                            <div class="es-input-search">
+                            <div class="es-input-search es-header__search">
                                 <input class="es-input-search__input" type="search" placeholder="Поиск">
                                 <a class="es-input-search__btn" href="/search-page.html" onclick="saveSearchValue(this)" onauxclick="saveSearchValue(this)">
                                     <svg width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@ class Header {
                                 </a>
                             </div>
 
-                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left" onclick="showModal('call')">
+                            <button class="es-btn-orange es-btn es-btn--size-normal es-margin-left es-header__btn-call" onclick="showModal('call')">
                                 <span class="es-btn-orange__text">Заказать звонок</span>
                                 <div class="es-btn-orange__bg-1"></div>
                                 <div class="es-btn-orange__bg-2"></div>
@@ -135,6 +135,55 @@ class Header {
                                                 <p class="es-amount">Итого: <span class="es-amount-sum">0 ₽</span></p>
                                                 <a class="es-btn es-btn--size-all-width es-btn--style-inherit-orange es-margin-top  es-btn--link" href="/cart.html" id="cart-btn">Перейти в коризну</a>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="es-header__menu es-hide">
+                                    <button class="es-header__menu-btn">
+                                        <div class="es-header__menu-lines">
+                                            <span class="es-header__menu-line"></span>
+                                            <span class="es-header__menu-line"></span>
+                                            <span class="es-header__menu-line"></span>
+                                        </div>
+                                    </button>
+                                    <div class="es-header__menu-bg-1 es-opacity-hide es-opacity-hide--hover">
+                                        <div class="es-header__menu-bg-2" >
+                                            <div class="es-hide es-input-search es-header__search">
+                                                <input class="es-input-search__input" type="search" placeholder="Поиск">
+                                                <a class="es-input-search__btn" href="/search-page.html" onclick="saveSearchValue(this)" onauxclick="saveSearchValue(this)">
+                                                    <svg width="20" height="20" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path  class="es-input-search__btn-icon" d="M34.4678 31.8795L25.8397 23.2158C28.0582 20.6697 29.2737 17.4662 29.2737 14.1312C29.2737 6.3394 22.7075 0 14.6368 0C6.56621 0 0 6.3394 0 14.1312C0 21.9231 6.56621 28.2625 14.6368 28.2625C17.6667 28.2625 20.5539 27.3802 23.0225 25.7053L31.7161 34.4348C32.0795 34.7991 32.5682 35 33.092 35C33.5877 35 34.058 34.8175 34.415 34.4857C35.1736 33.781 35.1978 32.6124 34.4678 31.8795ZM14.6368 3.68641C20.6023 3.68641 25.4554 8.37184 25.4554 14.1312C25.4554 19.8906 20.6023 24.5761 14.6368 24.5761C8.67137 24.5761 3.81831 19.8906 3.81831 14.1312C3.81831 8.37184 8.67137 3.68641 14.6368 3.68641Z"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <button class="es-hide es-btn-orange es-btn es-btn--size-all-width es-header__btn-call es-margin-bottom" onclick="showModal('call')">
+                                                <span class="es-btn-orange__text">Заказать звонок</span>
+                                                <div class="es-btn-orange__bg-1"></div>
+                                                <div class="es-btn-orange__bg-2"></div>
+                                            </button>
+                                            <nav class="es-header__nav">
+                                                <ul class="es-header__nav-list">
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="catalog.html">Каталог</a>
+                                                    </li>
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="about-us.html">О нас</a>
+                                                    </li>
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="shipping-and-payment.html">Доставка и оплата</a>
+                                                    </li>
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="offers.html">Акции</a>
+                                                    </li>
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="reviews.html">Отзывы</a>
+                                                    </li>
+                                                    <li class="es-header__nav-item">
+                                                        <a class="es-link" href="contacts.html">Контакты</a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
