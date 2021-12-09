@@ -207,13 +207,24 @@
        }
        
         &-info {
+            max-width: 250px;
             margin-left: -10px;
         }
         &-title {
-            white-space: nowrap;
-            overflow: hidden;
+            width: 100%;
+
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
             text-overflow: ellipsis;
-            display: block;
+            overflow: hidden;
+            -ms-line-clamp: 1;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            display: -webkit-box;
+            display: box;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            
             font-size: 14px;
             font-weight: $medium;
             font-style: italic;

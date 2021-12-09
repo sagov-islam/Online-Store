@@ -199,7 +199,7 @@ function addToCart() {
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
             <div class="es-header__cart-info">
                 <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
-                <div class="es-card-prices">
+                <div class="es-card-prices es-header__cart-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
                 </div>
