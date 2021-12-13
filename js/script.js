@@ -701,14 +701,14 @@ function runFilterWithSavedParameters() {
         const categoryButtons = document.querySelectorAll('#es-drop-down-category .es-input__radio');
 
         brandButtons.forEach(btn => {
-            const name = btn.parentNode.querySelector('p').textContent;
+            const name = btn.parentNode.querySelector('.es-input__text').textContent;
             if (name !== filterProps.brand) btn.checked = false;
             else {
                 btn.checked = true;
             }
         });
         categoryButtons.forEach(btn => {
-            const name = btn.parentNode.querySelector('p').textContent;
+            const name = btn.parentNode.querySelector('.es-input__text').textContent;
             if (name !== filterProps.category) btn.checked = false;
             else {
                 btn.checked = true;

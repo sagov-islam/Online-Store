@@ -75,17 +75,17 @@ class Footer {
         
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="images/social networks/instagram.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/instagram.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="images/social networks/vk.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/vk.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="images/social networks/facebook.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/facebook.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
         
