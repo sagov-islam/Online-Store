@@ -767,7 +767,9 @@ function addProductsWithADiscount(containerName, percent) {
         })
         .then(() => {
             const container = document.querySelector(`.${containerName}`);
-            container.children.forEach((card, index)=> {
+            const children = [...container.children];
+           
+            children.forEach((card, index)=> {
                 if (index >= 6) {
                     card.remove();
                 }
