@@ -6,7 +6,7 @@ if (window.location.pathname == '/index.html') {
     const minutesValue = document.querySelector('.es-timer__minutes');
     const secondsValue = document.querySelector('.es-timer__seconds');
 
-    const dataEnd = new Date('Dec 15 2021 00:00:00');
+    const dataEnd = new Date('Dec 15 2022 00:00:00');
     
 
     const now = new Date();
