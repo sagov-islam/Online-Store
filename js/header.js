@@ -9,7 +9,7 @@ class Header {
                     <div class="es-container">
                         <div class="es-header__top-content">
                             <a class="es-logo" href="index.html">
-                                <img class="es-logo-image" src="images/logo.svg" alt="Logo" width="160" height="27.57">
+                                <img class="es-logo-image" src="Online-Store/images/logo.svg" alt="Logo" width="160" height="27.57">
                             </a>
                             <nav class="es-header__nav">
                                 <ul class="es-header__nav-list">
@@ -43,7 +43,7 @@ class Header {
                         <div class="es-header__bottom-content">
                             <div class="es-header__catalog">
                                 <button class="es-btn-orange es-btn es-btn--size-small es-header__btn-catalog">
-                                    <img class="es-btn-orange__image" src="images/catalog-menu.svg" alt="">
+                                    <img class="es-btn-orange__image" src="Online-Store/images/catalog-menu.svg" alt="">
                                     <span class="es-btn-orange__text">Каталог</span>
                                     <div class="es-btn-orange__bg-1"></div>
                                     <div class="es-btn-orange__bg-2"></div>
@@ -101,11 +101,11 @@ class Header {
                             <div class="es-header__user-buttons">
                                 <a class="es-header__chosen-btn" href="/account.html">
                                     <span class="es-header__quantity-products" id="chosen-quantity-products">3</span>
-                                    <img src="images/chosen.svg" alt="Chosen">
+                                    <img src="Online-Store/images/chosen.svg" alt="Chosen">
                                 </a>
 
                                 <div class="es-header__account">
-                                    <button class="es-header__account-btn" href="#"><img src="images/account.svg" alt="Account"></button>
+                                    <button class="es-header__account-btn" href="#"><img src="Online-Store/images/account.svg" alt="Account"></button>
                                     <div class="es-header__account-bg1 es-opacity-hide es-opacity-hide--hover">
                                         <div class="es-header__account-bg2">
                                             <ul class="es-drop-down" id="es-header-account-drop-down">
@@ -122,7 +122,7 @@ class Header {
                                 
                                 <div class="es-header__cart">
                                     <button class="es-header__cart-btn">
-                                        <img src="images/cart.svg" alt="Cart">
+                                        <img src="Online-Store/images/cart.svg" alt="Cart">
                                     </button>
                                     <div class="es-header__cart-bg-1 es-opacity-hide es-opacity-hide--hover">
                                         <div class="es-header__cart-bg-2" >
