@@ -1103,15 +1103,15 @@ function addCardsToTheSearchPage() {
 
 
 // Все отзывы на странице reviews
-if (loc == '/reviews.html') {
+if (loc == '/Online-Store/reviews.html') {
     reviewFunctional();
     addReviewFromLocalStorage();
 }
 
 
 // 4 отзыва на главной странице
-if (loc == '/index.html') {
-    fetch('../database.json').then(data => data.json())
+if (loc == '/Online-Store/index.html') {
+    fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
         data.reviews.forEach((item, index)=> {
             if (index < 4) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
@@ -1120,7 +1120,7 @@ if (loc == '/index.html') {
 }
 
 
-if (loc == "/index.html") {
+if (loc == "/Online-Store/index.html") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
 
