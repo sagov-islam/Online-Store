@@ -837,7 +837,6 @@ function addReviewFromLocalStorage(id) {
     
     fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
-        console.log(data.reviews);
         data.reviews.forEach(item => {
             if (id) {
                 if (item.productId == id) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
@@ -1111,9 +1110,10 @@ if (loc == '/Online-Store/reviews.html') {
 
 
 // 4 отзыва на главной странице
-if (loc == '/Online-Store/index.html') {
+if (loc == '/Online-Store/') {
     fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
+        console.log(data.reviews)
         data.reviews.forEach((item, index)=> {
             if (index < 4) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
         });
