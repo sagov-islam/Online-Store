@@ -88,7 +88,7 @@ addStyleCheckedChosenBtn();
 
 // Добавляет стиль checked для кнопки <<Добавить в корзину>> на странице продукта, если этот продукт есть в LocalStorage
 function updateStyleForProductPageBtn() {
-    if (loc == '/product-page.html') {
+    if (loc == 'Online-Store/product-page.html') {
         let storage = localStorage.getItem('products');
         const parent = document.querySelector('.es-product__information');
         const btn = parent.querySelector('.es-product-btn-add-to-card')
@@ -198,7 +198,7 @@ function addToCart() {
         <li class="es-header__cart-products-item" data-id="${id}">
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
             <div class="es-header__cart-info">
-                <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
+                <a class="es-header__cart-title" href="Online-Store/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
                 <div class="es-card-prices es-header__cart-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
@@ -231,7 +231,7 @@ function addToCart() {
     if (storage) {
         storage = JSON.parse(storage);
 
-        fetch('../database.json').then(data => data.json())
+        fetch('Online-Store/database.json').then(data => data.json())
         .then(data => {
             storage.forEach(item => {
                 data.cards.forEach(card => {
@@ -313,7 +313,7 @@ updateCartSum('es-specifications__value-sum');
 
 
 function sumOfPaymentAndDelivery() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         const sumContainer = document.querySelector('.es-cart__sum');
         const values = document.querySelectorAll('.es-specifications__value');
         let sum = null
@@ -328,13 +328,13 @@ sumOfPaymentAndDelivery()
 
 
 function addLocalStorageProductsToCartPage() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         const container = document.querySelector('.es-cart__products');
         let storage = localStorage.getItem('products');
         container.innerHTML = ''
         if (storage) {
             storage = JSON.parse(storage)
-            fetch('../database.json').then(data => data.json())
+            fetch('Online-Store/database.json').then(data => data.json())
             .then(data => {
                 storage.forEach(item => {
                     data.cards.forEach(card => {
@@ -370,7 +370,7 @@ function addLocalStorageProductsToCartPage() {
                     <div class="es-cart__product-main-content">
                         <img class="es-cart__product-img" src="${image}" alt="${category}">
                         <div class="es-cart__product-info">
-                            <h3 class="es-title--h3 es-cart__product-title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a></h3>
+                            <h3 class="es-title--h3 es-cart__product-title"><a href="Online-Store/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a></h3>
                             <div class="es-card-prices es-cart__product-prices">
                                 <span class="es-card-prices__price">${price} ₽</span>
                                 ${discount}
@@ -414,7 +414,7 @@ addLocalStorageProductsToCartPage()
 
 // Функция обновляющая количество продуктов на странице корзингы
 function updateQuantityProductsOnCartPage() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         let storage = localStorage.getItem('products');
         const container = document.querySelector('.es-specifications__key span')
         if (storage) {
@@ -543,7 +543,7 @@ function checkLoggedInOrNot() {
         if (storage.loggedIn !== false) {
             dropDown.innerHTML = `
             <li class="es-drop-down__item ">
-                <a class="es-text es-drop-down__link es-center" href="/account.html">В профиль</a>
+                <a class="es-text es-drop-down__link es-center" href="Online-Store/account.html">В профиль</a>
             </li>
             <li class="es-drop-down__item ">
                 <button class="es-text es-drop-down__link es-center" onclick="showModal('logOut')">Выйти из аккаунта</button>
@@ -664,7 +664,7 @@ function saveСardId(btn) {
 в базе данных, и добавляет на страницу  */
 function addCardInformation() {
     const id = JSON.parse(localStorage.getItem('cardIdForProductPage'));
-    fetch('../database.json').then(data => data.json())
+    fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
         data.cards.forEach(card => {
             if (card.id == id) {
@@ -835,7 +835,7 @@ function addReviewFromLocalStorage(id) {
     const cont = document.querySelector('.es-grid-container--reviews');
     cont.innerHTML = '';
     
-    fetch('../database.json').then(data => data.json())
+    fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
         data.reviews.forEach(item => {
             if (id) {
@@ -893,7 +893,7 @@ function addChosenProducts() {
         if (storage) {
             storage = JSON.parse(storage);
             storage.forEach(item => {
-                fetch('../database.json').then(data => data.json())
+                fetch('Online-Store/database.json').then(data => data.json())
                 .then(data => {
                     data.cards.forEach(card => {
                         if (card.id == item.id) {
@@ -952,7 +952,7 @@ function addViewedProducts() {
         if (storage) {
             storage = JSON.parse(storage);
             if (storage.length > 0) {
-                fetch('../database.json').then(data => data.json())
+                fetch('Online-Store/database.json').then(data => data.json())
                 .then(data => {
                     storage.forEach(item => {
                         data.cards.forEach(card => {
@@ -986,14 +986,14 @@ function addOffers() {
             </li>
         `
     }
-    fetch('/database.json').then(data => data.json())
+    fetch('Online-Store/database.json').then(data => data.json())
     .then(data => {
         data.offers.forEach(offer => {
             container.innerHTML += offerHtml(offer.id, offer.image, offer.date, offer.title)
         });
     });
 }
-if (window.location.pathname == '/offers.html') addOffers();
+if (window.location.pathname == '/Online-Store/offers.html') addOffers();
 
 
 
@@ -1031,13 +1031,13 @@ function addOfferInformation() {
         </section>
         `
     }
-    fetch('/database.json').then(data => data.json())
+    fetch('Online-Store/database.json').then(data => data.json())
     .then(data => {
         data.offers.forEach(offer => {
             if (offer.id === id) {
                 container.innerHTML = offerInformationHtml(offer.id, offer.title, offer.date, offer.text);
                 offer.productsId.forEach(productId => {
-                    fetch('/database.json').then(data => data.json())
+                    fetch('Online-Store/database.json').then(data => data.json())
                     .then(data => {
                         data.cards.forEach(card => {
                             if (card.id == productId) {
@@ -1084,7 +1084,7 @@ function addCardsToTheSearchPage() {
     const value = JSON.parse(localStorage.getItem('searchValue'));
     document.querySelector('#es-search-page__search-input').value = value
 
-    fetch('/database.json').then(data => data.json())
+    fetch('Online-Store/database.json').then(data => data.json())
     .then(data => {
         data.cards.forEach(card => {
             const name = card.name.toLowerCase();
