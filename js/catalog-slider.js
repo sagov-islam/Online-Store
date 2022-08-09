@@ -1,6 +1,6 @@
 'use strict';
 
-if (window.location.pathname=='/index.html') {
+if (window.location.pathname=='/Online-Store/') {
     const btnRight = document.querySelector('#btn-right');
     const btnLeft = document.querySelector('#btn-left');
     const container = document.querySelector('.es-catalog-slider__list');
