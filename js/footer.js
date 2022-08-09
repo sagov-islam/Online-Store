@@ -75,17 +75,17 @@ class Footer {
         
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="Online-Store/images/social-networks/instagram.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/instagram.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="Online-Store/images/social-networks/vk.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/vk.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
                                 <li class="es-social-networks__item">
                                     <a class="es-social-networks__link" href="#">
-                                        <img class="es-social-networks__image" src="Online-Store/images/social-networks/facebook.svg" width="26" height="26" alt="Instagram"></img>
+                                        <img class="es-social-networks__image" src="images/social-networks/facebook.svg" width="26" height="26" alt="Instagram"></img>
                                     </a>
                                 </li>
         
@@ -97,7 +97,7 @@ class Footer {
                     <div class="es-container es-footer__content-bottom">
                         <p class="es-text es-text--size-14">© 2000-2021 Интернет-магазин EliteShop.ru — недорогая мебель от производителя в Москве</p>
                         <a class="es-logo" href="index.html">
-                            <img class="es-logo-image" src="Online-Store/images/logo.svg" alt="Logo" width="160" height="27.57">
+                            <img class="es-logo-image" src="images/logo.svg" alt="Logo" width="160" height="27.57">
                         </a>
                     </div>
                 </div>
