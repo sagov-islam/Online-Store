@@ -728,7 +728,7 @@ function runFilterWithSavedParameters() {
 
 
 function addProductsWithADiscount(containerName, percent) {
-    if (loc == '/index.html') {
+    if (loc == '/Online-Store/') {
         const container = document.querySelector(`.${containerName}`);
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
