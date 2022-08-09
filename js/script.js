@@ -733,7 +733,7 @@ function addProductsWithADiscount(containerName, percent) {
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
             <li class="es-small-card">
-                <a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">
+                <a href="Online-Store/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">
                     <div class="es-small-card__image-container">
                         <img class="es-small-card__image" src="${image}" alt="${name}">
                     </div>
