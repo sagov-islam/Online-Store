@@ -1120,7 +1120,7 @@ if (loc == '/Online-Store/index.html') {
 }
 
 
-if (loc == "/Online-Store/index.html") {
+if (loc == "/Online-Store/") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
 
