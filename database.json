@@ -18,9 +18,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product1/image1.png",
-                "../images/product-images/product1/image2.png",
-                "../images/product-images/product1/image3.png"
+                "Online-Store/images/product-images/product1/image1.png",
+                "Online-Store/images/product-images/product1/image2.png",
+                "Online-Store/images/product-images/product1/image3.png"
             ]
         },
         {
@@ -41,9 +41,9 @@
                 "leader": true
             },
             "images": [
-                "/images/product-images/product2/image1.png",
-                "/images/product-images/product2/image2.png",
-                "/images/product-images/product2/image3.png"
+                "Online-Store/images/product-images/product2/image1.png",
+                "Online-Store/images/product-images/product2/image2.png",
+                "Online-Store/images/product-images/product2/image3.png"
             ]
         },
         {
@@ -64,9 +64,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product3/image1.png",
-                "../images/product-images/product3/image2.png",
-                "../images/product-images/product3/image3.png"
+                "Online-Store/images/product-images/product3/image1.png",
+                "Online-Store/images/product-images/product3/image2.png",
+                "Online-Store/images/product-images/product3/image3.png"
             ]
         },
         {
@@ -87,9 +87,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product4/image1.png",
-                "../images/product-images/product4/image2.png",
-                "../images/product-images/product4/image3.png"
+                "Online-Store/images/product-images/product4/image1.png",
+                "Online-Store/images/product-images/product4/image2.png",
+                "Online-Store/images/product-images/product4/image3.png"
             ]
         },
         {
@@ -110,9 +110,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product5/image1.png",
-                "../images/product-images/product5/image2.png",
-                "../images/product-images/product5/image3.png"
+                "Online-Store/images/product-images/product5/image1.png",
+                "Online-Store/images/product-images/product5/image2.png",
+                "Online-Store/images/product-images/product5/image3.png"
             ]
         },
         {
@@ -133,9 +133,9 @@
                 "leader": true
             },
             "images": [
-                "../images/product-images/product6/image1.png",
-                "../images/product-images/product6/image2.png",
-                "../images/product-images/product6/image3.png"
+                "Online-Store/images/product-images/product6/image1.png",
+                "Online-Store/images/product-images/product6/image2.png",
+                "Online-Store/images/product-images/product6/image3.png"
             ]
         },
         {
@@ -156,9 +156,9 @@
                 "leader": true
             },
             "images": [
-                "../images/product-images/product7/image1.png",
-                "../images/product-images/product7/image2.png",
-                "../images/product-images/product7/image3.png"
+                "Online-Store/images/product-images/product7/image1.png",
+                "Online-Store/images/product-images/product7/image2.png",
+                "Online-Store/images/product-images/product7/image3.png"
             ]
         },
         {
@@ -179,9 +179,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product8/image1.png",
-                "../images/product-images/product8/image2.png",
-                "../images/product-images/product8/image3.png"
+                "Online-Store/images/product-images/product8/image1.png",
+                "Online-Store/images/product-images/product8/image2.png",
+                "Online-Store/images/product-images/product8/image3.png"
             ]
         },
         {
@@ -202,9 +202,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product9/image1.png",
-                "../images/product-images/product9/image2.png",
-                "../images/product-images/product9/image3.png"
+                "Online-Store/images/product-images/product9/image1.png",
+                "Online-Store/images/product-images/product9/image2.png",
+                "Online-Store/images/product-images/product9/image3.png"
             ]
         },
         {
@@ -225,9 +225,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product10/image1.png",
-                "../images/product-images/product10/image2.png",
-                "../images/product-images/product10/image3.png"
+                "Online-Store/images/product-images/product10/image1.png",
+                "Online-Store/images/product-images/product10/image2.png",
+                "Online-Store/images/product-images/product10/image3.png"
             ]
         },
         {
@@ -248,9 +248,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product11/image1.png",
-                "../images/product-images/product11/image2.png",
-                "../images/product-images/product11/image3.png"
+                "Online-Store/images/product-images/product11/image1.png",
+                "Online-Store/images/product-images/product11/image2.png",
+                "Online-Store/images/product-images/product11/image3.png"
             ]
         },
         {
@@ -271,10 +271,10 @@
                 "leader": true
             },
             "images": [
-                "../images/product-images/product12/image1.png",
-                "../images/product-images/product12/image2.png",
-                "../images/product-images/product12/image3.png",
-                "../images/product-images/product12/image4.png"
+                "Online-Store/images/product-images/product12/image1.png",
+                "Online-Store/images/product-images/product12/image2.png",
+                "Online-Store/images/product-images/product12/image3.png",
+                "Online-Store/images/product-images/product12/image4.png"
             ]
         },
         {
@@ -295,9 +295,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product13/image1.png",
-                "../images/product-images/product13/image2.png",
-                "../images/product-images/product13/image3.png"
+                "Online-Store/images/product-images/product13/image1.png",
+                "Online-Store/images/product-images/product13/image2.png",
+                "Online-Store/images/product-images/product13/image3.png"
             ]
         },
         {
@@ -318,9 +318,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product14/image1.png",
-                "../images/product-images/product14/image2.png",
-                "../images/product-images/product14/image3.png"
+                "Online-Store/images/product-images/product14/image1.png",
+                "Online-Store/images/product-images/product14/image2.png",
+                "Online-Store/images/product-images/product14/image3.png"
             ]
         },
         {
@@ -341,10 +341,10 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product15/image1.png",
-                "../images/product-images/product15/image2.png",
-                "../images/product-images/product15/image3.png",
-                "../images/product-images/product15/image4.png"
+                "Online-Store/images/product-images/product15/image1.png",
+                "Online-Store/images/product-images/product15/image2.png",
+                "Online-Store/images/product-images/product15/image3.png",
+                "Online-Store/images/product-images/product15/image4.png"
             ]
         },
         {
@@ -365,9 +365,9 @@
                 "leader": true
             },
             "images": [
-                "../images/product-images/product16/image1.png",
-                "../images/product-images/product16/image2.png",
-                "../images/product-images/product16/image3.png"
+                "Online-Store/images/product-images/product16/image1.png",
+                "Online-Store/images/product-images/product16/image2.png",
+                "Online-Store/images/product-images/product16/image3.png"
             ]
         },
         {
@@ -388,10 +388,10 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product17/image1.png",
-                "../images/product-images/product17/image2.png",
-                "../images/product-images/product17/image3.png",
-                "../images/product-images/product17/image4.png"
+                "Online-Store/images/product-images/product17/image1.png",
+                "Online-Store/images/product-images/product17/image2.png",
+                "Online-Store/images/product-images/product17/image3.png",
+                "Online-Store/images/product-images/product17/image4.png"
             ]
         },
         {
@@ -412,10 +412,10 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product18/image1.png",
-                "../images/product-images/product18/image2.png",
-                "../images/product-images/product18/image3.png",
-                "../images/product-images/product18/image4.png"
+                "Online-Store/images/product-images/product18/image1.png",
+                "Online-Store/images/product-images/product18/image2.png",
+                "Online-Store/images/product-images/product18/image3.png",
+                "Online-Store/images/product-images/product18/image4.png"
             ]
         },
         {
@@ -436,9 +436,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product19/image1.png",
-                "../images/product-images/product19/image2.png",
-                "../images/product-images/product19/image3.png"
+                "Online-Store/images/product-images/product19/image1.png",
+                "Online-Store/images/product-images/product19/image2.png",
+                "Online-Store/images/product-images/product19/image3.png"
             ]
         },
         {
@@ -459,9 +459,9 @@
                 "leader": false
             },
             "images": [
-                "../images/product-images/product20/image1.png",
-                "../images/product-images/product20/image2.png",
-                "../images/product-images/product20/image3.png"
+                "Online-Store/images/product-images/product20/image1.png",
+                "Online-Store/images/product-images/product20/image2.png",
+                "Online-Store/images/product-images/product20/image3.png"
             ]
         }
     ],
@@ -512,7 +512,7 @@
             "id": 1,
             "title": "Ежемесячные скидки -50%",
             "date": "До 11 декабря",
-            "image": "/images/banners for offers/1.jpg",
+            "image": "Online-Store/images/banners for offers/1.jpg",
             "text": "Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Повстречался скатился, пояс маленькая предупреждал рекламных если последний своих там маленький, одна власти правилами выйти ему запятых необходимыми сих переписывается!",
             "productsId": [1, 2, 4]
         },
@@ -520,7 +520,7 @@
             "id": 2,
             "title": "Скидки до -80% на многие товары",
             "date": "До 24 ноября",
-            "image": "/images/banners for offers/2.jpg",
+            "image": "Online-Store/images/banners for offers/2.jpg",
             "text": "",
             "productsId": [14, 15, 17, 18, 19, 20]
         },
@@ -528,7 +528,7 @@
             "id": 3,
             "title": "Скидки -40% на многие товары",
             "date": "До 2 мая",
-            "image": "/images/banners for offers/3.jpg",
+            "image": "Online-Store/images/banners for offers/3.jpg",
             "text": "",
             "productsId": [3, 5, 6, 9, 11, 12, 16]
         }
