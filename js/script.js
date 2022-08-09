@@ -837,6 +837,7 @@ function addReviewFromLocalStorage(id) {
     
     fetch('Online-Store/database.json').then(data => data.json())
     .then((data) => {
+        console.log(data.reviews);
         data.reviews.forEach(item => {
             if (id) {
                 if (item.productId == id) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
