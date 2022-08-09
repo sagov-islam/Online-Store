@@ -747,7 +747,7 @@ function addProductsWithADiscount(containerName, percent) {
             </li>
             `
         }
-        fetch('../database.json').then(data => data.json())
+        fetch('Online-Store/database.json').then(data => data.json())
         .then((data) => {
             data.cards.forEach((card, index) => {
                 if (card.discountPercent === percent) {
