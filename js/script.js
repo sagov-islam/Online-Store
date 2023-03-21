@@ -1072,7 +1072,7 @@ function eventKeydownOnTheSearchInput() {
                 let value = item.value;
                 value = value.toLowerCase();
                 localStorage.setItem('searchValue', JSON.stringify(value))
-                window.location = '/search-page.html'
+                window.location = 'search-page.html'
               }
         });
     });
