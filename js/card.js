@@ -210,7 +210,7 @@ class Card {
                 `
             }
             let cards = []; // Массив в который будут добавляться отфильтрованные карточки товара
-            fetch('/database.json')
+            fetch('database.json')
             .then(data => data.json())
             .then(data => {
                 data.cards.forEach(card => {
