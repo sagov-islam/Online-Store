@@ -88,7 +88,7 @@ addStyleCheckedChosenBtn();
 
 // Добавляет стиль checked для кнопки <<Добавить в корзину>> на странице продукта, если этот продукт есть в LocalStorage
 function updateStyleForProductPageBtn() {
-    if (loc == '/product-page.html') {
+    if (loc == '/Online-Store/product-page.html') {
         let storage = localStorage.getItem('products');
         const parent = document.querySelector('.es-product__information');
         const btn = parent.querySelector('.es-product-btn-add-to-card')
@@ -198,7 +198,7 @@ function addToCart() {
         <li class="es-header__cart-products-item" data-id="${id}">
             <img class="es-header__cart-image" src="${image}"  alt="${category}">
             <div class="es-header__cart-info">
-                <a class="es-header__cart-title" href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
+                <a class="es-header__cart-title" href="product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a>
                 <div class="es-card-prices es-header__cart-prices">
                     <span class="es-card-prices__price es-cart-price">${price} ₽</span>
                     ${discount}
@@ -370,7 +370,7 @@ function addLocalStorageProductsToCartPage() {
                     <div class="es-cart__product-main-content">
                         <img class="es-cart__product-img" src="${image}" alt="${category}">
                         <div class="es-cart__product-info">
-                            <h3 class="es-title--h3 es-cart__product-title"><a href="/product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a></h3>
+                            <h3 class="es-title--h3 es-cart__product-title"><a href="product-page.html" target="_blank" onclick="saveСardId(this), saveIdViewedProduct(${id})" onauxclick="saveСardId(this), saveIdViewedProduct(${id})" data-id="${id}">${name}</a></h3>
                             <div class="es-card-prices es-cart__product-prices">
                                 <span class="es-card-prices__price">${price} ₽</span>
                                 ${discount}
