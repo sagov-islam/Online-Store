@@ -41,9 +41,9 @@
                 "leader": true
             },
             "images": [
-                "/images/product-images/product2/image1.png",
-                "/images/product-images/product2/image2.png",
-                "/images/product-images/product2/image3.png"
+                "images/product-images/product2/image1.png",
+                "images/product-images/product2/image2.png",
+                "images/product-images/product2/image3.png"
             ]
         },
         {
@@ -512,7 +512,7 @@
             "id": 1,
             "title": "Ежемесячные скидки -50%",
             "date": "До 11 декабря",
-            "image": "/images/banners for offers/1.jpg",
+            "image": "images/banners for offers/1.jpg",
             "text": "Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Повстречался скатился, пояс маленькая предупреждал рекламных если последний своих там маленький, одна власти правилами выйти ему запятых необходимыми сих переписывается!",
             "productsId": [1, 2, 4]
         },
@@ -520,7 +520,7 @@
             "id": 2,
             "title": "Скидки до -80% на многие товары",
             "date": "До 24 ноября",
-            "image": "/images/banners for offers/2.jpg",
+            "image": "images/banners for offers/2.jpg",
             "text": "",
             "productsId": [14, 15, 17, 18, 19, 20]
         },
@@ -528,7 +528,7 @@
             "id": 3,
             "title": "Скидки -40% на многие товары",
             "date": "До 2 мая",
-            "image": "/images/banners for offers/3.jpg",
+            "image": "images/banners for offers/3.jpg",
             "text": "",
             "productsId": [3, 5, 6, 9, 11, 12, 16]
         }
