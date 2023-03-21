@@ -23,7 +23,7 @@ class Card {
             })
             localStorage.setItem('products', JSON.stringify(storage));
             addStyleCheckedCardBtn();
-            if (loc == '/product-page.html') {
+            if (loc == '/Online-Store/product-page.html') {
                 updateStyleForProductPageBtn();
             }
         }

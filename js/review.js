@@ -18,7 +18,7 @@ class Review {
             <li class="es-review">
                 <div class="es-review__header">
                     <h3 class="es-title--h3 es-review__userName">${userName}</h3>
-                    <a class="es-review__product-name" href="/product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}"> ${productName}</a>
+                    <a class="es-review__product-name" href="product-page.html" target="_blank" onclick="saveСardId(this)" onauxclick="saveСardId(this)" data-id="${id}"> ${productName}</a>
                 </div>
                 <p class="es-review__date">${reviewDate}</p>
                 <div class="es-review__stars">

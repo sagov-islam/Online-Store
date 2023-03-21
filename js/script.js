@@ -334,7 +334,7 @@ function addLocalStorageProductsToCartPage() {
         container.innerHTML = ''
         if (storage) {
             storage = JSON.parse(storage)
-            fetch('../database.json').then(data => data.json())
+            fetch('database.json').then(data => data.json())
             .then(data => {
                 storage.forEach(item => {
                     data.cards.forEach(card => {
@@ -664,7 +664,7 @@ function saveСardId(btn) {
 в базе данных, и добавляет на страницу  */
 function addCardInformation() {
     const id = JSON.parse(localStorage.getItem('cardIdForProductPage'));
-    fetch('../database.json').then(data => data.json())
+    fetch('database.json').then(data => data.json())
     .then((data) => {
         data.cards.forEach(card => {
             if (card.id == id) {
@@ -835,7 +835,7 @@ function addReviewFromLocalStorage(id) {
     const cont = document.querySelector('.es-grid-container--reviews');
     cont.innerHTML = '';
     
-    fetch('../database.json').then(data => data.json())
+    fetch('database.json').then(data => data.json())
     .then((data) => {
         data.reviews.forEach(item => {
             if (id) {
@@ -893,7 +893,7 @@ function addChosenProducts() {
         if (storage) {
             storage = JSON.parse(storage);
             storage.forEach(item => {
-                fetch('../database.json').then(data => data.json())
+                fetch('database.json').then(data => data.json())
                 .then(data => {
                     data.cards.forEach(card => {
                         if (card.id == item.id) {
@@ -952,7 +952,7 @@ function addViewedProducts() {
         if (storage) {
             storage = JSON.parse(storage);
             if (storage.length > 0) {
-                fetch('../database.json').then(data => data.json())
+                fetch('database.json').then(data => data.json())
                 .then(data => {
                     storage.forEach(item => {
                         data.cards.forEach(card => {
@@ -986,7 +986,7 @@ function addOffers() {
             </li>
         `
     }
-    fetch('/database.json').then(data => data.json())
+    fetch('database.json').then(data => data.json())
     .then(data => {
         data.offers.forEach(offer => {
             container.innerHTML += offerHtml(offer.id, offer.image, offer.date, offer.title)
@@ -1031,13 +1031,13 @@ function addOfferInformation() {
         </section>
         `
     }
-    fetch('/database.json').then(data => data.json())
+    fetch('database.json').then(data => data.json())
     .then(data => {
         data.offers.forEach(offer => {
             if (offer.id === id) {
                 container.innerHTML = offerInformationHtml(offer.id, offer.title, offer.date, offer.text);
                 offer.productsId.forEach(productId => {
-                    fetch('/database.json').then(data => data.json())
+                    fetch('database.json').then(data => data.json())
                     .then(data => {
                         data.cards.forEach(card => {
                             if (card.id == productId) {
@@ -1084,7 +1084,7 @@ function addCardsToTheSearchPage() {
     const value = JSON.parse(localStorage.getItem('searchValue'));
     document.querySelector('#es-search-page__search-input').value = value
 
-    fetch('/database.json').then(data => data.json())
+    fetch('database.json').then(data => data.json())
     .then(data => {
         data.cards.forEach(card => {
             const name = card.name.toLowerCase();
@@ -1103,15 +1103,15 @@ function addCardsToTheSearchPage() {
 
 
 // Все отзывы на странице reviews
-if (loc == '/reviews.html') {
+if (loc == '/Online-Store/reviews.html') {
     reviewFunctional();
     addReviewFromLocalStorage();
 }
 
 
 // 4 отзыва на главной странице
-if (loc == '/index.html') {
-    fetch('../database.json').then(data => data.json())
+if (loc == '/Online-Store/') {
+    fetch('database.json').then(data => data.json())
     .then((data) => {
         data.reviews.forEach((item, index)=> {
             if (index < 4) new Review('es-grid-container--reviews', item.userName, item.productId, item.stars, item.date, item.text, item.productName).render();
@@ -1120,7 +1120,7 @@ if (loc == '/index.html') {
 }
 
 
-if (loc == "/index.html") {
+if (loc == "/Online-Store/") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
 
