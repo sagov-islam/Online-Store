@@ -1110,7 +1110,7 @@ if (loc == '/Online-Store/reviews.html') {
 
 
 // 4 отзыва на главной странице
-if (loc == '/Online-Store/') {
+if (loc == '/Online-Store/index.html') {
     fetch('database.json').then(data => data.json())
     .then((data) => {
         data.reviews.forEach((item, index)=> {
