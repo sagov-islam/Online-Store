@@ -169,7 +169,7 @@ class ProductPageHtml {
                                 <div class="es-btn-orange__bg-1"></div>
                                 <div class="es-btn-orange__bg-2"></div>
                             </button>
-                            <a class="es-btn es-btn--link es-btn--size-all-width es-btn--style-inherit-orange" href="/ordering.html">Купить в 1 клик</a>
+                            <a class="es-btn es-btn--link es-btn--size-all-width es-btn--style-inherit-orange" href="ordering.html">Купить в 1 клик</a>
                             <ul class="es-specifications">
                                 <li class="es-specifications__item">
                                     <span class="es-specifications__key">В наличии:</span>

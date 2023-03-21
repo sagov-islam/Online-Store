@@ -543,7 +543,7 @@ function checkLoggedInOrNot() {
         if (storage.loggedIn !== false) {
             dropDown.innerHTML = `
             <li class="es-drop-down__item ">
-                <a class="es-text es-drop-down__link es-center" href="/account.html">В профиль</a>
+                <a class="es-text es-drop-down__link es-center" href="account.html">В профиль</a>
             </li>
             <li class="es-drop-down__item ">
                 <button class="es-text es-drop-down__link es-center" onclick="showModal('logOut')">Выйти из аккаунта</button>
@@ -981,8 +981,8 @@ function addOffers() {
             <li class="es-offers__offer">
                 <img class="es-offers__offer-image" src="${image}" alt="${title}">
                 <span class="es-offers__offer-date">${date}</span>
-                <a class="es-offers__offer-title es-title--h3" href="/offer.html" data-id="${id}" onclick="saveOfferId(this)" onauxclick="saveOfferId(this)">${title}</a>
-                <a class="es-offers__offer-btn" href="/offer.html" data-id="${id}" onclick="saveOfferId(this)" onauxclick="saveOfferId(this)">Подробнее<img src="images/offer-arrow.png" alt="arrow"></a>
+                <a class="es-offers__offer-title es-title--h3" href="offer.html" data-id="${id}" onclick="saveOfferId(this)" onauxclick="saveOfferId(this)">${title}</a>
+                <a class="es-offers__offer-btn" href="offer.html" data-id="${id}" onclick="saveOfferId(this)" onauxclick="saveOfferId(this)">Подробнее<img src="images/offer-arrow.png" alt="arrow"></a>
             </li>
         `
     }
@@ -1019,8 +1019,8 @@ function addOfferInformation() {
     function offerInformationHtml(id, title, date, text, cards) {
         return `
         <div class="es-breadcrumbs">
-            <a href="/index.html">Главная</a> /
-            <a href="/offers.html">Акции</a> /
+            <a href="index.html">Главная</a> /
+            <a href="offers.html">Акции</a> /
             <span>${title}</span>
          </div>
          <section class="offer-content" data-id="${id}">
