@@ -231,7 +231,7 @@ function addToCart() {
     if (storage) {
         storage = JSON.parse(storage);
 
-        fetch('../database.json').then(data => data.json())
+        fetch('Online-Store/database.json').then(data => data.json())
         .then(data => {
             storage.forEach(item => {
                 data.cards.forEach(card => {
