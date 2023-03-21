@@ -313,7 +313,7 @@ updateCartSum('es-specifications__value-sum');
 
 
 function sumOfPaymentAndDelivery() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         const sumContainer = document.querySelector('.es-cart__sum');
         const values = document.querySelectorAll('.es-specifications__value');
         let sum = null
@@ -328,7 +328,7 @@ sumOfPaymentAndDelivery()
 
 
 function addLocalStorageProductsToCartPage() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         const container = document.querySelector('.es-cart__products');
         let storage = localStorage.getItem('products');
         container.innerHTML = ''
@@ -414,7 +414,7 @@ addLocalStorageProductsToCartPage()
 
 // Функция обновляющая количество продуктов на странице корзингы
 function updateQuantityProductsOnCartPage() {
-    if (loc == '/cart.html' || loc == '/account.html') {
+    if (loc == '/Online-Store/cart.html' || loc == '/Online-Store/account.html') {
         let storage = localStorage.getItem('products');
         const container = document.querySelector('.es-specifications__key span')
         if (storage) {
@@ -886,7 +886,7 @@ function checkedOrNotChecked(btnName, containerName) {
 
 // Функция добавляющая избранные тоавры на странцу аккаунта
 function addChosenProducts() {
-    if (window.location.pathname === '/account.html') {
+    if (window.location.pathname === '/Online-Store/account.html') {
         const container = document.querySelector('.es-account__cards-container');
         container.innerHTML = '';
         let storage = localStorage.getItem('chosen');
