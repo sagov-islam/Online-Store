@@ -993,7 +993,7 @@ function addOffers() {
         });
     });
 }
-if (window.location.pathname == '/offers.html') addOffers();
+if (window.location.pathname == '/Online-Store/offers.html') addOffers();
 
 
 
@@ -1004,7 +1004,7 @@ function saveOfferId(btn) {
 }
 
 
-if (window.location.pathname == '/offer.html') {
+if (window.location.pathname == '/Online-Store/offer.html') {
     window.onbeforeunload = () => {
         const id = parseInt(document.querySelector('.offer-content').dataset.id);
         localStorage.setItem('offerId', JSON.stringify(id));
