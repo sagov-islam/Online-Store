@@ -728,7 +728,7 @@ function runFilterWithSavedParameters() {
 
 
 function addProductsWithADiscount(containerName, percent) {
-    if (loc == '/index.html') {
+    if (loc == '/Online-Store/') {
         const container = document.querySelector(`.${containerName}`);
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
@@ -749,7 +749,6 @@ function addProductsWithADiscount(containerName, percent) {
         }
         fetch('database.json').then(data => data.json())
         .then((data) => {
-            console.log(data);
             data.cards.forEach((card, index) => {
                 if (card.discountPercent === percent) {
                     let discountHtml = ''
