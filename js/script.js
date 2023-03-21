@@ -728,7 +728,7 @@ function runFilterWithSavedParameters() {
 
 
 function addProductsWithADiscount(containerName, percent) {
-    if (loc == '/Online-Store/') {
+    if (loc == '/Online-Store/index.html') {
         const container = document.querySelector(`.${containerName}`);
         function smallCardHtml(id, name, image, price, discountHtml) {
             return `
@@ -1120,7 +1120,7 @@ if (loc == '/Online-Store/') {
 }
 
 
-if (loc == "/Online-Store/") {
+if (loc == "/Online-Store/index.html") {
     new Card('es-leaders__cards-list', 'Лидеры продаж', 'Все бренды', [0,4]).render();
 }
 
