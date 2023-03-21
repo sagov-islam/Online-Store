@@ -52,31 +52,31 @@ class Header {
                                     <div class="es-header__catalog-bg2" data-simplebar>
                                         <ul class="es-drop-down">
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Кровати', 'Категории')" onauxclick="saveFilterProps('Кровати', 'Категории')">Кровати</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Кровати', 'Категории')" onauxclick="saveFilterProps('Кровати', 'Категории')">Кровати</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Матрасы', 'Категории')" onauxclick="saveFilterProps('Матрасы', 'Категории')">Матрасы</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Матрасы', 'Категории')" onauxclick="saveFilterProps('Матрасы', 'Категории')">Матрасы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Диваны', 'Категории')" onauxclick="saveFilterProps('Диваны', 'Категории')">Диваны</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Диваны', 'Категории')" onauxclick="saveFilterProps('Диваны', 'Категории')">Диваны</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Шкафы', 'Категории')" onauxclick="saveFilterProps('Шкафы', 'Категории')">Шкафы</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Шкафы', 'Категории')" onauxclick="saveFilterProps('Шкафы', 'Категории')">Шкафы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Комоды', 'Категории')" onauxclick="saveFilterProps('Комоды', 'Категории')">Комоды</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Комоды', 'Категории')" onauxclick="saveFilterProps('Комоды', 'Категории')">Комоды</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Тумбочки', 'Категории')" onauxclick="saveFilterProps('Тумбочки', 'Категории')">Тумбочки</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Тумбочки', 'Категории')" onauxclick="saveFilterProps('Тумбочки', 'Категории')">Тумбочки</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Зеркала', 'Категории')" onauxclick="saveFilterProps('Зеркала', 'Категории')">Зеркала</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Зеркала', 'Категории')" onauxclick="saveFilterProps('Зеркала', 'Категории')">Зеркала</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Столы', 'Категории')" onauxclick="saveFilterProps('Столы', 'Категории')">Столы</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Столы', 'Категории')" onauxclick="saveFilterProps('Столы', 'Категории')">Столы</a>
                                             </li>
                                             <li class="es-drop-down__item">
-                                                <a class="es-text es-drop-down__link" href="/catalog.html" onclick="saveFilterProps('Стулья', 'Категории')" onauxclick="saveFilterProps('Стулья', 'Категории')">Стулья</a>
+                                                <a class="es-text es-drop-down__link" href="catalog.html" onclick="saveFilterProps('Стулья', 'Категории')" onauxclick="saveFilterProps('Стулья', 'Категории')">Стулья</a>
                                             </li>
                                         </ul>
                                     </div>
