@@ -749,6 +749,7 @@ function addProductsWithADiscount(containerName, percent) {
         }
         fetch('database.json').then(data => data.json())
         .then((data) => {
+            console.log(data);
             data.cards.forEach((card, index) => {
                 if (card.discountPercent === percent) {
                     let discountHtml = ''
